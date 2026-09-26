@@ -1,0 +1,1252 @@
+assembly JKRuntime, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+base JKRuntime.CapabilityDefinition System.Object
+base JKRuntime.CapabilityRequirement System.Object
+base JKRuntime.GameContract System.Object
+base JKRuntime.Gameplay.AreaEntryObserver System.Object
+base JKRuntime.Gameplay.BodyPhase System.Enum
+base JKRuntime.Gameplay.BodyPipeline System.Object
+base JKRuntime.Gameplay.ComponentSuspension System.Object
+base JKRuntime.Gameplay.GameFeatures System.Object
+base JKRuntime.Gameplay.GameplayEvent System.Object
+base JKRuntime.Gameplay.GameplayEventKind System.Enum
+base JKRuntime.Gameplay.GameplayEvents System.Object
+base JKRuntime.Gameplay.JumpEvents System.Object
+base JKRuntime.Gameplay.JumpEvidence System.Enum
+base JKRuntime.Gameplay.JumpNodeBindings System.Object
+base JKRuntime.Gameplay.JumpOutcome System.Enum
+base JKRuntime.Gameplay.JumpResult System.Object
+base JKRuntime.Gameplay.JumpSlot System.Object
+base JKRuntime.Gameplay.MechanicComposition System.Enum
+base JKRuntime.Gameplay.MechanicDefinition System.Object
+base JKRuntime.Gameplay.MechanicEffects System.Enum
+base JKRuntime.Gameplay.MechanicInfo System.Object
+base JKRuntime.Gameplay.MechanicRegistry System.Object
+base JKRuntime.Gameplay.MechanicSource System.Enum
+base JKRuntime.Gameplay.MechanicState System.Object
+base JKRuntime.Gameplay.MovementMode System.Enum
+base JKRuntime.Gameplay.NativePause System.Object
+base JKRuntime.Gameplay.PresentationActivity System.Object
+base JKRuntime.Gameplay.RunModifierRecord System.Object
+base JKRuntime.Gameplay.RunModifierSource System.Object
+base JKRuntime.Gameplay.RunModifiers System.Object
+base JKRuntime.Geometry.BlockCatalog System.Object
+base JKRuntime.Geometry.BlockCatalog+CatalogData System.Object
+base JKRuntime.Geometry.BlockCatalog+Factory System.Object
+base JKRuntime.Geometry.BlockCatalog+Reservation System.Object
+base JKRuntime.Geometry.BlockDeclaration System.Object
+base JKRuntime.Geometry.BlockVariant System.Enum
+base JKRuntime.Geometry.GeometryProvider System.MulticastDelegate
+base JKRuntime.Geometry.GeometryRegistry System.Object
+base JKRuntime.Geometry.NativeWorldGeometry System.Object
+base JKRuntime.Input.ActionFrame System.ValueType
+base JKRuntime.Input.ActionInputs System.Object
+base JKRuntime.Input.BindingSnapshot System.Object
+base JKRuntime.Input.DirectInputDevice System.Object
+base JKRuntime.Input.DirectInputJumpBinding System.Object
+base JKRuntime.Input.DirectInputPoller System.Object
+base JKRuntime.Input.HighRateInputSampler System.Object
+base JKRuntime.Input.InputDiagnostics System.Object
+base JKRuntime.Input.InputLog System.Object
+base JKRuntime.Input.JumpInputTransition System.ValueType
+base JKRuntime.Input.MouseButtons System.Object
+base JKRuntime.Input.NativeXInputReader System.Object
+base JKRuntime.Input.PhysicalBindings System.Object
+base JKRuntime.Input.SharedActionSampler System.Object
+base JKRuntime.Input.XInputJumpBinding System.Object
+base JKRuntime.ModuleContext System.Object
+base JKRuntime.ModuleDefinition System.Object
+base JKRuntime.ModuleStatus System.Object
+base JKRuntime.Modules.BeforeLevelLoadAttribute System.Attribute
+base JKRuntime.Modules.MainMenuItemSettingAttribute System.Attribute
+base JKRuntime.Modules.OnLevelEndAttribute System.Attribute
+base JKRuntime.Modules.OnLevelStartAttribute System.Attribute
+base JKRuntime.Modules.OnLevelUnloadAttribute System.Attribute
+base JKRuntime.Modules.PauseMenuItemSettingAttribute System.Attribute
+base JKRuntime.Modules.RuntimeModuleAttribute System.Attribute
+base JKRuntime.PackageHost System.Object
+base JKRuntime.RuntimeApi System.Object
+base JKRuntime.RuntimeJournal System.Object
+base JKRuntime.RuntimeNotice System.Object
+base JKRuntime.RuntimeResources System.Object
+base JKRuntime.RuntimeScope System.Object
+base JKRuntime.Settings.AtomicXmlFile System.Object
+base JKRuntime.Settings.Commands System.Object
+base JKRuntime.Settings.DataMigration System.Object
+base JKRuntime.Settings.Setting`1<!0> System.Object
+base JKRuntime.Simulation.ConformanceResult System.Object
+base JKRuntime.Simulation.NativeFlightSimulation System.Object
+base JKRuntime.Simulation.NativeWind System.Object
+base JKRuntime.Simulation.SimulationConformance System.Object
+base JKRuntime.Simulation.SimulationEvent System.Object
+base JKRuntime.Simulation.SimulationInput System.ValueType
+base JKRuntime.Simulation.SimulationPhase System.Enum
+base JKRuntime.Simulation.SimulationPose System.ValueType
+base JKRuntime.Simulation.SimulationProvider System.Object
+base JKRuntime.Simulation.SimulationRegistry System.Object
+base JKRuntime.Simulation.SimulationRequirement System.Object
+base JKRuntime.Simulation.SimulationSeed System.Object
+base JKRuntime.Simulation.SimulationSession System.Object
+base JKRuntime.Simulation.SimulationSnapshot System.Object
+base JKRuntime.Simulation.SimulationStepResult System.Object
+base JKRuntime.Simulation.SimulationTick System.Object
+base JKRuntime.State.AttemptStamp System.ValueType
+base JKRuntime.State.FieldStateParticipant System.Object
+base JKRuntime.State.GameClock System.Object
+base JKRuntime.State.GameClock+Lease System.Object
+base JKRuntime.State.GameClock+State System.ValueType
+base JKRuntime.State.GameState System.Object
+base JKRuntime.State.SnapshotService System.Object
+base JKRuntime.State.StateFields System.Object
+base JKRuntime.State.StateSnapshot System.Object
+base JKRuntime.UI.CompactWorkshopGridsOption JumpKing.PauseMenu.BT.Actions.IToggle
+base JKRuntime.UI.MerchantDefinition System.Object
+base JKRuntime.UI.MerchantExchangeDefinition System.Object
+base JKRuntime.UI.MerchantOfferDefinition System.Object
+base JKRuntime.UI.ModEntry System.Object
+base JKRuntime.UI.SettingToggle JumpKing.PauseMenu.BT.Actions.IToggle
+base JKRuntime.UI.UIApi System.Object
+base JKRuntime.UI.UIApiSettings System.Object
+base JKRuntime.UI.UiAction System.Enum
+base JKRuntime.UI.UiBindingDefinition System.Object
+base JKRuntime.UI.UiChord System.Object
+base JKRuntime.UI.UiChordSettingsEntry System.Object
+base JKRuntime.UI.UiCommand System.ValueType
+base JKRuntime.UI.UiCompactGridItemDefinition System.Object
+base JKRuntime.UI.UiCurrencyDefinition System.Object
+base JKRuntime.UI.UiDebugActionDefinition System.Object
+base JKRuntime.UI.UiFrame System.Object
+base JKRuntime.UI.UiInput System.ValueType
+base JKRuntime.UI.UiInputActionDefinition System.Object
+base JKRuntime.UI.UiInputHints System.Object
+base JKRuntime.UI.UiInventoryItemDefinition System.Object
+base JKRuntime.UI.UiListViewport System.Object
+base JKRuntime.UI.UiMainMenuItemDefinition System.Object
+base JKRuntime.UI.UiMainMenuPlacement System.Enum
+base JKRuntime.UI.UiMenuActionResult System.Object
+base JKRuntime.UI.UiMenuContext System.Object
+base JKRuntime.UI.UiModSettingInfo System.Object
+base JKRuntime.UI.UiModalOptions System.Object
+base JKRuntime.UI.UiPauseMenuItemDefinition System.Object
+base JKRuntime.UI.UiPauseMenuPlacement System.Enum
+base JKRuntime.UI.UiPointer System.Object
+base JKRuntime.UI.UiRegistrationScope System.Object
+base JKRuntime.UI.UiTheme System.Object
+base JKRuntime.UI.WorldInteraction System.Object
+base JKRuntime.UI.WorldInteractionContext System.Object
+base JKRuntime.UI.WorldInteractionFile System.Object
+base JKRuntime.UI.WorldInteractionMap System.Object
+base JKRuntime.UI.WorldInteractionPoint System.Object
+base JKRuntime.UI.WorldScreen System.Object
+base JKRuntime.UiServices System.Object
+field JKRuntime.Gameplay.BodyPhase.AfterGravity Public, Static, Literal, HasDefault JKRuntime.Gameplay.BodyPhase=4
+field JKRuntime.Gameplay.BodyPhase.AfterXCollision Public, Static, Literal, HasDefault JKRuntime.Gameplay.BodyPhase=2
+field JKRuntime.Gameplay.BodyPhase.AfterYCollision Public, Static, Literal, HasDefault JKRuntime.Gameplay.BodyPhase=3
+field JKRuntime.Gameplay.BodyPhase.BeforeWind Public, Static, Literal, HasDefault JKRuntime.Gameplay.BodyPhase=0
+field JKRuntime.Gameplay.BodyPhase.BeforeXMovement Public, Static, Literal, HasDefault JKRuntime.Gameplay.BodyPhase=1
+field JKRuntime.Gameplay.BodyPhase.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Gameplay.GameplayEventKind.ChargeEnded Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=1
+field JKRuntime.Gameplay.GameplayEventKind.ChargeStarted Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=0
+field JKRuntime.Gameplay.GameplayEventKind.Jump Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=2
+field JKRuntime.Gameplay.GameplayEventKind.Landed Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=3
+field JKRuntime.Gameplay.GameplayEventKind.PauseChanged Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=7
+field JKRuntime.Gameplay.GameplayEventKind.RestoreCompleted Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=9
+field JKRuntime.Gameplay.GameplayEventKind.RestoreFailed Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=10
+field JKRuntime.Gameplay.GameplayEventKind.RestoreStarted Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=8
+field JKRuntime.Gameplay.GameplayEventKind.ScreenChanged Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=6
+field JKRuntime.Gameplay.GameplayEventKind.SupportLost Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=4
+field JKRuntime.Gameplay.GameplayEventKind.Teleported Public, Static, Literal, HasDefault JKRuntime.Gameplay.GameplayEventKind=5
+field JKRuntime.Gameplay.GameplayEventKind.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Gameplay.JumpEvidence.BufferedNative Public, Static, Literal, HasDefault JKRuntime.Gameplay.JumpEvidence=2
+field JKRuntime.Gameplay.JumpEvidence.PhysicalHold Public, Static, Literal, HasDefault JKRuntime.Gameplay.JumpEvidence=1
+field JKRuntime.Gameplay.JumpEvidence.Unavailable Public, Static, Literal, HasDefault JKRuntime.Gameplay.JumpEvidence=0
+field JKRuntime.Gameplay.JumpEvidence.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Gameplay.JumpOutcome.NoUpwardImpulse Public, Static, Literal, HasDefault JKRuntime.Gameplay.JumpOutcome=1
+field JKRuntime.Gameplay.JumpOutcome.UpwardImpulse Public, Static, Literal, HasDefault JKRuntime.Gameplay.JumpOutcome=0
+field JKRuntime.Gameplay.JumpOutcome.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Gameplay.MechanicComposition.Additive Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicComposition=1
+field JKRuntime.Gameplay.MechanicComposition.Exclusive Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicComposition=2
+field JKRuntime.Gameplay.MechanicComposition.Independent Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicComposition=0
+field JKRuntime.Gameplay.MechanicComposition.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Gameplay.MechanicEffects.Charge Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicEffects=2
+field JKRuntime.Gameplay.MechanicEffects.Collision Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicEffects=8
+field JKRuntime.Gameplay.MechanicEffects.Input Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicEffects=1
+field JKRuntime.Gameplay.MechanicEffects.Movement Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicEffects=4
+field JKRuntime.Gameplay.MechanicEffects.None Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicEffects=0
+field JKRuntime.Gameplay.MechanicEffects.Presentation Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicEffects=16
+field JKRuntime.Gameplay.MechanicEffects.Time Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicEffects=32
+field JKRuntime.Gameplay.MechanicEffects.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Gameplay.MechanicSource.Controller Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicSource=5
+field JKRuntime.Gameplay.MechanicSource.Equipment Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicSource=1
+field JKRuntime.Gameplay.MechanicSource.Screen Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicSource=4
+field JKRuntime.Gameplay.MechanicSource.Setting Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicSource=0
+field JKRuntime.Gameplay.MechanicSource.Surface Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicSource=2
+field JKRuntime.Gameplay.MechanicSource.Zone Public, Static, Literal, HasDefault JKRuntime.Gameplay.MechanicSource=3
+field JKRuntime.Gameplay.MechanicSource.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Gameplay.MovementMode.AirControl Public, Static, Literal, HasDefault JKRuntime.Gameplay.MovementMode=1
+field JKRuntime.Gameplay.MovementMode.Vanilla Public, Static, Literal, HasDefault JKRuntime.Gameplay.MovementMode=0
+field JKRuntime.Gameplay.MovementMode.VariableJump Public, Static, Literal, HasDefault JKRuntime.Gameplay.MovementMode=2
+field JKRuntime.Gameplay.MovementMode.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Gameplay.RunModifierRecord.NativePeak Public System.UInt32
+field JKRuntime.Gameplay.RunModifierRecord.RunKey Public System.String
+field JKRuntime.Gameplay.RunModifierRecord.Schema Public System.Int32
+field JKRuntime.Gameplay.RunModifierRecord.Sources Public System.Collections.Generic.List`1<JKRuntime.Gameplay.RunModifierSource>
+field JKRuntime.Gameplay.RunModifierRecord.Unknown Public System.Boolean
+field JKRuntime.Gameplay.RunModifierSource.Id Public System.String
+field JKRuntime.Gameplay.RunModifierSource.Name Public System.String
+field JKRuntime.Geometry.BlockVariant.Screen Public, Static, Literal, HasDefault JKRuntime.Geometry.BlockVariant=2
+field JKRuntime.Geometry.BlockVariant.Solid Public, Static, Literal, HasDefault JKRuntime.Geometry.BlockVariant=0
+field JKRuntime.Geometry.BlockVariant.Zone Public, Static, Literal, HasDefault JKRuntime.Geometry.BlockVariant=1
+field JKRuntime.Geometry.BlockVariant.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Input.ActionFrame.Down Public, InitOnly System.Boolean
+field JKRuntime.Input.ActionFrame.Pressed Public, InitOnly System.Boolean
+field JKRuntime.Input.ActionFrame.Released Public, InitOnly System.Boolean
+field JKRuntime.Input.ActionFrame.Tick Public, InitOnly System.Int64
+field JKRuntime.Input.DirectInputJumpBinding.Alternatives Public, InitOnly System.Int32[][]
+field JKRuntime.Input.DirectInputJumpBinding.DeviceId Public, InitOnly System.Guid
+field JKRuntime.Input.HighRateInputSampler.MaximumObservationGap Public, Static, InitOnly System.Int64
+field JKRuntime.Input.HighRateInputSampler.MaximumQueuedEdges Public, Static, Literal, HasDefault System.Int32
+field JKRuntime.Input.JumpInputTransition.IsDown Public, InitOnly System.Boolean
+field JKRuntime.Input.JumpInputTransition.Reliable Public, InitOnly System.Boolean
+field JKRuntime.Input.JumpInputTransition.Timestamp Public, InitOnly System.Int64
+field JKRuntime.Input.MouseButtons.Left Public, Static, Literal, HasDefault System.Int32
+field JKRuntime.Input.MouseButtons.Middle Public, Static, Literal, HasDefault System.Int32
+field JKRuntime.Input.MouseButtons.Right Public, Static, Literal, HasDefault System.Int32
+field JKRuntime.Input.MouseButtons.X1 Public, Static, Literal, HasDefault System.Int32
+field JKRuntime.Input.MouseButtons.X2 Public, Static, Literal, HasDefault System.Int32
+field JKRuntime.Input.XInputJumpBinding.Alternatives Public, InitOnly System.Int32[][]
+field JKRuntime.Input.XInputJumpBinding.UserIndex Public, InitOnly System.Int32
+field JKRuntime.RuntimeApi.ApiMajor Public, Static, Literal, HasDefault System.Int32
+field JKRuntime.RuntimeApi.ApiMinor Public, Static, Literal, HasDefault System.Int32
+field JKRuntime.RuntimeApi.Version Public, Static, Literal, HasDefault System.String
+field JKRuntime.Simulation.NativeWind.AuditedGameSha256 Public, Static, Literal, HasDefault System.String
+field JKRuntime.Simulation.SimulationInput.Direction Public, InitOnly System.Int32
+field JKRuntime.Simulation.SimulationInput.ExtraButtons Public, InitOnly System.UInt32
+field JKRuntime.Simulation.SimulationInput.Jump Public, InitOnly System.Boolean
+field JKRuntime.Simulation.SimulationPhase.AfterGravity Public, Static, Literal, HasDefault JKRuntime.Simulation.SimulationPhase=5
+field JKRuntime.Simulation.SimulationPhase.AfterX Public, Static, Literal, HasDefault JKRuntime.Simulation.SimulationPhase=3
+field JKRuntime.Simulation.SimulationPhase.AfterY Public, Static, Literal, HasDefault JKRuntime.Simulation.SimulationPhase=4
+field JKRuntime.Simulation.SimulationPhase.BeforeBody Public, Static, Literal, HasDefault JKRuntime.Simulation.SimulationPhase=0
+field JKRuntime.Simulation.SimulationPhase.BeforeWind Public, Static, Literal, HasDefault JKRuntime.Simulation.SimulationPhase=1
+field JKRuntime.Simulation.SimulationPhase.BeforeX Public, Static, Literal, HasDefault JKRuntime.Simulation.SimulationPhase=2
+field JKRuntime.Simulation.SimulationPhase.Controls Public, Static, Literal, HasDefault JKRuntime.Simulation.SimulationPhase=6
+field JKRuntime.Simulation.SimulationPhase.World Public, Static, Literal, HasDefault JKRuntime.Simulation.SimulationPhase=7
+field JKRuntime.Simulation.SimulationPhase.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.Simulation.SimulationPose.Grounded Public System.Boolean
+field JKRuntime.Simulation.SimulationPose.Height Public System.Int32
+field JKRuntime.Simulation.SimulationPose.Position Public Microsoft.Xna.Framework.Vector2
+field JKRuntime.Simulation.SimulationPose.Screen Public System.Int32
+field JKRuntime.Simulation.SimulationPose.StableLanding Public System.Boolean
+field JKRuntime.Simulation.SimulationPose.Velocity Public Microsoft.Xna.Framework.Vector2
+field JKRuntime.Simulation.SimulationPose.Width Public System.Int32
+field JKRuntime.Simulation.SimulationSession.MaxStateBytes Public, Static, Literal, HasDefault System.Int32
+field JKRuntime.State.AttemptStamp.Attempt Public System.Int32
+field JKRuntime.State.AttemptStamp.Session Public System.Int32
+field JKRuntime.State.GameClock+State.Ticks Public System.Int32
+field JKRuntime.State.GameClock+State.Time Public System.Single
+field JKRuntime.State.GameState.Snapshots Public, Static, InitOnly JKRuntime.State.SnapshotService
+field JKRuntime.UI.UIApi.Version Public, Static, Literal, HasDefault System.String
+field JKRuntime.UI.UiAction.Cancel Public, Static, Literal, HasDefault JKRuntime.UI.UiAction=1
+field JKRuntime.UI.UiAction.Confirm Public, Static, Literal, HasDefault JKRuntime.UI.UiAction=2
+field JKRuntime.UI.UiAction.Down Public, Static, Literal, HasDefault JKRuntime.UI.UiAction=4
+field JKRuntime.UI.UiAction.Left Public, Static, Literal, HasDefault JKRuntime.UI.UiAction=5
+field JKRuntime.UI.UiAction.None Public, Static, Literal, HasDefault JKRuntime.UI.UiAction=0
+field JKRuntime.UI.UiAction.Reset Public, Static, Literal, HasDefault JKRuntime.UI.UiAction=7
+field JKRuntime.UI.UiAction.Right Public, Static, Literal, HasDefault JKRuntime.UI.UiAction=6
+field JKRuntime.UI.UiAction.Secondary Public, Static, Literal, HasDefault JKRuntime.UI.UiAction=8
+field JKRuntime.UI.UiAction.Up Public, Static, Literal, HasDefault JKRuntime.UI.UiAction=3
+field JKRuntime.UI.UiAction.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.UI.UiCommand.Key Public System.String
+field JKRuntime.UI.UiCommand.Label Public System.String
+field JKRuntime.UI.UiInput.Action Public JKRuntime.UI.UiAction
+field JKRuntime.UI.UiInput.Cancel Public System.Boolean
+field JKRuntime.UI.UiInput.Confirm Public System.Boolean
+field JKRuntime.UI.UiInput.Down Public System.Boolean
+field JKRuntime.UI.UiInput.Left Public System.Boolean
+field JKRuntime.UI.UiInput.Right Public System.Boolean
+field JKRuntime.UI.UiInput.Secondary Public System.Boolean
+field JKRuntime.UI.UiInput.Up Public System.Boolean
+field JKRuntime.UI.UiMainMenuPlacement.BeforeExtras Public, Static, Literal, HasDefault JKRuntime.UI.UiMainMenuPlacement=0
+field JKRuntime.UI.UiMainMenuPlacement.Workshop Public, Static, Literal, HasDefault JKRuntime.UI.UiMainMenuPlacement=1
+field JKRuntime.UI.UiMainMenuPlacement.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.UI.UiModalOptions.Default Public, Static, InitOnly JKRuntime.UI.UiModalOptions
+field JKRuntime.UI.UiPauseMenuPlacement.BeforeSaveAndExit Public, Static, Literal, HasDefault JKRuntime.UI.UiPauseMenuPlacement=0
+field JKRuntime.UI.UiPauseMenuPlacement.value__ Public, SpecialName, RTSpecialName System.Int32
+field JKRuntime.UI.UiTheme.Border Public, Static, InitOnly Microsoft.Xna.Framework.Color
+field JKRuntime.UI.UiTheme.Cyan Public, Static, InitOnly Microsoft.Xna.Framework.Color
+field JKRuntime.UI.UiTheme.Gold Public, Static, InitOnly Microsoft.Xna.Framework.Color
+field JKRuntime.UI.UiTheme.Ink Public, Static, InitOnly Microsoft.Xna.Framework.Color
+field JKRuntime.UI.UiTheme.Muted Public, Static, InitOnly Microsoft.Xna.Framework.Color
+field JKRuntime.UI.UiTheme.PanelFill Public, Static, InitOnly Microsoft.Xna.Framework.Color
+field JKRuntime.UI.UiTheme.Red Public, Static, InitOnly Microsoft.Xna.Framework.Color
+field JKRuntime.UI.UiTheme.Text Public, Static, InitOnly Microsoft.Xna.Framework.Color
+field JKRuntime.UI.WorldInteractionMap.DefaultPath Public, Static, Literal, HasDefault System.String
+implements JKRuntime.Gameplay.BodyPhase System.IComparable
+implements JKRuntime.Gameplay.BodyPhase System.IConvertible
+implements JKRuntime.Gameplay.BodyPhase System.IFormattable
+implements JKRuntime.Gameplay.BodyPipeline System.IDisposable
+implements JKRuntime.Gameplay.GameplayEventKind System.IComparable
+implements JKRuntime.Gameplay.GameplayEventKind System.IConvertible
+implements JKRuntime.Gameplay.GameplayEventKind System.IFormattable
+implements JKRuntime.Gameplay.JumpEvidence System.IComparable
+implements JKRuntime.Gameplay.JumpEvidence System.IConvertible
+implements JKRuntime.Gameplay.JumpEvidence System.IFormattable
+implements JKRuntime.Gameplay.JumpOutcome System.IComparable
+implements JKRuntime.Gameplay.JumpOutcome System.IConvertible
+implements JKRuntime.Gameplay.JumpOutcome System.IFormattable
+implements JKRuntime.Gameplay.MechanicComposition System.IComparable
+implements JKRuntime.Gameplay.MechanicComposition System.IConvertible
+implements JKRuntime.Gameplay.MechanicComposition System.IFormattable
+implements JKRuntime.Gameplay.MechanicEffects System.IComparable
+implements JKRuntime.Gameplay.MechanicEffects System.IConvertible
+implements JKRuntime.Gameplay.MechanicEffects System.IFormattable
+implements JKRuntime.Gameplay.MechanicSource System.IComparable
+implements JKRuntime.Gameplay.MechanicSource System.IConvertible
+implements JKRuntime.Gameplay.MechanicSource System.IFormattable
+implements JKRuntime.Gameplay.MovementMode System.IComparable
+implements JKRuntime.Gameplay.MovementMode System.IConvertible
+implements JKRuntime.Gameplay.MovementMode System.IFormattable
+implements JKRuntime.Geometry.BlockVariant System.IComparable
+implements JKRuntime.Geometry.BlockVariant System.IConvertible
+implements JKRuntime.Geometry.BlockVariant System.IFormattable
+implements JKRuntime.Geometry.GeometryProvider System.ICloneable
+implements JKRuntime.Geometry.GeometryProvider System.Runtime.Serialization.ISerializable
+implements JKRuntime.Input.DirectInputDevice JKRuntime.Input.IDirectInputChargeDevice
+implements JKRuntime.Input.DirectInputDevice JKRuntime.Input.IDirectInputDevice
+implements JKRuntime.Input.DirectInputDevice System.IDisposable
+implements JKRuntime.Input.DirectInputPoller System.IDisposable
+implements JKRuntime.Input.HighRateInputSampler JKRuntime.Input.IHighRateInput
+implements JKRuntime.Input.HighRateInputSampler System.IDisposable
+implements JKRuntime.Input.IDirectInputDevice System.IDisposable
+implements JKRuntime.Input.IHighRateInput System.IDisposable
+implements JKRuntime.Input.SharedActionSampler JKRuntime.Input.IHighRateInput
+implements JKRuntime.Input.SharedActionSampler System.IDisposable
+implements JKRuntime.Modules.BeforeLevelLoadAttribute System.Runtime.InteropServices._Attribute
+implements JKRuntime.Modules.MainMenuItemSettingAttribute System.Runtime.InteropServices._Attribute
+implements JKRuntime.Modules.OnLevelEndAttribute System.Runtime.InteropServices._Attribute
+implements JKRuntime.Modules.OnLevelStartAttribute System.Runtime.InteropServices._Attribute
+implements JKRuntime.Modules.OnLevelUnloadAttribute System.Runtime.InteropServices._Attribute
+implements JKRuntime.Modules.PauseMenuItemSettingAttribute System.Runtime.InteropServices._Attribute
+implements JKRuntime.Modules.RuntimeModuleAttribute System.Runtime.InteropServices._Attribute
+implements JKRuntime.RuntimeScope System.IDisposable
+implements JKRuntime.Simulation.INativeFlightWorld JumpKing.API.ICollisionQuery
+implements JKRuntime.Simulation.SimulationPhase System.IComparable
+implements JKRuntime.Simulation.SimulationPhase System.IConvertible
+implements JKRuntime.Simulation.SimulationPhase System.IFormattable
+implements JKRuntime.Simulation.SimulationSession System.IDisposable
+implements JKRuntime.State.FieldStateParticipant JKRuntime.State.IStateParticipant
+implements JKRuntime.State.GameClock+Lease System.IDisposable
+implements JKRuntime.UI.CompactWorkshopGridsOption JumpKing.PauseMenu.IMenuItem
+implements JKRuntime.UI.SettingToggle JumpKing.PauseMenu.IMenuItem
+implements JKRuntime.UI.UiAction System.IComparable
+implements JKRuntime.UI.UiAction System.IConvertible
+implements JKRuntime.UI.UiAction System.IFormattable
+implements JKRuntime.UI.UiMainMenuPlacement System.IComparable
+implements JKRuntime.UI.UiMainMenuPlacement System.IConvertible
+implements JKRuntime.UI.UiMainMenuPlacement System.IFormattable
+implements JKRuntime.UI.UiPauseMenuPlacement System.IComparable
+implements JKRuntime.UI.UiPauseMenuPlacement System.IConvertible
+implements JKRuntime.UI.UiPauseMenuPlacement System.IFormattable
+implements JKRuntime.UI.UiRegistrationScope System.IDisposable
+method JKRuntime.CapabilityDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.Int32,System.Int32)
+method JKRuntime.CapabilityDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.CapabilityDefinition.get_Major PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.CapabilityDefinition.get_Minor PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.CapabilityRequirement..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.Int32,System.Int32,System.Boolean)
+method JKRuntime.CapabilityRequirement.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.CapabilityRequirement.get_Major PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.CapabilityRequirement.get_MinimumMinor PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.CapabilityRequirement.get_Optional PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.GameContract.DescribeBody PrivateScope, Public, HideBySig System.String[](JumpKing.Player.BodyComp)
+method JKRuntime.GameContract.GetJumpState PrivateScope, Public, HideBySig JumpKing.Player.JumpState(JumpKing.Player.PlayerEntity)
+method JKRuntime.GameContract.ReadChargeTimer PrivateScope, Public, HideBySig System.Single(JumpKing.Player.JumpState)
+method JKRuntime.GameContract.get_Available PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.GameContract.get_Findings PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.GameContract.get_Fingerprint PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.GameContract.get_KnownFingerprint PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.AreaEntryObserver..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Gameplay.AreaEntryObserver.Update PrivateScope, Public, HideBySig System.Void()
+method JKRuntime.Gameplay.AreaEntryObserver.ValidateContract PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.Gameplay.BodyPipeline..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(JumpKing.Player.BodyComp,System.Boolean,System.Int32,System.String)
+method JKRuntime.Gameplay.BodyPipeline.Dispose PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.Gameplay.BodyPipeline.Register PrivateScope, Public, HideBySig System.IDisposable(JKRuntime.Gameplay.BodyPhase,JumpKing.API.IBodyCompBehaviour)
+method JKRuntime.Gameplay.BodyPipeline.RegisterAfter PrivateScope, Public, HideBySig System.Boolean(JumpKing.API.IBodyCompBehaviour,JumpKing.API.IBodyCompBehaviour)
+method JKRuntime.Gameplay.BodyPipeline.RegisterBefore PrivateScope, Public, HideBySig System.Boolean(JumpKing.API.IBodyCompBehaviour,JumpKing.API.IBodyCompBehaviour)
+method JKRuntime.Gameplay.BodyPipeline.Remove PrivateScope, Public, HideBySig System.Boolean(JumpKing.API.IBodyCompBehaviour)
+method JKRuntime.Gameplay.ComponentSuspension.Acquire PrivateScope, Public, Static, HideBySig System.IDisposable(System.String,EntityComponent.Component,System.Nullable`1<System.Boolean>)
+method JKRuntime.Gameplay.ComponentSuspension.IsSuspended PrivateScope, Public, Static, HideBySig System.Boolean(EntityComponent.Component)
+method JKRuntime.Gameplay.GameFeatures.FormOwnsSprite PrivateScope, Public, Static, HideBySig System.Boolean(System.Object)
+method JKRuntime.Gameplay.GameFeatures.RegisterForm PrivateScope, Public, Static, HideBySig System.IDisposable(JKRuntime.Gameplay.IPlayerForm)
+method JKRuntime.Gameplay.GameFeatures.RegisterMovement PrivateScope, Public, Static, HideBySig System.IDisposable(JKRuntime.Gameplay.IMovementRules)
+method JKRuntime.Gameplay.GameFeatures.RegisterThrust PrivateScope, Public, Static, HideBySig System.IDisposable(JKRuntime.Gameplay.IAirThrust)
+method JKRuntime.Gameplay.GameFeatures.get_FormJumpSequence PrivateScope, Public, Static, HideBySig, SpecialName System.Int32()
+method JKRuntime.Gameplay.GameFeatures.get_IsAttached PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.GameFeatures.get_IsMorphed PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.GameFeatures.get_Movement PrivateScope, Public, Static, HideBySig, SpecialName JKRuntime.Gameplay.MovementMode()
+method JKRuntime.Gameplay.GameFeatures.get_ThrustActive PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.GameFeatures.get_ThrustEnabled PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.GameplayEvent..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Gameplay.GameplayEvent.get_Attempt PrivateScope, Public, HideBySig, SpecialName JKRuntime.State.AttemptStamp()
+method JKRuntime.Gameplay.GameplayEvent.get_Jump PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.JumpResult()
+method JKRuntime.Gameplay.GameplayEvent.get_Kind PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.GameplayEventKind()
+method JKRuntime.Gameplay.GameplayEvent.get_Paused PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.GameplayEvent.get_Position PrivateScope, Public, HideBySig, SpecialName Microsoft.Xna.Framework.Vector2()
+method JKRuntime.Gameplay.GameplayEvent.get_RestoreEpoch PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Gameplay.GameplayEvent.get_Screen PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.Gameplay.GameplayEvent.get_Sequence PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Gameplay.GameplayEvent.get_Source PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Gameplay.GameplayEvent.get_Tick PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Gameplay.GameplayEvent.get_Timestamp PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Gameplay.GameplayEvent.get_Velocity PrivateScope, Public, HideBySig, SpecialName Microsoft.Xna.Framework.Vector2()
+method JKRuntime.Gameplay.GameplayEvents.NotifyTeleport PrivateScope, Public, Static, HideBySig System.Void(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Vector2,System.Int32)
+method JKRuntime.Gameplay.GameplayEvents.Subscribe PrivateScope, Public, Static, HideBySig System.IDisposable(System.String,System.Action`1<JKRuntime.Gameplay.GameplayEvent>)
+method JKRuntime.Gameplay.IAirThrust.get_Active PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.Gameplay.IAirThrust.get_Enabled PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.Gameplay.IMovementRules.get_Mode PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName JKRuntime.Gameplay.MovementMode()
+method JKRuntime.Gameplay.IPlayerForm.OwnsSprite PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Boolean(System.Object)
+method JKRuntime.Gameplay.IPlayerForm.get_Attached PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.Gameplay.IPlayerForm.get_JumpSequence PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Int32()
+method JKRuntime.Gameplay.IPlayerForm.get_Morphed PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.Gameplay.JumpEvents.Publish PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.Gameplay.JumpResult)
+method JKRuntime.Gameplay.JumpEvents.Subscribe PrivateScope, Public, Static, HideBySig System.IDisposable(System.Action`1<JKRuntime.Gameplay.JumpResult>)
+method JKRuntime.Gameplay.JumpNodeBindings..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Gameplay.JumpNodeBindings.Replace PrivateScope, Public, Static, HideBySig JKRuntime.Gameplay.JumpNodeBindings(BehaviorTree.BTmanager,JumpKing.Player.PlayerEntity,JumpKing.Player.JumpState,JumpKing.Player.JumpState)
+method JKRuntime.Gameplay.JumpNodeBindings.Replace PrivateScope, Public, Static, HideBySig JKRuntime.Gameplay.JumpNodeBindings(BehaviorTree.IBTnode,JumpKing.Player.PlayerEntity,JumpKing.Player.JumpState,JumpKing.Player.JumpState)
+method JKRuntime.Gameplay.JumpNodeBindings.Restore PrivateScope, Public, HideBySig System.Void()
+method JKRuntime.Gameplay.JumpResult..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,JKRuntime.Gameplay.JumpEvidence,System.Nullable`1<System.Double>,System.Nullable`1<System.Int32>,System.Nullable`1<System.Int32>,System.Nullable`1<System.Single>,System.Boolean,System.Boolean,System.Single,System.Single)
+method JKRuntime.Gameplay.JumpResult.get_Automatic PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.JumpResult.get_CorrectedFrames PrivateScope, Public, HideBySig, SpecialName System.Nullable`1<System.Int32>()
+method JKRuntime.Gameplay.JumpResult.get_CorrectedTimer PrivateScope, Public, HideBySig, SpecialName System.Nullable`1<System.Single>()
+method JKRuntime.Gameplay.JumpResult.get_Evidence PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.JumpEvidence()
+method JKRuntime.Gameplay.JumpResult.get_HoldMilliseconds PrivateScope, Public, HideBySig, SpecialName System.Nullable`1<System.Double>()
+method JKRuntime.Gameplay.JumpResult.get_ObservationOnly PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.JumpResult.get_Outcome PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.JumpOutcome()
+method JKRuntime.Gameplay.JumpResult.get_PredictedFrames PrivateScope, Public, HideBySig, SpecialName System.Nullable`1<System.Int32>()
+method JKRuntime.Gameplay.JumpResult.get_Provider PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Gameplay.JumpResult.get_VelocityAfter PrivateScope, Public, HideBySig, SpecialName System.Single()
+method JKRuntime.Gameplay.JumpResult.get_VelocityBefore PrivateScope, Public, HideBySig, SpecialName System.Single()
+method JKRuntime.Gameplay.JumpSlot.Recompose PrivateScope, Public, Static, HideBySig System.Void(System.Action)
+method JKRuntime.Gameplay.JumpSlot.Refresh PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.Gameplay.JumpSlot.RegisterChargePolicy PrivateScope, Public, Static, HideBySig System.IDisposable(System.Action,System.Action)
+method JKRuntime.Gameplay.MechanicDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.Version,JKRuntime.Gameplay.MechanicEffects,JKRuntime.Gameplay.MechanicComposition,System.String,System.String[],System.String,JKRuntime.Simulation.SimulationRequirement)
+method JKRuntime.Gameplay.MechanicDefinition.get_Channel PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Gameplay.MechanicDefinition.get_Composition PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.MechanicComposition()
+method JKRuntime.Gameplay.MechanicDefinition.get_Conflicts PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.Gameplay.MechanicDefinition.get_Effects PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.MechanicEffects()
+method JKRuntime.Gameplay.MechanicDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Gameplay.MechanicDefinition.get_Simulation PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationRequirement()
+method JKRuntime.Gameplay.MechanicDefinition.get_StateParticipant PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Gameplay.MechanicDefinition.get_Version PrivateScope, Public, HideBySig, SpecialName System.Version()
+method JKRuntime.Gameplay.MechanicInfo..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Gameplay.MechanicInfo.get_Conflicts PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.Gameplay.MechanicInfo.get_Definition PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.MechanicDefinition()
+method JKRuntime.Gameplay.MechanicInfo.get_Effects PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.MechanicEffects()
+method JKRuntime.Gameplay.MechanicInfo.get_Error PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Gameplay.MechanicInfo.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Gameplay.MechanicInfo.get_Owner PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Gameplay.MechanicInfo.get_State PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.MechanicState()
+method JKRuntime.Gameplay.MechanicInfo.get_Version PrivateScope, Public, HideBySig, SpecialName System.Version()
+method JKRuntime.Gameplay.MechanicRegistry..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Gameplay.MechanicRegistry.Inspect PrivateScope, Public, HideBySig JKRuntime.Gameplay.MechanicInfo[]()
+method JKRuntime.Gameplay.MechanicRegistry.Register PrivateScope, Public, HideBySig System.IDisposable(System.String,JKRuntime.Gameplay.MechanicDefinition,System.Func`1<JKRuntime.Gameplay.MechanicState>)
+method JKRuntime.Gameplay.MechanicRegistry.Register PrivateScope, Public, HideBySig System.IDisposable(System.String,System.String,System.Version,JKRuntime.Gameplay.MechanicEffects,System.Func`1<JKRuntime.Gameplay.MechanicState>)
+method JKRuntime.Gameplay.MechanicRegistry.get_Generation PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Gameplay.MechanicState..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Boolean,System.Boolean,System.Boolean,JKRuntime.Gameplay.MechanicSource,System.String)
+method JKRuntime.Gameplay.MechanicState.get_Active PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.MechanicState.get_Available PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.MechanicState.get_Enabled PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.MechanicState.get_Reason PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Gameplay.MechanicState.get_Source PrivateScope, Public, HideBySig, SpecialName JKRuntime.Gameplay.MechanicSource()
+method JKRuntime.Gameplay.NativePause.Subscribe PrivateScope, Public, Static, HideBySig System.IDisposable(System.String,System.Action`2<System.Boolean,System.Int64>)
+method JKRuntime.Gameplay.NativePause.ValidateContract PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.Gameplay.NativePause.get_IsPaused PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Gameplay.PresentationActivity.Begin PrivateScope, Public, Static, HideBySig System.IDisposable(System.String,JumpKing.Player.BodyComp)
+method JKRuntime.Gameplay.PresentationActivity.GetOwners PrivateScope, Public, Static, HideBySig System.String[](JumpKing.Player.BodyComp)
+method JKRuntime.Gameplay.PresentationActivity.IsActive PrivateScope, Public, Static, HideBySig System.Boolean(JumpKing.Player.BodyComp)
+method JKRuntime.Gameplay.RunModifierRecord..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Gameplay.RunModifierSource..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Gameplay.RunModifiers.GetContributors PrivateScope, Public, Static, HideBySig System.String[]()
+method JKRuntime.Gameplay.RunModifiers.Register PrivateScope, Public, Static, HideBySig System.Boolean(JumpKing.Player.BodyComp,JumpKing.API.IBodyCompBehaviour)
+method JKRuntime.Gameplay.RunModifiers.RegisterAfter PrivateScope, Public, Static, HideBySig System.Boolean(JumpKing.Player.BodyComp,JumpKing.API.IBodyCompBehaviour,JumpKing.API.IBodyCompBehaviour)
+method JKRuntime.Gameplay.RunModifiers.RegisterBefore PrivateScope, Public, Static, HideBySig System.Boolean(JumpKing.Player.BodyComp,JumpKing.API.IBodyCompBehaviour,JumpKing.API.IBodyCompBehaviour)
+method JKRuntime.Gameplay.RunModifiers.Remove PrivateScope, Public, Static, HideBySig System.Boolean(JumpKing.Player.BodyComp,JumpKing.API.IBodyCompBehaviour)
+method JKRuntime.Geometry.BlockCatalog+CatalogData..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Geometry.BlockCatalog+CatalogData.get_auditDate PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Geometry.BlockCatalog+CatalogData.get_factories PrivateScope, Public, HideBySig, SpecialName JKRuntime.Geometry.BlockCatalog+Factory[]()
+method JKRuntime.Geometry.BlockCatalog+CatalogData.get_reservations PrivateScope, Public, HideBySig, SpecialName JKRuntime.Geometry.BlockCatalog+Reservation[]()
+method JKRuntime.Geometry.BlockCatalog+CatalogData.set_auditDate PrivateScope, Public, HideBySig, SpecialName System.Void(System.String)
+method JKRuntime.Geometry.BlockCatalog+CatalogData.set_factories PrivateScope, Public, HideBySig, SpecialName System.Void(JKRuntime.Geometry.BlockCatalog+Factory[])
+method JKRuntime.Geometry.BlockCatalog+CatalogData.set_reservations PrivateScope, Public, HideBySig, SpecialName System.Void(JKRuntime.Geometry.BlockCatalog+Reservation[])
+method JKRuntime.Geometry.BlockCatalog+Factory..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Geometry.BlockCatalog+Factory.get_factory PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Geometry.BlockCatalog+Factory.get_owner PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Geometry.BlockCatalog+Factory.get_rgb_ranges PrivateScope, Public, HideBySig, SpecialName System.Int32[][]()
+method JKRuntime.Geometry.BlockCatalog+Factory.set_factory PrivateScope, Public, HideBySig, SpecialName System.Void(System.String)
+method JKRuntime.Geometry.BlockCatalog+Factory.set_owner PrivateScope, Public, HideBySig, SpecialName System.Void(System.String)
+method JKRuntime.Geometry.BlockCatalog+Factory.set_rgb_ranges PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32[][])
+method JKRuntime.Geometry.BlockCatalog+Reservation..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Geometry.BlockCatalog+Reservation.get_name PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Geometry.BlockCatalog+Reservation.get_owner PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Geometry.BlockCatalog+Reservation.get_rgb PrivateScope, Public, HideBySig, SpecialName System.Int32[]()
+method JKRuntime.Geometry.BlockCatalog+Reservation.set_name PrivateScope, Public, HideBySig, SpecialName System.Void(System.String)
+method JKRuntime.Geometry.BlockCatalog+Reservation.set_owner PrivateScope, Public, HideBySig, SpecialName System.Void(System.String)
+method JKRuntime.Geometry.BlockCatalog+Reservation.set_rgb PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32[])
+method JKRuntime.Geometry.BlockCatalog.FindOwners PrivateScope, Public, Static, HideBySig System.String[](Microsoft.Xna.Framework.Color)
+method JKRuntime.Geometry.BlockCatalog.Inspect PrivateScope, Public, Static, HideBySig System.String[]()
+method JKRuntime.Geometry.BlockCatalog.Register PrivateScope, Public, Static, HideBySig System.IDisposable(System.String,System.Collections.Generic.IEnumerable`1<JKRuntime.Geometry.BlockDeclaration>,System.String)
+method JKRuntime.Geometry.BlockCatalog.get_AuditDate PrivateScope, Public, Static, HideBySig, SpecialName System.String()
+method JKRuntime.Geometry.BlockDeclaration..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,Microsoft.Xna.Framework.Color,JKRuntime.Geometry.BlockVariant,System.Boolean)
+method JKRuntime.Geometry.BlockDeclaration.get_Color PrivateScope, Public, HideBySig, SpecialName Microsoft.Xna.Framework.Color()
+method JKRuntime.Geometry.BlockDeclaration.get_Mechanic PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Geometry.BlockDeclaration.get_Solid PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Geometry.BlockDeclaration.get_Variant PrivateScope, Public, HideBySig, SpecialName JKRuntime.Geometry.BlockVariant()
+method JKRuntime.Geometry.GeometryProvider..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Object,System.IntPtr)
+method JKRuntime.Geometry.GeometryProvider.BeginInvoke PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.IAsyncResult(JumpKing.Level.IBlock,Microsoft.Xna.Framework.Vector2[]& out,System.AsyncCallback,System.Object)
+method JKRuntime.Geometry.GeometryProvider.EndInvoke PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.Boolean(Microsoft.Xna.Framework.Vector2[]& out,System.IAsyncResult)
+method JKRuntime.Geometry.GeometryProvider.Invoke PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask System.Boolean(JumpKing.Level.IBlock,Microsoft.Xna.Framework.Vector2[]& out)
+method JKRuntime.Geometry.GeometryRegistry..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Geometry.GeometryRegistry.Invalidate PrivateScope, Public, HideBySig System.Void()
+method JKRuntime.Geometry.GeometryRegistry.Register PrivateScope, Public, HideBySig System.IDisposable(System.String,System.String,System.Int32,JKRuntime.Geometry.GeometryProvider)
+method JKRuntime.Geometry.GeometryRegistry.TryGetPolygon PrivateScope, Public, HideBySig System.Boolean(System.String,System.Int32,JumpKing.Level.IBlock,Microsoft.Xna.Framework.Vector2[]& out)
+method JKRuntime.Geometry.GeometryRegistry.get_Generation PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Geometry.NativeWorldGeometry.CopySlopeCollision PrivateScope, Public, Static, HideBySig JumpKing.Level.SlopeBlock(JumpKing.Level.SlopeBlock)
+method JKRuntime.Geometry.NativeWorldGeometry.ReadBlocks PrivateScope, Public, Static, HideBySig JumpKing.Level.IBlock[](JumpKing.Level.LevelScreen)
+method JKRuntime.Geometry.NativeWorldGeometry.ReadScreens PrivateScope, Public, Static, HideBySig JumpKing.Level.LevelScreen[]()
+method JKRuntime.Geometry.NativeWorldGeometry.ReadSlopeVertices PrivateScope, Public, Static, HideBySig Microsoft.Xna.Framework.Vector2[](JumpKing.Level.SlopeBlock)
+method JKRuntime.Geometry.NativeWorldGeometry.ValidateContract PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.Input.ActionInputs.Read PrivateScope, Public, Static, HideBySig JKRuntime.Input.ActionFrame(System.String)
+method JKRuntime.Input.ActionInputs.Register PrivateScope, Public, Static, HideBySig System.IDisposable(System.String,System.String,System.Func`1<System.Boolean>)
+method JKRuntime.Input.BindingSnapshot..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Input.BindingSnapshot.Registered PrivateScope, Public, Static, HideBySig System.Collections.Generic.List`1<JumpKing.Controller.PadInstance>()
+method JKRuntime.Input.BindingSnapshot.Unchanged PrivateScope, Public, HideBySig System.Boolean(System.Int64)
+method JKRuntime.Input.DirectInputDevice..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Input.DirectInputDevice.CreateMatcher PrivateScope, Public, Static, HideBySig System.Func`1<System.Boolean>(System.Object,JKRuntime.Input.DirectInputJumpBinding)
+method JKRuntime.Input.DirectInputDevice.CreateUpdate PrivateScope, Public, Static, HideBySig System.Action(System.Object,System.Object)
+method JKRuntime.Input.DirectInputDevice.Dispose PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.Input.DirectInputDevice.Open PrivateScope, Public, Static, HideBySig JKRuntime.Input.IDirectInputDevice(System.Guid,System.IntPtr)
+method JKRuntime.Input.DirectInputDevice.ReadButtons PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Int32[]()
+method JKRuntime.Input.DirectInputDevice.ReadJump PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Boolean(JKRuntime.Input.DirectInputJumpBinding)
+method JKRuntime.Input.DirectInputDevice.TryGetDeviceId PrivateScope, Public, Static, HideBySig System.Boolean(JumpKing.Controller.PadInstance,System.Guid& out)
+method JKRuntime.Input.DirectInputJumpBinding..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Guid,System.Int32[][])
+method JKRuntime.Input.DirectInputJumpBinding.IsDown PrivateScope, Public, HideBySig System.Boolean(System.Int32[])
+method JKRuntime.Input.DirectInputPoller..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Func`3<System.Guid,System.IntPtr,JKRuntime.Input.IDirectInputDevice>,System.Action`5<System.Int64,System.Guid,System.Boolean,System.Boolean,System.Int64>,System.Boolean)
+method JKRuntime.Input.DirectInputPoller.Configure PrivateScope, Public, HideBySig System.Void(JKRuntime.Input.DirectInputJumpBinding[],System.IntPtr,System.Int64)
+method JKRuntime.Input.DirectInputPoller.Dispose PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.Input.DirectInputPoller.PollOnce PrivateScope, Public, HideBySig System.Void(System.Int64)
+method JKRuntime.Input.HighRateInputSampler..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Input.HighRateInputSampler..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Boolean)
+method JKRuntime.Input.HighRateInputSampler..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Boolean,System.Func`2<System.Int32,System.Int16>,System.Func`2<System.Int32,Microsoft.Xna.Framework.Input.GamePadState>)
+method JKRuntime.Input.HighRateInputSampler.CanMeasureDirectInput PrivateScope, Public, HideBySig System.Boolean(System.Guid)
+method JKRuntime.Input.HighRateInputSampler.CanMeasurePhysical PrivateScope, Public, HideBySig System.Boolean(System.Int32)
+method JKRuntime.Input.HighRateInputSampler.Configure PrivateScope, Public, HideBySig System.Void(System.Int32[],JKRuntime.Input.XInputJumpBinding[],System.Boolean)
+method JKRuntime.Input.HighRateInputSampler.Configure PrivateScope, Public, HideBySig System.Void(System.Int32[],System.Boolean)
+method JKRuntime.Input.HighRateInputSampler.Configure PrivateScope, Public, HideBySig System.Void(System.Int32[][],JKRuntime.Input.XInputJumpBinding[],JKRuntime.Input.DirectInputJumpBinding[],System.IntPtr,System.Boolean)
+method JKRuntime.Input.HighRateInputSampler.Configure PrivateScope, Public, HideBySig System.Void(System.Int32[][],JKRuntime.Input.XInputJumpBinding[],System.Boolean)
+method JKRuntime.Input.HighRateInputSampler.Dispose PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.Input.HighRateInputSampler.IsXInputBindingDown PrivateScope, Public, Static, HideBySig System.Boolean(Microsoft.Xna.Framework.Input.GamePadState,JKRuntime.Input.XInputJumpBinding)
+method JKRuntime.Input.HighRateInputSampler.LogHealth PrivateScope, Public, HideBySig System.Void(System.Int64)
+method JKRuntime.Input.HighRateInputSampler.ObserveDirectInput PrivateScope, Public, HideBySig System.Void(System.Int64,System.Guid,System.Boolean,System.Boolean,System.Int64)
+method JKRuntime.Input.HighRateInputSampler.ObserveKey PrivateScope, Public, HideBySig System.Void(System.Int32,System.Boolean,System.Int64)
+method JKRuntime.Input.HighRateInputSampler.ObservePhysical PrivateScope, Public, HideBySig System.Void(System.Int64,System.Int32,System.Boolean,System.Boolean,System.Int64)
+method JKRuntime.Input.HighRateInputSampler.ObserveXInputButton PrivateScope, Public, HideBySig System.Void(System.Int32,System.Int32,System.Boolean,System.Int64)
+method JKRuntime.Input.HighRateInputSampler.PollSource PrivateScope, Public, HideBySig System.Void(System.Int32)
+method JKRuntime.Input.HighRateInputSampler.Reset PrivateScope, Public, HideBySig System.Void()
+method JKRuntime.Input.HighRateInputSampler.Start PrivateScope, Public, HideBySig System.Void()
+method JKRuntime.Input.HighRateInputSampler.TryDequeue PrivateScope, Public, HideBySig System.Boolean(JKRuntime.Input.JumpInputTransition& out)
+method JKRuntime.Input.HighRateInputSampler.get_Available PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Input.HighRateInputSampler.get_ConfigurationGeneration PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Input.HighRateInputSampler.get_Enabled PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Input.HighRateInputSampler.get_RequestedEnabled PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Input.IDirectInputChargeDevice.ReadJump PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Boolean(JKRuntime.Input.DirectInputJumpBinding)
+method JKRuntime.Input.IDirectInputDevice.ReadButtons PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Int32[]()
+method JKRuntime.Input.IHighRateInput.CanMeasureDirectInput PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Boolean(System.Guid)
+method JKRuntime.Input.IHighRateInput.CanMeasurePhysical PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Boolean(System.Int32)
+method JKRuntime.Input.IHighRateInput.Configure PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void(System.Int32[][],JKRuntime.Input.XInputJumpBinding[],JKRuntime.Input.DirectInputJumpBinding[],System.IntPtr,System.Boolean)
+method JKRuntime.Input.IHighRateInput.LogHealth PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void(System.Int64)
+method JKRuntime.Input.IHighRateInput.Reset PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void()
+method JKRuntime.Input.IHighRateInput.Start PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void()
+method JKRuntime.Input.IHighRateInput.TryDequeue PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Boolean(JKRuntime.Input.JumpInputTransition& out)
+method JKRuntime.Input.IHighRateInput.get_Available PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.Input.IHighRateInput.get_Enabled PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.Input.IHighRateInput.get_RequestedEnabled PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.Input.InputDiagnostics..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Func`2<JumpKing.Controller.PadInstance,System.Boolean>,System.Func`2<JumpKing.Controller.PadInstance,System.Int32>,System.Action`1<System.String>,System.Func`2<System.Guid,System.Boolean>)
+method JKRuntime.Input.InputDiagnostics.Observe PrivateScope, Public, HideBySig System.Void()
+method JKRuntime.Input.InputDiagnostics.ObservePads PrivateScope, Public, HideBySig System.Void(System.Collections.Generic.List`1<JumpKing.Controller.PadInstance>,System.Int64)
+method JKRuntime.Input.InputDiagnostics.get_ActiveDevices PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Input.InputLog.Subscribe PrivateScope, Public, Static, HideBySig System.IDisposable(System.Action`1<System.String>)
+method JKRuntime.Input.JumpInputTransition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Boolean,System.Int64)
+method JKRuntime.Input.JumpInputTransition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Int64)
+method JKRuntime.Input.MouseButtons.GetLabel PrivateScope, Public, Static, HideBySig System.String(System.Int32)
+method JKRuntime.Input.MouseButtons.IsMouseButton PrivateScope, Public, Static, HideBySig System.Boolean(System.Int32)
+method JKRuntime.Input.MouseButtons.ToVirtualKey PrivateScope, Public, Static, HideBySig System.Int32(System.Int32)
+method JKRuntime.Input.NativeXInputReader.Create PrivateScope, Public, Static, HideBySig System.Func`1<Microsoft.Xna.Framework.Input.GamePadState>(System.Int32)
+method JKRuntime.Input.NativeXInputReader.CreateDecoder PrivateScope, Public, Static, HideBySig System.Func`2<System.Object,Microsoft.Xna.Framework.Input.GamePadState>(System.Type)
+method JKRuntime.Input.PhysicalBindings.Invalidate PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.Input.PhysicalBindings.ResolvePhysicalBinding PrivateScope, Public, Static, HideBySig System.Int32[][](JumpKing.Controller.PadInstance,System.Int32[])
+method JKRuntime.Input.PhysicalBindings.get_Epoch PrivateScope, Public, Static, HideBySig, SpecialName System.Int32()
+method JKRuntime.Input.SharedActionSampler.Acquire PrivateScope, Public, Static, HideBySig JKRuntime.Input.SharedActionSampler(System.String,System.String,System.Boolean)
+method JKRuntime.Input.SharedActionSampler.CanMeasureDirectInput PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Boolean(System.Guid)
+method JKRuntime.Input.SharedActionSampler.CanMeasurePhysical PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Boolean(System.Int32)
+method JKRuntime.Input.SharedActionSampler.Configure PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void(System.Int32[][],JKRuntime.Input.XInputJumpBinding[],JKRuntime.Input.DirectInputJumpBinding[],System.IntPtr,System.Boolean)
+method JKRuntime.Input.SharedActionSampler.Dispose PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.Input.SharedActionSampler.LogHealth PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void(System.Int64)
+method JKRuntime.Input.SharedActionSampler.Reset PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.Input.SharedActionSampler.Start PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.Input.SharedActionSampler.TryDequeue PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Boolean(JKRuntime.Input.JumpInputTransition& out)
+method JKRuntime.Input.SharedActionSampler.get_ActiveStreams PrivateScope, Public, Static, HideBySig, SpecialName System.Int32()
+method JKRuntime.Input.SharedActionSampler.get_Available PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName System.Boolean()
+method JKRuntime.Input.SharedActionSampler.get_Enabled PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName System.Boolean()
+method JKRuntime.Input.SharedActionSampler.get_RequestedEnabled PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName System.Boolean()
+method JKRuntime.Input.XInputJumpBinding..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Int32,System.Int32[])
+method JKRuntime.Input.XInputJumpBinding..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Int32,System.Int32[][])
+method JKRuntime.ModuleContext.Publish PrivateScope, Public, HideBySig System.Void(System.String,System.Object)
+method JKRuntime.ModuleContext.Require PrivateScope, Public, HideBySig !0(System.String) !0:ReferenceTypeConstraint:
+method JKRuntime.ModuleContext.Track PrivateScope, Public, HideBySig !0(!0) !0:None:System.IDisposable
+method JKRuntime.ModuleContext.TryGetCapability PrivateScope, Public, HideBySig System.Boolean(System.String,System.Object& out)
+method JKRuntime.ModuleContext.get_ModuleId PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.ModuleDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.Version,System.Action`1<JKRuntime.ModuleContext>,System.Collections.Generic.IEnumerable`1<JKRuntime.CapabilityRequirement>,System.Collections.Generic.IEnumerable`1<JKRuntime.CapabilityDefinition>,System.Collections.Generic.IEnumerable`1<System.String>,System.Collections.Generic.IEnumerable`1<System.String>,System.Collections.Generic.IEnumerable`1<System.String>,System.Action`1<JKRuntime.ModuleContext>,System.Action`1<JKRuntime.ModuleContext>)
+method JKRuntime.ModuleDefinition.get_After PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.IList`1<System.String>()
+method JKRuntime.ModuleDefinition.get_Before PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.IList`1<System.String>()
+method JKRuntime.ModuleDefinition.get_ExclusiveResources PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.IList`1<System.String>()
+method JKRuntime.ModuleDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.ModuleDefinition.get_Install PrivateScope, Public, HideBySig, SpecialName System.Action`1<JKRuntime.ModuleContext>()
+method JKRuntime.ModuleDefinition.get_Provides PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.IList`1<JKRuntime.CapabilityDefinition>()
+method JKRuntime.ModuleDefinition.get_Requires PrivateScope, Public, HideBySig, SpecialName System.Collections.Generic.IList`1<JKRuntime.CapabilityRequirement>()
+method JKRuntime.ModuleDefinition.get_Start PrivateScope, Public, HideBySig, SpecialName System.Action`1<JKRuntime.ModuleContext>()
+method JKRuntime.ModuleDefinition.get_Stop PrivateScope, Public, HideBySig, SpecialName System.Action`1<JKRuntime.ModuleContext>()
+method JKRuntime.ModuleDefinition.get_Version PrivateScope, Public, HideBySig, SpecialName System.Version()
+method JKRuntime.ModuleStatus..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.ModuleStatus.get_After PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.ModuleStatus.get_Before PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.ModuleStatus.get_Detail PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.ModuleStatus.get_ExclusiveResources PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.ModuleStatus.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.ModuleStatus.get_Origin PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.ModuleStatus.get_Provides PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.ModuleStatus.get_Requires PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.ModuleStatus.get_State PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.ModuleStatus.get_Version PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Modules.BeforeLevelLoadAttribute..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Modules.MainMenuItemSettingAttribute..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Modules.OnLevelEndAttribute..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Modules.OnLevelStartAttribute..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Modules.OnLevelUnloadAttribute..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Modules.PauseMenuItemSettingAttribute..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Modules.RuntimeModuleAttribute..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String)
+method JKRuntime.Modules.RuntimeModuleAttribute.get_After PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.Modules.RuntimeModuleAttribute.get_Before PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.Modules.RuntimeModuleAttribute.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Modules.RuntimeModuleAttribute.get_Name PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Modules.RuntimeModuleAttribute.get_Provides PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.Modules.RuntimeModuleAttribute.get_Requires PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.Modules.RuntimeModuleAttribute.set_After PrivateScope, Public, HideBySig, SpecialName System.Void(System.String[])
+method JKRuntime.Modules.RuntimeModuleAttribute.set_Before PrivateScope, Public, HideBySig, SpecialName System.Void(System.String[])
+method JKRuntime.Modules.RuntimeModuleAttribute.set_Provides PrivateScope, Public, HideBySig, SpecialName System.Void(System.String[])
+method JKRuntime.Modules.RuntimeModuleAttribute.set_Requires PrivateScope, Public, HideBySig, SpecialName System.Void(System.String[])
+method JKRuntime.PackageHost.Discover PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.PackageHost.GetDataDirectory PrivateScope, Public, Static, HideBySig System.String(System.Reflection.Assembly)
+method JKRuntime.PackageHost.Menu PrivateScope, Public, Static, HideBySig System.Object(System.String,System.String,System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.PackageHost.get_Errors PrivateScope, Public, Static, HideBySig, SpecialName System.String[]()
+method JKRuntime.RuntimeApi.ExportDiagnostics PrivateScope, Public, Static, HideBySig System.String()
+method JKRuntime.RuntimeApi.GetErrors PrivateScope, Public, Static, HideBySig System.String[]()
+method JKRuntime.RuntimeApi.GetModules PrivateScope, Public, Static, HideBySig JKRuntime.ModuleStatus[]()
+method JKRuntime.RuntimeApi.GetOrder PrivateScope, Public, Static, HideBySig System.String[]()
+method JKRuntime.RuntimeApi.Register PrivateScope, Public, Static, HideBySig System.IDisposable(JKRuntime.ModuleDefinition)
+method JKRuntime.RuntimeApi.Supports PrivateScope, Public, Static, HideBySig System.Boolean(System.String)
+method JKRuntime.RuntimeApi.TryGetCapability PrivateScope, Public, Static, HideBySig System.Boolean(System.String,System.Int32,System.Int32,System.Object& out)
+method JKRuntime.RuntimeApi.get_Geometry PrivateScope, Public, Static, HideBySig, SpecialName JKRuntime.Geometry.GeometryRegistry()
+method JKRuntime.RuntimeApi.get_Mechanics PrivateScope, Public, Static, HideBySig, SpecialName JKRuntime.Gameplay.MechanicRegistry()
+method JKRuntime.RuntimeApi.get_Simulation PrivateScope, Public, Static, HideBySig, SpecialName JKRuntime.Simulation.SimulationRegistry()
+method JKRuntime.RuntimeApi.get_State PrivateScope, Public, Static, HideBySig, SpecialName System.String()
+method JKRuntime.RuntimeJournal.Read PrivateScope, Public, Static, HideBySig JKRuntime.RuntimeNotice[]()
+method JKRuntime.RuntimeJournal.Record PrivateScope, Public, Static, HideBySig System.Void(System.String,System.String,System.String)
+method JKRuntime.RuntimeJournal.get_ProfileCallbacks PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.RuntimeJournal.set_ProfileCallbacks PrivateScope, Public, Static, HideBySig, SpecialName System.Void(System.Boolean)
+method JKRuntime.RuntimeNotice..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.RuntimeNotice.get_Detail PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.RuntimeNotice.get_Milliseconds PrivateScope, Public, HideBySig, SpecialName System.Double()
+method JKRuntime.RuntimeNotice.get_Operation PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.RuntimeNotice.get_Owner PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.RuntimeNotice.get_Sequence PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.RuntimeResources.Inspect PrivateScope, Public, Static, HideBySig System.String[]()
+method JKRuntime.RuntimeResources.Track PrivateScope, Public, Static, HideBySig System.IDisposable(System.String,System.String,System.IDisposable)
+method JKRuntime.RuntimeScope..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.RuntimeScope.Child PrivateScope, Public, HideBySig JKRuntime.RuntimeScope()
+method JKRuntime.RuntimeScope.Defer PrivateScope, Public, HideBySig System.IDisposable(System.Action)
+method JKRuntime.RuntimeScope.Dispose PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.RuntimeScope.Own PrivateScope, Public, HideBySig !0(!0) !0:None:System.IDisposable
+method JKRuntime.Settings.AtomicXmlFile.Load PrivateScope, Public, Static, HideBySig !0(System.String) !0:ReferenceTypeConstraint:
+method JKRuntime.Settings.AtomicXmlFile.Save PrivateScope, Public, Static, HideBySig System.Void(System.String,!0) !0:None:
+method JKRuntime.Settings.Commands.Enqueue PrivateScope, Public, Static, HideBySig System.Void(System.Action,System.Action)
+method JKRuntime.Settings.Commands.get_LastError PrivateScope, Public, Static, HideBySig, SpecialName System.String()
+method JKRuntime.Settings.DataMigration.MigrateUi PrivateScope, Public, Static, HideBySig System.Boolean(System.String)
+method JKRuntime.Settings.Setting`1<!0>..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.Func`1<!0>,System.Action`1<!0>,System.Action,System.Func`2<!0,System.Boolean>)
+method JKRuntime.Settings.Setting`1<!0>.Set PrivateScope, Public, HideBySig System.Void(!0)
+method JKRuntime.Settings.Setting`1<!0>.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Settings.Setting`1<!0>.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Settings.Setting`1<!0>.get_Value PrivateScope, Public, HideBySig, SpecialName !0()
+method JKRuntime.Simulation.ConformanceResult..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Simulation.ConformanceResult.get_Differences PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.Simulation.ConformanceResult.get_Evidence PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Simulation.ConformanceResult.get_Input PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationInput()
+method JKRuntime.Simulation.ConformanceResult.get_Matches PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.Simulation.ConformanceResult.get_Tick PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.Simulation.INativeFlightTeleports.HandleTeleport PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void(JumpKing.BodyCompBehaviours.BehaviourContext)
+method JKRuntime.Simulation.INativeFlightWind.WindVelocity PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Single(System.Int32)
+method JKRuntime.Simulation.INativeFlightWind.get_WindEnabled PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.Simulation.INativeFlightWorld.AdvanceCamera PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void(JumpKing.Player.BodyComp)
+method JKRuntime.Simulation.INativeFlightWorld.ValidateScreen PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void()
+method JKRuntime.Simulation.INativeFlightWorld.get_HasTeleport PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.Simulation.INativeFlightWorld.get_Screen PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Int32()
+method JKRuntime.Simulation.NativeFlightSimulation.AdvanceShadow PrivateScope, Public, Static, HideBySig System.Void(JumpKing.Player.BodyComp,System.Single)
+method JKRuntime.Simulation.NativeFlightSimulation.AdvanceShadowFromX PrivateScope, Public, Static, HideBySig System.Void(JumpKing.Player.BodyComp)
+method JKRuntime.Simulation.NativeFlightSimulation.Commit PrivateScope, Public, Static, HideBySig System.Void(JumpKing.Player.BodyComp,JumpKing.Player.BodyComp,JumpKing.BodyCompBehaviours.BehaviourContext)
+method JKRuntime.Simulation.NativeFlightSimulation.CopyState PrivateScope, Public, Static, HideBySig System.Void(JumpKing.Player.BodyComp,JumpKing.Player.BodyComp)
+method JKRuntime.Simulation.NativeFlightSimulation.CreateShadow PrivateScope, Public, Static, HideBySig JumpKing.Player.BodyComp(JumpKing.Player.BodyComp,JKRuntime.Simulation.INativeFlightWorld)
+method JKRuntime.Simulation.NativeFlightSimulation.TryPredict PrivateScope, Public, Static, HideBySig System.Boolean(JumpKing.Player.BodyComp,JKRuntime.Simulation.INativeFlightWorld,JumpKing.Player.BodyComp& out,System.Int32& out,System.String& out)
+method JKRuntime.Simulation.NativeFlightSimulation.Validate PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.Simulation.NativeWind.Velocity PrivateScope, Public, Static, HideBySig System.Single(System.Int64,System.Double,System.Single,System.Boolean,System.Single,System.Nullable`1<System.Boolean>)
+method JKRuntime.Simulation.SimulationConformance.Compare PrivateScope, Public, Static, HideBySig JKRuntime.Simulation.ConformanceResult(System.String,System.Collections.Generic.IEnumerable`1<JKRuntime.Simulation.SimulationInput>,System.Func`1<System.Collections.Generic.SortedDictionary`2<System.String,System.String>>,System.Func`1<System.Collections.Generic.SortedDictionary`2<System.String,System.String>>,System.Action`1<JKRuntime.Simulation.SimulationInput>,System.Action`1<JKRuntime.Simulation.SimulationInput>,System.Int32)
+method JKRuntime.Simulation.SimulationConformance.CompareFields PrivateScope, Public, Static, HideBySig JKRuntime.Simulation.ConformanceResult(System.String,System.Int32,JKRuntime.Simulation.SimulationInput,System.Collections.Generic.IDictionary`2<System.String,System.String>,System.Collections.Generic.IDictionary`2<System.String,System.String>)
+method JKRuntime.Simulation.SimulationConformance.ReadBody PrivateScope, Public, Static, HideBySig System.Collections.Generic.SortedDictionary`2<System.String,System.String>(JumpKing.Player.BodyComp)
+method JKRuntime.Simulation.SimulationEvent..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,Microsoft.Xna.Framework.Vector2,System.Single)
+method JKRuntime.Simulation.SimulationEvent.get_Kind PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Simulation.SimulationEvent.get_Position PrivateScope, Public, HideBySig, SpecialName Microsoft.Xna.Framework.Vector2()
+method JKRuntime.Simulation.SimulationEvent.get_Value PrivateScope, Public, HideBySig, SpecialName System.Single()
+method JKRuntime.Simulation.SimulationInput..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Int32,System.Boolean,System.UInt32)
+method JKRuntime.Simulation.SimulationProvider..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.Collections.Generic.IEnumerable`1<JKRuntime.Simulation.SimulationRequirement>,System.Collections.Generic.IEnumerable`1<JKRuntime.Simulation.SimulationPhase>,System.Func`2<JKRuntime.Simulation.SimulationSeed,System.Byte[]>,System.Action`1<JKRuntime.Simulation.SimulationTick>,System.Collections.Generic.IEnumerable`1<System.String>)
+method JKRuntime.Simulation.SimulationProvider.get_After PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.Simulation.SimulationProvider.get_Claims PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationRequirement[]()
+method JKRuntime.Simulation.SimulationProvider.get_Evidence PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Simulation.SimulationProvider.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Simulation.SimulationProvider.get_Phases PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationPhase[]()
+method JKRuntime.Simulation.SimulationRegistry..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.Simulation.SimulationRegistry.CheckCoverage PrivateScope, Public, HideBySig System.String[](System.Collections.Generic.IEnumerable`1<JKRuntime.Simulation.SimulationRequirement>)
+method JKRuntime.Simulation.SimulationRegistry.Invalidate PrivateScope, Public, HideBySig System.Void()
+method JKRuntime.Simulation.SimulationRegistry.Open PrivateScope, Public, HideBySig JKRuntime.Simulation.SimulationSession(JKRuntime.Simulation.SimulationSeed)
+method JKRuntime.Simulation.SimulationRegistry.Register PrivateScope, Public, HideBySig System.IDisposable(JKRuntime.Simulation.SimulationProvider)
+method JKRuntime.Simulation.SimulationRegistry.get_ActiveSessions PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.Simulation.SimulationRequirement..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.Version)
+method JKRuntime.Simulation.SimulationRequirement.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Simulation.SimulationRequirement.get_Version PrivateScope, Public, HideBySig, SpecialName System.Version()
+method JKRuntime.Simulation.SimulationSeed..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(JKRuntime.Simulation.SimulationPose,System.Int64,System.Double,System.String,System.Byte[],System.Collections.Generic.IEnumerable`1<JKRuntime.Simulation.SimulationRequirement>)
+method JKRuntime.Simulation.SimulationSeed.get_Fingerprint PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Simulation.SimulationSeed.get_Pose PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationPose()
+method JKRuntime.Simulation.SimulationSeed.get_Requirements PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationRequirement[]()
+method JKRuntime.Simulation.SimulationSeed.get_Tick PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Simulation.SimulationSeed.get_TickSeconds PrivateScope, Public, HideBySig, SpecialName System.Double()
+method JKRuntime.Simulation.SimulationSeed.get_World PrivateScope, Public, HideBySig, SpecialName System.Byte[]()
+method JKRuntime.Simulation.SimulationSession.Dispose PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.Simulation.SimulationSession.Step PrivateScope, Public, HideBySig JKRuntime.Simulation.SimulationStepResult(JKRuntime.Simulation.SimulationSnapshot,JKRuntime.Simulation.SimulationInput,System.Threading.CancellationToken)
+method JKRuntime.Simulation.SimulationSession.get_Initial PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationSnapshot()
+method JKRuntime.Simulation.SimulationSnapshot.Read PrivateScope, Public, HideBySig System.Byte[](System.String)
+method JKRuntime.Simulation.SimulationSnapshot.get_Key PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.Simulation.SimulationSnapshot.get_Pose PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationPose()
+method JKRuntime.Simulation.SimulationSnapshot.get_Tick PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Simulation.SimulationStepResult.get_Events PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationEvent[]()
+method JKRuntime.Simulation.SimulationStepResult.get_State PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationSnapshot()
+method JKRuntime.Simulation.SimulationTick.Emit PrivateScope, Public, HideBySig System.Void(JKRuntime.Simulation.SimulationEvent)
+method JKRuntime.Simulation.SimulationTick.GetLocal PrivateScope, Public, HideBySig !0(System.String,System.String) !0:None:
+method JKRuntime.Simulation.SimulationTick.Read PrivateScope, Public, HideBySig System.Byte[](System.String)
+method JKRuntime.Simulation.SimulationTick.SetLocal PrivateScope, Public, HideBySig System.Void(System.String,System.Object)
+method JKRuntime.Simulation.SimulationTick.get_Input PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationInput()
+method JKRuntime.Simulation.SimulationTick.get_Phase PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationPhase()
+method JKRuntime.Simulation.SimulationTick.get_Pose PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationPose()
+method JKRuntime.Simulation.SimulationTick.get_Seed PrivateScope, Public, HideBySig, SpecialName JKRuntime.Simulation.SimulationSeed()
+method JKRuntime.Simulation.SimulationTick.get_State PrivateScope, Public, HideBySig, SpecialName System.Byte[]()
+method JKRuntime.Simulation.SimulationTick.get_Tick PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.Simulation.SimulationTick.set_Pose PrivateScope, Public, HideBySig, SpecialName System.Void(JKRuntime.Simulation.SimulationPose)
+method JKRuntime.Simulation.SimulationTick.set_State PrivateScope, Public, HideBySig, SpecialName System.Void(System.Byte[])
+method JKRuntime.State.AttemptStamp.Equals PrivateScope, Public, HideBySig System.Boolean(JKRuntime.State.AttemptStamp)
+method JKRuntime.State.FieldStateParticipant..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.Int32,System.Action,JKRuntime.State.StateFields[])
+method JKRuntime.State.FieldStateParticipant.Capture PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Object()
+method JKRuntime.State.FieldStateParticipant.Restore PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void(System.Object)
+method JKRuntime.State.FieldStateParticipant.Validate PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void(System.Object)
+method JKRuntime.State.FieldStateParticipant.get_Id PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName System.String()
+method JKRuntime.State.FieldStateParticipant.get_Version PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask, SpecialName System.Int32()
+method JKRuntime.State.GameClock+Lease.Dispose PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.State.GameClock+Lease.SetFrame PrivateScope, Public, HideBySig System.Void(System.Int32)
+method JKRuntime.State.GameClock.Override PrivateScope, Public, Static, HideBySig JKRuntime.State.GameClock+Lease(System.Int32,System.Single)
+method JKRuntime.State.GameClock.ReadAttempt PrivateScope, Public, Static, HideBySig JKRuntime.State.AttemptStamp()
+method JKRuntime.State.GameClock.ReadCurrent PrivateScope, Public, Static, HideBySig JKRuntime.State.GameClock+State()
+method JKRuntime.State.GameClock.ReadWins PrivateScope, Public, Static, HideBySig System.Int32()
+method JKRuntime.State.GameClock.ValidateContract PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.State.IStateParticipant.Capture PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Object()
+method JKRuntime.State.IStateParticipant.Restore PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void(System.Object)
+method JKRuntime.State.IStateParticipant.Validate PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void(System.Object)
+method JKRuntime.State.IStateParticipant.get_Id PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.String()
+method JKRuntime.State.IStateParticipant.get_Version PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Int32()
+method JKRuntime.State.SnapshotService..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.State.SnapshotService.Capture PrivateScope, Public, HideBySig JKRuntime.State.StateSnapshot()
+method JKRuntime.State.SnapshotService.IsCurrent PrivateScope, Public, HideBySig System.Boolean(JKRuntime.State.StateSnapshot)
+method JKRuntime.State.SnapshotService.Register PrivateScope, Public, HideBySig System.IDisposable(JKRuntime.State.IStateParticipant)
+method JKRuntime.State.SnapshotService.Restore PrivateScope, Public, HideBySig System.Void(JKRuntime.State.StateSnapshot)
+method JKRuntime.State.SnapshotService.get_RestoreEpoch PrivateScope, Public, HideBySig, SpecialName System.Int64()
+method JKRuntime.State.StateFields..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Object,System.String[])
+method JKRuntime.State.StateSnapshot..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.State.StateSnapshot.get_Participants PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.UI.CompactWorkshopGridsOption..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.UI.CompactWorkshopGridsOption.Draw PrivateScope, Public, Virtual, HideBySig System.Void(System.Int32,System.Int32,System.Boolean)
+method JKRuntime.UI.CompactWorkshopGridsOption.GetSize PrivateScope, Public, Virtual, HideBySig Microsoft.Xna.Framework.Point()
+method JKRuntime.UI.CompactWorkshopGridsOption.OnToggle PrivateScope, Family, Virtual, HideBySig System.Void()
+method JKRuntime.UI.IUiPage.Draw PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void()
+method JKRuntime.UI.IUiPage.OnClose PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void()
+method JKRuntime.UI.IUiPage.OnOpen PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void()
+method JKRuntime.UI.IUiPage.Update PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract System.Void(JKRuntime.UI.UiInput,System.Single)
+method JKRuntime.UI.IUiPage.get_WantsClose PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.UI.IUiPageInputPolicy.get_HandlesCancel PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract, SpecialName System.Boolean()
+method JKRuntime.UI.MerchantDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.String,System.Int32,System.Func`1<System.Boolean>,System.Func`1<System.Collections.Generic.IList`1<JKRuntime.UI.MerchantOfferDefinition>>,System.Func`1<System.Collections.Generic.IList`1<JKRuntime.UI.MerchantExchangeDefinition>>)
+method JKRuntime.UI.MerchantDefinition.get_GetExchanges PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Collections.Generic.IList`1<JKRuntime.UI.MerchantExchangeDefinition>>()
+method JKRuntime.UI.MerchantDefinition.get_GetOffers PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Collections.Generic.IList`1<JKRuntime.UI.MerchantOfferDefinition>>()
+method JKRuntime.UI.MerchantDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.MerchantDefinition.get_InteractionLabel PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.MerchantDefinition.get_IsAvailable PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.MerchantDefinition.get_Priority PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.MerchantDefinition.get_Title PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.MerchantExchangeDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.Int32,System.String,System.Int32)
+method JKRuntime.UI.MerchantExchangeDefinition.get_FromAmount PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.MerchantExchangeDefinition.get_FromCurrencyId PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.MerchantExchangeDefinition.get_ToAmount PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.MerchantExchangeDefinition.get_ToCurrencyId PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.MerchantOfferDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.String,JumpKing.MiscEntities.WorldItems.Items,System.Int32,Microsoft.Xna.Framework.Color,System.Action,System.Func`1<System.Boolean>,System.Action`1<Microsoft.Xna.Framework.Rectangle>)
+method JKRuntime.UI.MerchantOfferDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.String,System.String,System.Func`1<System.Int32>,Microsoft.Xna.Framework.Color,System.Action,System.Func`1<System.Boolean>,System.Func`1<System.Boolean>,System.Action`1<Microsoft.Xna.Framework.Rectangle>,System.Action)
+method JKRuntime.UI.MerchantOfferDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.String,System.String,System.Int32,Microsoft.Xna.Framework.Color,System.Action,System.Func`1<System.Boolean>,System.Action`1<Microsoft.Xna.Framework.Rectangle>)
+method JKRuntime.UI.MerchantOfferDefinition.get_CanPurchase PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.MerchantOfferDefinition.get_Color PrivateScope, Public, HideBySig, SpecialName Microsoft.Xna.Framework.Color()
+method JKRuntime.UI.MerchantOfferDefinition.get_Currency PrivateScope, Public, HideBySig, SpecialName JumpKing.MiscEntities.WorldItems.Items()
+method JKRuntime.UI.MerchantOfferDefinition.get_CurrencyId PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.MerchantOfferDefinition.get_Description PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.MerchantOfferDefinition.get_DrawIcon PrivateScope, Public, HideBySig, SpecialName System.Action`1<Microsoft.Xna.Framework.Rectangle>()
+method JKRuntime.UI.MerchantOfferDefinition.get_GetPrice PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Int32>()
+method JKRuntime.UI.MerchantOfferDefinition.get_Grant PrivateScope, Public, HideBySig, SpecialName System.Action()
+method JKRuntime.UI.MerchantOfferDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.MerchantOfferDefinition.get_IsOwned PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.MerchantOfferDefinition.get_Name PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.MerchantOfferDefinition.get_Price PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.MerchantOfferDefinition.get_Revoke PrivateScope, Public, HideBySig, SpecialName System.Action()
+method JKRuntime.UI.ModEntry.BeforeLevelLoad PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.UI.ModEntry.InitializeMenuInput PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.UI.ModEntry.MainMenuControls PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.ModEntry.MainMenuDebugActions PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.ModEntry.MainMenuPinnedSettings PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.ModEntry.MainMenuRuntime PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.ModEntry.MainMenuSettings PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.ModEntry.OnLevelEnd PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.UI.ModEntry.OnLevelStart PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.UI.ModEntry.OnLevelUnload PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.UI.ModEntry.PauseMenuControls PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.ModEntry.PauseMenuDebugActions PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.ModEntry.PauseMenuPinnedSettings PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.ModEntry.PauseMenuRuntime PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.ModEntry.PauseMenuSettings PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.Object,JumpKing.PauseMenu.GuiFormat)
+method JKRuntime.UI.SettingToggle..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(JKRuntime.Settings.Setting`1<System.Boolean>,System.String)
+method JKRuntime.UI.SettingToggle.Draw PrivateScope, Public, Virtual, HideBySig System.Void(System.Int32,System.Int32,System.Boolean)
+method JKRuntime.UI.SettingToggle.GetSize PrivateScope, Public, Virtual, HideBySig Microsoft.Xna.Framework.Point()
+method JKRuntime.UI.SettingToggle.OnToggle PrivateScope, Family, Virtual, HideBySig System.Void()
+method JKRuntime.UI.UIApi.ClosePauseMenu PrivateScope, Public, Static, HideBySig System.Void()
+method JKRuntime.UI.UIApi.ContinueFromMainMenu PrivateScope, Public, Static, HideBySig System.Boolean(System.Object)
+method JKRuntime.UI.UIApi.CreateCompactGrid PrivateScope, Public, Static, HideBySig BehaviorTree.IBTnode(System.Object,System.Collections.Generic.IEnumerable`1<JKRuntime.UI.UiCompactGridItemDefinition>)
+method JKRuntime.UI.UIApi.CreateFeedbackButton PrivateScope, Public, Static, HideBySig JumpKing.PauseMenu.BT.TextButton(System.String,System.Func`1<JKRuntime.UI.UiMenuActionResult>)
+method JKRuntime.UI.UIApi.CreateMenuPage PrivateScope, Public, Static, HideBySig BehaviorTree.IBTnode(System.Object,JKRuntime.UI.IUiPage)
+method JKRuntime.UI.UIApi.GetBindings PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.UiBindingDefinition>()
+method JKRuntime.UI.UIApi.GetCurrencies PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.UiCurrencyDefinition>()
+method JKRuntime.UI.UIApi.GetDebugActions PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.UiDebugActionDefinition>()
+method JKRuntime.UI.UIApi.GetInputActions PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.UiInputActionDefinition>()
+method JKRuntime.UI.UIApi.GetInteractions PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.WorldInteraction>()
+method JKRuntime.UI.UIApi.GetInventoryItems PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.UiInventoryItemDefinition>()
+method JKRuntime.UI.UIApi.GetMainMenuItems PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.UiMainMenuItemDefinition>()
+method JKRuntime.UI.UIApi.GetMerchantOffers PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.MerchantOfferDefinition>()
+method JKRuntime.UI.UIApi.GetModSettings PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.UiModSettingInfo>()
+method JKRuntime.UI.UIApi.GetPauseMenuItems PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.UiPauseMenuItemDefinition>()
+method JKRuntime.UI.UIApi.NotifyInventoryItemChanged PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.Open PrivateScope, Public, Static, HideBySig System.Boolean(JKRuntime.UI.IUiPage)
+method JKRuntime.UI.UIApi.Open PrivateScope, Public, Static, HideBySig System.Boolean(JKRuntime.UI.IUiPage,JKRuntime.UI.UiModalOptions)
+method JKRuntime.UI.UIApi.RegisterBinding PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.UiBindingDefinition)
+method JKRuntime.UI.UIApi.RegisterCurrency PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.UiCurrencyDefinition)
+method JKRuntime.UI.UIApi.RegisterDebugAction PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.UiDebugActionDefinition)
+method JKRuntime.UI.UIApi.RegisterInputAction PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.UiInputActionDefinition)
+method JKRuntime.UI.UIApi.RegisterInteraction PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.WorldInteraction)
+method JKRuntime.UI.UIApi.RegisterInventoryItem PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.UiInventoryItemDefinition)
+method JKRuntime.UI.UIApi.RegisterMainMenuItem PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.UiMainMenuItemDefinition)
+method JKRuntime.UI.UIApi.RegisterMerchant PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.MerchantDefinition)
+method JKRuntime.UI.UIApi.RegisterMerchantOffer PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.MerchantOfferDefinition)
+method JKRuntime.UI.UIApi.RegisterModSettingLabel PrivateScope, Public, Static, HideBySig System.Void(System.String,System.String)
+method JKRuntime.UI.UIApi.RegisterPauseMenuItem PrivateScope, Public, Static, HideBySig System.Void(JKRuntime.UI.UiPauseMenuItemDefinition)
+method JKRuntime.UI.UIApi.ResolvePhysicalBinding PrivateScope, Public, Static, HideBySig System.Int32[][](JumpKing.Controller.PadInstance,System.Int32[])
+method JKRuntime.UI.UIApi.ReturnToMainMenu PrivateScope, Public, Static, HideBySig System.Boolean()
+method JKRuntime.UI.UIApi.SetModSettingBindable PrivateScope, Public, Static, HideBySig System.Void(System.String,System.Boolean)
+method JKRuntime.UI.UIApi.SetModSettingPinned PrivateScope, Public, Static, HideBySig System.Void(System.String,System.Boolean)
+method JKRuntime.UI.UIApi.Supports PrivateScope, Public, Static, HideBySig System.Boolean(System.String)
+method JKRuntime.UI.UIApi.TryGetCurrency PrivateScope, Public, Static, HideBySig System.Boolean(System.String,JKRuntime.UI.UiCurrencyDefinition& out)
+method JKRuntime.UI.UIApi.UnregisterBinding PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterCurrency PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterDebugAction PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterInputAction PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterInteraction PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterInventoryItem PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterMainMenuItem PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterMerchant PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterMerchantOffer PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterModSettingLabel PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.UnregisterPauseMenuItem PrivateScope, Public, Static, HideBySig System.Void(System.String)
+method JKRuntime.UI.UIApi.VanillaCurrencyId PrivateScope, Public, Static, HideBySig System.String(JumpKing.MiscEntities.WorldItems.Items)
+method JKRuntime.UI.UIApi.get_CompactModGridEnabled PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UIApi.get_CompactWorkshopGridsEnabled PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UIApi.get_IsOpen PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UIApi.get_ModalDepth PrivateScope, Public, Static, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.UIApiSettings..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.UI.UIApiSettings.get_BindableSettings PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.UI.UIApiSettings.get_BindingChords PrivateScope, Public, HideBySig, SpecialName JKRuntime.UI.UiChordSettingsEntry[]()
+method JKRuntime.UI.UIApiSettings.get_InteractChords PrivateScope, Public, HideBySig, SpecialName System.Int32[][]()
+method JKRuntime.UI.UIApiSettings.get_PinnedSettings PrivateScope, Public, HideBySig, SpecialName System.String[]()
+method JKRuntime.UI.UIApiSettings.get_UseCompactWorkshopGrids PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UIApiSettings.set_BindableSettings PrivateScope, Public, HideBySig, SpecialName System.Void(System.String[])
+method JKRuntime.UI.UIApiSettings.set_BindingChords PrivateScope, Public, HideBySig, SpecialName System.Void(JKRuntime.UI.UiChordSettingsEntry[])
+method JKRuntime.UI.UIApiSettings.set_InteractChords PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32[][])
+method JKRuntime.UI.UIApiSettings.set_PinnedSettings PrivateScope, Public, HideBySig, SpecialName System.Void(System.String[])
+method JKRuntime.UI.UIApiSettings.set_UseCompactWorkshopGrids PrivateScope, Public, HideBySig, SpecialName System.Void(System.Boolean)
+method JKRuntime.UI.UiBindingDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.String,System.Func`1<JKRuntime.UI.UiChord[]>,System.Action`1<JKRuntime.UI.UiChord[]>,System.Action)
+method JKRuntime.UI.UiBindingDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.String,System.Func`1<System.Int32[]>,System.Action`1<System.Int32[]>,System.Action)
+method JKRuntime.UI.UiBindingDefinition.get_GetBindings PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Int32[]>()
+method JKRuntime.UI.UiBindingDefinition.get_GetChords PrivateScope, Public, HideBySig, SpecialName System.Func`1<JKRuntime.UI.UiChord[]>()
+method JKRuntime.UI.UiBindingDefinition.get_Group PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiBindingDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiBindingDefinition.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiBindingDefinition.get_Reset PrivateScope, Public, HideBySig, SpecialName System.Action()
+method JKRuntime.UI.UiBindingDefinition.get_SetBindings PrivateScope, Public, HideBySig, SpecialName System.Action`1<System.Int32[]>()
+method JKRuntime.UI.UiBindingDefinition.get_SetChords PrivateScope, Public, HideBySig, SpecialName System.Action`1<JKRuntime.UI.UiChord[]>()
+method JKRuntime.UI.UiBindingDefinition.get_SupportsChords PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UiChord..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Int32[])
+method JKRuntime.UI.UiChord.FromAlternatives PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiChord[](System.Int32[])
+method JKRuntime.UI.UiChord.ToAlternatives PrivateScope, Public, Static, HideBySig System.Int32[](JKRuntime.UI.UiChord[])
+method JKRuntime.UI.UiChord.get_Buttons PrivateScope, Public, HideBySig, SpecialName System.Int32[]()
+method JKRuntime.UI.UiChord.get_IsEmpty PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UiChordSettingsEntry..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.UI.UiChordSettingsEntry.get_Chords PrivateScope, Public, HideBySig, SpecialName System.Int32[][]()
+method JKRuntime.UI.UiChordSettingsEntry.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiChordSettingsEntry.set_Chords PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32[][])
+method JKRuntime.UI.UiChordSettingsEntry.set_Id PrivateScope, Public, HideBySig, SpecialName System.Void(System.String)
+method JKRuntime.UI.UiCommand..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String)
+method JKRuntime.UI.UiCompactGridItemDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,BehaviorTree.IBTnode,System.String,System.Func`1<System.Boolean>)
+method JKRuntime.UI.UiCompactGridItemDefinition.get_Child PrivateScope, Public, HideBySig, SpecialName BehaviorTree.IBTnode()
+method JKRuntime.UI.UiCompactGridItemDefinition.get_IsVisible PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.UiCompactGridItemDefinition.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiCompactGridItemDefinition.get_Subtitle PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiCurrencyDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.String,System.Int32,System.Func`1<System.Int32>,System.Func`2<System.Int32,System.Boolean>,System.Action`1<System.Int32>,System.Action`1<Microsoft.Xna.Framework.Rectangle>)
+method JKRuntime.UI.UiCurrencyDefinition.GetName PrivateScope, Public, HideBySig System.String(System.Int32)
+method JKRuntime.UI.UiCurrencyDefinition.get_DrawIcon PrivateScope, Public, HideBySig, SpecialName System.Action`1<Microsoft.Xna.Framework.Rectangle>()
+method JKRuntime.UI.UiCurrencyDefinition.get_ExchangeUnit PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.UiCurrencyDefinition.get_GetBalance PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Int32>()
+method JKRuntime.UI.UiCurrencyDefinition.get_Grant PrivateScope, Public, HideBySig, SpecialName System.Action`1<System.Int32>()
+method JKRuntime.UI.UiCurrencyDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiCurrencyDefinition.get_Name PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiCurrencyDefinition.get_PluralName PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiCurrencyDefinition.get_Spend PrivateScope, Public, HideBySig, SpecialName System.Func`2<System.Int32,System.Boolean>()
+method JKRuntime.UI.UiDebugActionDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.String,System.Action,System.Func`1<System.Boolean>)
+method JKRuntime.UI.UiDebugActionDefinition.get_Execute PrivateScope, Public, HideBySig, SpecialName System.Action()
+method JKRuntime.UI.UiDebugActionDefinition.get_Group PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiDebugActionDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiDebugActionDefinition.get_IsAvailable PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.UiDebugActionDefinition.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiFrame..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(Microsoft.Xna.Framework.Rectangle)
+method JKRuntime.UI.UiFrame.Draw PrivateScope, Public, HideBySig System.Void()
+method JKRuntime.UI.UiFrame.get_Bounds PrivateScope, Public, HideBySig, SpecialName Microsoft.Xna.Framework.Rectangle()
+method JKRuntime.UI.UiFrame.set_Bounds PrivateScope, Public, HideBySig, SpecialName System.Void(Microsoft.Xna.Framework.Rectangle)
+method JKRuntime.UI.UiInputActionDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.Int32,System.Func`1<System.Int32[]>,System.Func`1<System.Boolean>,System.Action)
+method JKRuntime.UI.UiInputActionDefinition.FromChords PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiInputActionDefinition(System.String,System.String,System.Int32,System.Func`1<JKRuntime.UI.UiChord[]>,System.Func`1<System.Boolean>,System.Action)
+method JKRuntime.UI.UiInputActionDefinition.get_Execute PrivateScope, Public, HideBySig, SpecialName System.Action()
+method JKRuntime.UI.UiInputActionDefinition.get_GetBindings PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Int32[]>()
+method JKRuntime.UI.UiInputActionDefinition.get_GetChords PrivateScope, Public, HideBySig, SpecialName System.Func`1<JKRuntime.UI.UiChord[]>()
+method JKRuntime.UI.UiInputActionDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiInputActionDefinition.get_IsAvailable PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.UiInputActionDefinition.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiInputActionDefinition.get_Priority PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.UiInputHints.Command PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiCommand(JKRuntime.UI.UiAction,System.String)
+method JKRuntime.UI.UiInputHints.Command PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiCommand(JumpKing.Controller.JKpadButtons,System.String)
+method JKRuntime.UI.UiInputHints.Key PrivateScope, Public, Static, HideBySig System.String(JKRuntime.UI.UiAction)
+method JKRuntime.UI.UiInputHints.Key PrivateScope, Public, Static, HideBySig System.String(JumpKing.Controller.JKpadButtons)
+method JKRuntime.UI.UiInputHints.Key PrivateScope, Public, Static, HideBySig System.String(JumpKing.Controller.PadInstance,JKRuntime.UI.UiAction)
+method JKRuntime.UI.UiInventoryItemDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.String,Microsoft.Xna.Framework.Color,System.Func`1<System.Int32>,System.Func`1<System.Boolean>,System.Func`1<System.Boolean>,System.Func`1<System.String>,System.Func`1<System.Boolean>,System.String)
+method JKRuntime.UI.UiInventoryItemDefinition.Equipment PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiInventoryItemDefinition(System.String,System.String,System.String,Microsoft.Xna.Framework.Color,System.Func`1<System.Int32>,System.Func`1<System.Boolean>,System.Func`2<System.Boolean,System.Boolean>,System.Func`1<System.Boolean>,System.Func`1<System.Boolean>,System.String)
+method JKRuntime.UI.UiInventoryItemDefinition.get_Activate PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.UiInventoryItemDefinition.get_CanActivate PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.UiInventoryItemDefinition.get_Color PrivateScope, Public, HideBySig, SpecialName Microsoft.Xna.Framework.Color()
+method JKRuntime.UI.UiInventoryItemDefinition.get_Description PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiInventoryItemDefinition.get_GetActionLabel PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.String>()
+method JKRuntime.UI.UiInventoryItemDefinition.get_GetCount PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Int32>()
+method JKRuntime.UI.UiInventoryItemDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiInventoryItemDefinition.get_IsEquipment PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UiInventoryItemDefinition.get_IsEquipped PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.UiInventoryItemDefinition.get_IsVisible PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.UiInventoryItemDefinition.get_Name PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiInventoryItemDefinition.get_PluralName PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiInventoryItemDefinition.get_SetEquipped PrivateScope, Public, HideBySig, SpecialName System.Func`2<System.Boolean,System.Boolean>()
+method JKRuntime.UI.UiListViewport..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.UI.UiListViewport.FirstVisible PrivateScope, Public, HideBySig System.Int32(System.Int32,System.Int32,System.Int32)
+method JKRuntime.UI.UiListViewport.FollowSelection PrivateScope, Public, HideBySig System.Void(System.Int32,System.Int32,System.Int32)
+method JKRuntime.UI.UiListViewport.Reset PrivateScope, Public, HideBySig System.Void()
+method JKRuntime.UI.UiListViewport.Scroll PrivateScope, Public, HideBySig System.Int32(System.Int32,System.Int32,System.Int32,System.Int32)
+method JKRuntime.UI.UiMainMenuItemDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,JKRuntime.UI.UiMainMenuPlacement,System.Func`2<System.Object,BehaviorTree.IBTnode>)
+method JKRuntime.UI.UiMainMenuItemDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,JKRuntime.UI.UiMainMenuPlacement,System.Int32,System.Func`2<System.Object,BehaviorTree.IBTnode>)
+method JKRuntime.UI.UiMainMenuItemDefinition.Page PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiMainMenuItemDefinition(System.String,System.String,JKRuntime.UI.UiMainMenuPlacement,System.Int32,System.Func`2<JKRuntime.UI.UiMenuContext,JKRuntime.UI.IUiPage>)
+method JKRuntime.UI.UiMainMenuItemDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiMainMenuItemDefinition.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiMainMenuItemDefinition.get_Placement PrivateScope, Public, HideBySig, SpecialName JKRuntime.UI.UiMainMenuPlacement()
+method JKRuntime.UI.UiMainMenuItemDefinition.get_Priority PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.UiMenuActionResult.Completed PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiMenuActionResult()
+method JKRuntime.UI.UiMenuActionResult.Completed PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiMenuActionResult(System.String,System.Single)
+method JKRuntime.UI.UiMenuActionResult.Rejected PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiMenuActionResult()
+method JKRuntime.UI.UiMenuActionResult.get_FeedbackDurationSeconds PrivateScope, Public, HideBySig, SpecialName System.Single()
+method JKRuntime.UI.UiMenuActionResult.get_FeedbackLabel PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiMenuActionResult.get_Succeeded PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UiMenuContext.ContinueGame PrivateScope, Public, HideBySig System.Boolean()
+method JKRuntime.UI.UiMenuContext.Open PrivateScope, Public, HideBySig System.Boolean(JKRuntime.UI.IUiPage)
+method JKRuntime.UI.UiModSettingInfo.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiModSettingInfo.get_IsBindable PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UiModSettingInfo.get_IsPinned PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UiModSettingInfo.get_IsToggle PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UiModSettingInfo.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiModSettingInfo.get_ModName PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiModalOptions..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.Boolean)
+method JKRuntime.UI.UiModalOptions.get_DimBackground PrivateScope, Public, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UiPauseMenuItemDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,JKRuntime.UI.UiPauseMenuPlacement,System.Func`2<System.Object,BehaviorTree.IBTnode>)
+method JKRuntime.UI.UiPauseMenuItemDefinition..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,JKRuntime.UI.UiPauseMenuPlacement,System.Int32,System.Func`2<System.Object,BehaviorTree.IBTnode>)
+method JKRuntime.UI.UiPauseMenuItemDefinition.Action PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiPauseMenuItemDefinition(System.String,System.String,JKRuntime.UI.UiPauseMenuPlacement,System.Int32,System.Func`1<System.Boolean>)
+method JKRuntime.UI.UiPauseMenuItemDefinition.FeedbackAction PrivateScope, Public, Static, HideBySig JKRuntime.UI.UiPauseMenuItemDefinition(System.String,System.String,JKRuntime.UI.UiPauseMenuPlacement,System.Int32,System.Func`1<JKRuntime.UI.UiMenuActionResult>)
+method JKRuntime.UI.UiPauseMenuItemDefinition.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiPauseMenuItemDefinition.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiPauseMenuItemDefinition.get_Placement PrivateScope, Public, HideBySig, SpecialName JKRuntime.UI.UiPauseMenuPlacement()
+method JKRuntime.UI.UiPauseMenuItemDefinition.get_Priority PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.UiPointer.ActionRegion PrivateScope, Public, Static, HideBySig System.Void(Microsoft.Xna.Framework.Rectangle,JKRuntime.UI.UiAction,System.Action)
+method JKRuntime.UI.UiPointer.BeginSurface PrivateScope, Public, Static, HideBySig System.Void(System.Object,System.Boolean)
+method JKRuntime.UI.UiPointer.Region PrivateScope, Public, Static, HideBySig System.Void(Microsoft.Xna.Framework.Rectangle,System.Action,System.Action)
+method JKRuntime.UI.UiPointer.ScrollRegion PrivateScope, Public, Static, HideBySig System.Void(Microsoft.Xna.Framework.Rectangle,System.Action`1<System.Int32>)
+method JKRuntime.UI.UiPointer.get_Position PrivateScope, Public, Static, HideBySig, SpecialName Microsoft.Xna.Framework.Point()
+method JKRuntime.UI.UiPointer.get_Visible PrivateScope, Public, Static, HideBySig, SpecialName System.Boolean()
+method JKRuntime.UI.UiRegistrationScope..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String)
+method JKRuntime.UI.UiRegistrationScope.Dispose PrivateScope, Public, Final, Virtual, HideBySig, VtableLayoutMask System.Void()
+method JKRuntime.UI.UiRegistrationScope.RegisterBinding PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.UiBindingDefinition)
+method JKRuntime.UI.UiRegistrationScope.RegisterCurrency PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.UiCurrencyDefinition)
+method JKRuntime.UI.UiRegistrationScope.RegisterDebugAction PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.UiDebugActionDefinition)
+method JKRuntime.UI.UiRegistrationScope.RegisterInputAction PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.UiInputActionDefinition)
+method JKRuntime.UI.UiRegistrationScope.RegisterInteraction PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.WorldInteraction)
+method JKRuntime.UI.UiRegistrationScope.RegisterInventoryItem PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.UiInventoryItemDefinition)
+method JKRuntime.UI.UiRegistrationScope.RegisterMainMenuItem PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.UiMainMenuItemDefinition)
+method JKRuntime.UI.UiRegistrationScope.RegisterMerchant PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.MerchantDefinition)
+method JKRuntime.UI.UiRegistrationScope.RegisterMerchantOffer PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.MerchantOfferDefinition)
+method JKRuntime.UI.UiRegistrationScope.RegisterModSettingLabel PrivateScope, Public, HideBySig System.Void(System.String,System.String)
+method JKRuntime.UI.UiRegistrationScope.RegisterPauseMenuItem PrivateScope, Public, HideBySig System.Void(JKRuntime.UI.UiPauseMenuItemDefinition)
+method JKRuntime.UI.UiRegistrationScope.get_OwnerId PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.UiTheme.CommandBar PrivateScope, Public, Static, HideBySig System.Void(Microsoft.Xna.Framework.Rectangle,JKRuntime.UI.UiCommand[])
+method JKRuntime.UI.UiTheme.DrawText PrivateScope, Public, Static, HideBySig System.Void(Microsoft.Xna.Framework.Graphics.SpriteFont,System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color)
+method JKRuntime.UI.UiTheme.FitText PrivateScope, Public, Static, HideBySig System.String(System.String,System.Int32,System.Boolean)
+method JKRuntime.UI.UiTheme.FooterRow PrivateScope, Public, Static, HideBySig Microsoft.Xna.Framework.Rectangle(Microsoft.Xna.Framework.Rectangle,System.Int32)
+method JKRuntime.UI.UiTheme.Keycap PrivateScope, Public, Static, HideBySig System.Void(System.String,Microsoft.Xna.Framework.Rectangle,System.Boolean)
+method JKRuntime.UI.UiTheme.NormalizeKey PrivateScope, Public, Static, HideBySig System.String(System.String)
+method JKRuntime.UI.UiTheme.Panel PrivateScope, Public, Static, HideBySig System.Void(Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color,Microsoft.Xna.Framework.Color)
+method JKRuntime.UI.UiTheme.SnapTextPosition PrivateScope, Public, Static, HideBySig Microsoft.Xna.Framework.Vector2(Microsoft.Xna.Framework.Vector2)
+method JKRuntime.UI.UiTheme.Tab PrivateScope, Public, Static, HideBySig System.Void(System.String,Microsoft.Xna.Framework.Rectangle,System.Boolean)
+method JKRuntime.UI.UiTheme.TextLine PrivateScope, Public, Static, HideBySig System.Void(System.String,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Boolean)
+method JKRuntime.UI.UiTheme.WrappedText PrivateScope, Public, Static, HideBySig System.Void(System.String,Microsoft.Xna.Framework.Rectangle,Microsoft.Xna.Framework.Color)
+method JKRuntime.UI.WorldInteraction..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.Int32,System.Func`1<System.Boolean>,System.Action)
+method JKRuntime.UI.WorldInteraction..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor(System.String,System.String,System.Int32,System.Int32,System.Func`1<System.Boolean>,System.Action)
+method JKRuntime.UI.WorldInteraction.Action PrivateScope, Public, Static, HideBySig JKRuntime.UI.WorldInteraction(System.String,System.String,System.Int32,System.Func`1<System.Boolean>,System.Action)
+method JKRuntime.UI.WorldInteraction.Page PrivateScope, Public, Static, HideBySig JKRuntime.UI.WorldInteraction(System.String,System.String,System.Int32,System.Func`1<System.Boolean>,System.Func`1<JKRuntime.UI.IUiPage>)
+method JKRuntime.UI.WorldInteraction.ScreenAction PrivateScope, Public, Static, HideBySig JKRuntime.UI.WorldInteraction(System.String,System.String,System.Int32,System.Int32,System.Func`1<System.Boolean>,System.Action)
+method JKRuntime.UI.WorldInteraction.ScreenPage PrivateScope, Public, Static, HideBySig JKRuntime.UI.WorldInteraction(System.String,System.String,System.Int32,System.Int32,System.Func`1<System.Boolean>,System.Func`1<JKRuntime.UI.IUiPage>)
+method JKRuntime.UI.WorldInteraction.get_Activate PrivateScope, Public, HideBySig, SpecialName System.Action()
+method JKRuntime.UI.WorldInteraction.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.WorldInteraction.get_IsAvailable PrivateScope, Public, HideBySig, SpecialName System.Func`1<System.Boolean>()
+method JKRuntime.UI.WorldInteraction.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.WorldInteraction.get_Priority PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.WorldInteraction.get_Screen PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.WorldInteractionContext.PlayerIntersectsScreenArea PrivateScope, Public, Static, HideBySig System.Boolean(System.Int32,Microsoft.Xna.Framework.Rectangle)
+method JKRuntime.UI.WorldInteractionContext.get_Player PrivateScope, Public, Static, HideBySig, SpecialName JumpKing.Player.PlayerEntity()
+method JKRuntime.UI.WorldInteractionFile..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.UI.WorldInteractionFile.get_Points PrivateScope, Public, HideBySig, SpecialName JKRuntime.UI.WorldInteractionPoint[]()
+method JKRuntime.UI.WorldInteractionFile.get_Version PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.WorldInteractionFile.set_Points PrivateScope, Public, HideBySig, SpecialName System.Void(JKRuntime.UI.WorldInteractionPoint[])
+method JKRuntime.UI.WorldInteractionFile.set_Version PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32)
+method JKRuntime.UI.WorldInteractionMap.LoadLevel PrivateScope, Public, Static, HideBySig System.Collections.Generic.IList`1<JKRuntime.UI.WorldInteractionPoint>(System.String)
+method JKRuntime.UI.WorldInteractionMap.Require PrivateScope, Public, Static, HideBySig JKRuntime.UI.WorldInteractionPoint(System.Collections.Generic.IList`1<JKRuntime.UI.WorldInteractionPoint>,System.String)
+method JKRuntime.UI.WorldInteractionPoint..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.UI.WorldInteractionPoint.CreateAction PrivateScope, Public, HideBySig JKRuntime.UI.WorldInteraction(System.Action)
+method JKRuntime.UI.WorldInteractionPoint.CreatePage PrivateScope, Public, HideBySig JKRuntime.UI.WorldInteraction(System.Func`1<JKRuntime.UI.IUiPage>)
+method JKRuntime.UI.WorldInteractionPoint.GetLocalArea PrivateScope, Public, HideBySig Microsoft.Xna.Framework.Rectangle()
+method JKRuntime.UI.WorldInteractionPoint.GetWorldArea PrivateScope, Public, HideBySig Microsoft.Xna.Framework.Rectangle()
+method JKRuntime.UI.WorldInteractionPoint.IsPlayerInside PrivateScope, Public, HideBySig System.Boolean()
+method JKRuntime.UI.WorldInteractionPoint.get_Height PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.WorldInteractionPoint.get_Id PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.WorldInteractionPoint.get_Label PrivateScope, Public, HideBySig, SpecialName System.String()
+method JKRuntime.UI.WorldInteractionPoint.get_Priority PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.WorldInteractionPoint.get_Screen PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.WorldInteractionPoint.get_Width PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.WorldInteractionPoint.get_X PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.WorldInteractionPoint.get_Y PrivateScope, Public, HideBySig, SpecialName System.Int32()
+method JKRuntime.UI.WorldInteractionPoint.set_Height PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32)
+method JKRuntime.UI.WorldInteractionPoint.set_Id PrivateScope, Public, HideBySig, SpecialName System.Void(System.String)
+method JKRuntime.UI.WorldInteractionPoint.set_Label PrivateScope, Public, HideBySig, SpecialName System.Void(System.String)
+method JKRuntime.UI.WorldInteractionPoint.set_Priority PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32)
+method JKRuntime.UI.WorldInteractionPoint.set_Screen PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32)
+method JKRuntime.UI.WorldInteractionPoint.set_Width PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32)
+method JKRuntime.UI.WorldInteractionPoint.set_X PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32)
+method JKRuntime.UI.WorldInteractionPoint.set_Y PrivateScope, Public, HideBySig, SpecialName System.Void(System.Int32)
+method JKRuntime.UI.WorldScreen.IsCurrent PrivateScope, Public, Static, HideBySig System.Boolean(System.Int32)
+method JKRuntime.UI.WorldScreen.PlayerIntersects PrivateScope, Public, Static, HideBySig System.Boolean(System.Int32,Microsoft.Xna.Framework.Rectangle)
+method JKRuntime.UI.WorldScreen.ToWorldPosition PrivateScope, Public, Static, HideBySig Microsoft.Xna.Framework.Vector2(System.Int32,Microsoft.Xna.Framework.Vector2)
+method JKRuntime.UI.WorldScreen.ValidatePoint PrivateScope, Public, Static, HideBySig System.Void(System.Int32,System.Single,System.Single,System.String)
+method JKRuntime.UiServices..ctor PrivateScope, Public, HideBySig, SpecialName, RTSpecialName ctor()
+method JKRuntime.UiServices.CreateScope PrivateScope, Public, HideBySig JKRuntime.UI.UiRegistrationScope(System.String)
+method JKRuntime.UiServices.ResolvePhysicalBinding PrivateScope, Public, HideBySig System.Int32[][](JumpKing.Controller.PadInstance,System.Int32[])
+method JKRuntime.UiServices.Supports PrivateScope, Public, HideBySig System.Boolean(System.String)
+method JKRuntime.UiServices.get_Version PrivateScope, Public, HideBySig, SpecialName System.String()
+type JKRuntime.CapabilityDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.CapabilityRequirement AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.GameContract AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.AreaEntryObserver AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.BodyPhase AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.BodyPipeline AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.ComponentSuspension AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Gameplay.GameFeatures AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Gameplay.GameplayEvent AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.GameplayEventKind AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.GameplayEvents AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Gameplay.IAirThrust AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.Gameplay.IMovementRules AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.Gameplay.IPlayerForm AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.Gameplay.JumpEvents AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Gameplay.JumpEvidence AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.JumpNodeBindings AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.JumpOutcome AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.JumpResult AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.JumpSlot AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Gameplay.MechanicComposition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.MechanicDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.MechanicEffects AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.MechanicInfo AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.MechanicRegistry AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.MechanicSource AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.MechanicState AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.MovementMode AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.NativePause AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Gameplay.PresentationActivity AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Gameplay.RunModifierRecord AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.RunModifierSource AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Gameplay.RunModifiers AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Geometry.BlockCatalog AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Geometry.BlockCatalog+CatalogData AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Geometry.BlockCatalog+Factory AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Geometry.BlockCatalog+Reservation AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Geometry.BlockDeclaration AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Geometry.BlockVariant AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Geometry.GeometryProvider AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Geometry.GeometryRegistry AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Geometry.NativeWorldGeometry AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Input.ActionFrame AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Input.ActionInputs AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Input.BindingSnapshot AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Input.DirectInputDevice AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Input.DirectInputJumpBinding AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Input.DirectInputPoller AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Input.HighRateInputSampler AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Input.IDirectInputChargeDevice AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.Input.IDirectInputDevice AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.Input.IHighRateInput AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.Input.InputDiagnostics AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Input.InputLog AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Input.JumpInputTransition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Input.MouseButtons AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Input.NativeXInputReader AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Input.PhysicalBindings AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Input.SharedActionSampler AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Input.XInputJumpBinding AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.ModuleContext AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.ModuleDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.ModuleStatus AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Modules.BeforeLevelLoadAttribute AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Modules.MainMenuItemSettingAttribute AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Modules.OnLevelEndAttribute AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Modules.OnLevelStartAttribute AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Modules.OnLevelUnloadAttribute AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Modules.PauseMenuItemSettingAttribute AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Modules.RuntimeModuleAttribute AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.PackageHost AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.RuntimeApi AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.RuntimeJournal AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.RuntimeNotice AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.RuntimeResources AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.RuntimeScope AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Settings.AtomicXmlFile AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Settings.Commands AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Settings.DataMigration AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Settings.Setting`1<!0> AutoLayout, AnsiClass, Class, Sealed !0:None:
+type JKRuntime.Simulation.ConformanceResult AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.INativeFlightTeleports AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.Simulation.INativeFlightWind AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.Simulation.INativeFlightWorld AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.Simulation.NativeFlightSimulation AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Simulation.NativeWind AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Simulation.SimulationConformance AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.Simulation.SimulationEvent AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationInput AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationPhase AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationPose AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationProvider AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationRegistry AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationRequirement AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationSeed AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationSession AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationSnapshot AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationStepResult AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.Simulation.SimulationTick AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.State.AttemptStamp AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.State.FieldStateParticipant AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.State.GameClock AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.State.GameClock+Lease AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.State.GameClock+State AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.State.GameState AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.State.IStateParticipant AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.State.SnapshotService AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.State.StateFields AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.State.StateSnapshot AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.CompactWorkshopGridsOption AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.IUiPage AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.UI.IUiPageInputPolicy AutoLayout, AnsiClass, Class, ClassSemanticsMask, Abstract
+type JKRuntime.UI.MerchantDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.MerchantExchangeDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.MerchantOfferDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.ModEntry AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.UI.SettingToggle NotPublic
+type JKRuntime.UI.UIApi AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.UI.UIApiSettings AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiAction AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiBindingDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiChord AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiChordSettingsEntry AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiCommand AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiCompactGridItemDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiCurrencyDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiDebugActionDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiFrame AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiInput AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiInputActionDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiInputHints AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.UI.UiInventoryItemDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiListViewport AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiMainMenuItemDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiMainMenuPlacement AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiMenuActionResult AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiMenuContext AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiModSettingInfo AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiModalOptions AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiPauseMenuItemDefinition AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiPauseMenuPlacement AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiPointer AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.UI.UiRegistrationScope AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.UiTheme AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.UI.WorldInteraction AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.WorldInteractionContext AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.UI.WorldInteractionFile AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.WorldInteractionMap AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.UI.WorldInteractionPoint AutoLayout, AnsiClass, Class, Sealed
+type JKRuntime.UI.WorldScreen AutoLayout, AnsiClass, Class, Abstract, Sealed
+type JKRuntime.UiServices AutoLayout, AnsiClass, Class, Sealed

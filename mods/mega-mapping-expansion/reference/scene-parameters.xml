@@ -1,0 +1,573 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SceneContract version="1">
+  <Type name="SceneFile">
+    <Member xml="@version" type="Int32" default="1" effect="reload" />
+    <Member xml="Options" type="SceneOptions" default="object" effect="reload" />
+    <Member xml="Textures" type="TextureData[]" default="empty" effect="reload" item="Texture" />
+    <Member xml="VectorAssets" type="VectorAssetData[]" default="empty" effect="reload" item="Asset" />
+    <Member xml="Props" type="PropData[]" default="empty" effect="reload" item="Prop" />
+    <Member xml="Nodes" type="PropData[]" default="empty" effect="reload" item="Node" />
+    <Member xml="Lights" type="LightData[]" default="empty" effect="reload" item="Light" />
+    <Member xml="Bushes" type="BushData[]" default="empty" effect="reload" item="Bush" />
+    <Member xml="Waters" type="WaterData[]" default="empty" effect="reload" item="Water" />
+    <Member xml="Fogs" type="FogData[]" default="empty" effect="reload" item="Fog" />
+    <Member xml="Emitters" type="EmitterData[]" default="empty" effect="reload" item="Emitter" />
+    <Member xml="Anchors" type="SceneAnchor[]" default="empty" effect="reload" item="Anchor" />
+    <Member xml="ScreenLooks" type="ScreenLook[]" default="empty" effect="reload" item="Screen" />
+    <Member xml="Rains" type="RainData[]" default="empty" effect="reload" item="Rain" />
+    <Member xml="Puddles" type="PuddleData[]" default="empty" effect="reload" item="Puddle" />
+    <Member xml="ShadowSurfaces" type="ShadowSurfaceData[]" default="empty" effect="reload" item="Surface" />
+    <Member xml="Surfs" type="SurfData[]" default="empty" effect="reload" item="Surf" />
+    <Member xml="Planets" type="PlanetData[]" default="empty" effect="reload" item="Planet" />
+    <Member xml="Effects" type="EffectDefinition[]" default="empty" effect="reload" item="Effect" />
+    <Member xml="Regions" type="RegionData[]" default="empty" effect="reload" item="Region" />
+    <Member xml="LightTemplates" type="LightData[]" default="empty" effect="reload" item="Light" />
+    <Member xml="Rules" type="RuleData[]" default="empty" effect="reload" item="Rule" />
+    <Member xml="BehaviorTrees" type="BehaviorTreeData[]" default="empty" effect="reload" item="Tree" />
+    <Member xml="Flags" type="FlagData[]" default="empty" effect="reload" item="Flag" />
+    <Member xml="Strings" type="MapString[]" default="empty" effect="reload" item="String" />
+    <Member xml="Texts" type="SceneText[]" default="empty" effect="reload" item="Text" />
+    <Member xml="Intro" type="IntroPage[]" default="empty" effect="reload" item="Page" />
+    <Member xml="Results" type="ResultPage[]" default="empty" effect="reload" item="Page" />
+    <Member xml="NativeActors" type="NativeActorData[]" default="empty" effect="reload" item="Actor" />
+  </Type>
+  <Type name="SceneOptions">
+    <Member xml="@saveId" type="String" default="unset" effect="reload" />
+    <Member xml="@introText" type="String" default="" effect="reload" />
+    <Member xml="@timer" type="String" default="inherit" effect="reload" />
+    <Member xml="@mirror" type="String" default="none" effect="reload" />
+    <Member xml="@tint" type="String" default="#FFFFFF" effect="color" />
+    <Member xml="@tintOpacity" type="Single" default="0" effect="0..1" />
+    <Member xml="@expectedScreens" type="Int32" default="0" effect="reload" />
+    <Member xml="@playerRimColor" type="String" default="#91D8FF" effect="reload" />
+    <Member xml="@playerRimOpacity" type="Single" default="0" effect="0..1" />
+    <Member xml="@playerRimPixels" type="Single" default="2" effect="reload" />
+    <Member xml="@advancedLighting" type="Boolean" default="false" effect="reload" />
+    <Member xml="@profiling" type="Boolean" default="false" effect="reload" />
+    <Member xml="@ambientLight" type="String" default="#FFFFFF" effect="color" />
+    <Member xml="@ambientIntensity" type="Single" default="1" effect="0..1" />
+  </Type>
+  <Type name="TextureData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@path" type="String" default="unset" effect="reload" />
+    <Member xml="@columns" type="Int32" default="1" effect="reload" />
+    <Member xml="@rows" type="Int32" default="1" effect="reload" />
+    <Member xml="@fps" type="Single" default="0" effect="reload" />
+    <Member xml="@frames" type="Int32" default="0" effect="reload" />
+    <Member xml="Page" type="TexturePageData[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="VectorAssetData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@source" type="String" default="unset" effect="reload" />
+    <Member xml="@width" type="Int32" default="64" effect="reload" />
+    <Member xml="@height" type="Int32" default="64" effect="reload" />
+    <Member xml="@supersample" type="Int32" default="2" effect="reload" />
+    <Member xml="@clipPath" type="String" default="" effect="reload" />
+    <Member xml="@clipMode" type="String" default="none" effect="reload" />
+    <Member xml="@edgeBleed" type="Single" default="0" effect="reload" />
+    <Member xml="@pixelSnap" type="Boolean" default="false" effect="reload" />
+    <Member xml="@alphaCutoff" type="Single" default="0" effect="reload" />
+    <Member xml="Shape" type="VectorShapeData[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="PropData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@texture" type="String" default="unset" effect="choice (declared asset IDs or enum)" />
+    <Member xml="@visible" type="Boolean" default="true" effect="boolean" />
+    <Member xml="@attach" type="String" default="unset" effect="reload" />
+    <Member xml="@offsetX" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@offsetY" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@sampling" type="String" default="point" effect="reload" />
+    <Member xml="@asset" type="String" default="unset" effect="choice (declared asset IDs or enum)" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@y" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@layer" type="String" default="world" effect="reload" />
+    <Member xml="@trigger" type="String" default="level-start" effect="reload" />
+    <Member xml="@motion" type="String" default="none" effect="choice (declared asset IDs or enum)" />
+    <Member xml="@loop" type="String" default="loop" effect="reload" />
+    <Member xml="@duration" type="Single" default="2" effect="0.001..86400" />
+    <Member xml="@delay" type="Single" default="0" effect="reload" />
+    <Member xml="@amplitudeX" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@amplitudeY" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@degrees" type="Single" default="0" effect="-36000..36000" />
+    <Member xml="@rotation" type="Single" default="0" effect="-36000..36000" />
+    <Member xml="@scale" type="Single" default="1" effect="0.001..32" />
+    <Member xml="@scaleX" type="Single" default="1" effect="0.001..32" />
+    <Member xml="@scaleY" type="Single" default="1" effect="0.001..32" />
+    <Member xml="@opacity" type="Single" default="1" effect="0..1" />
+    <Member xml="@tint" type="String" default="#FFFFFF" effect="color" />
+    <Member xml="@depth" type="Single" default="1" effect="reload" />
+    <Member xml="@originX" type="Single" default="-1" effect="reload" />
+    <Member xml="@originY" type="Single" default="-1" effect="reload" />
+    <Member xml="@flipX" type="Boolean" default="false" effect="reload" />
+    <Member xml="@flipY" type="Boolean" default="false" effect="reload" />
+    <Member xml="@reactRadius" type="Single" default="0" effect="reload" />
+    <Member xml="@reactStrength" type="Single" default="0" effect="reload" />
+    <Member xml="@flex" type="Boolean" default="false" effect="reload" />
+    <Member xml="@flexSlices" type="Int32" default="10" effect="reload" />
+    <Member xml="@wind" type="Boolean" default="false" effect="reload" />
+    <Member xml="@cloth" type="Boolean" default="false" effect="reload" />
+    <Member xml="@clothStrength" type="Single" default="0" effect="reload" />
+    <Member xml="@clothHeight" type="Single" default="0" effect="reload" />
+    <Member xml="@windStrength" type="Single" default="0" effect="0..12" />
+    <Member xml="@windHeight" type="Single" default="0" effect="reload" />
+    <Member xml="@reflect" type="Boolean" default="false" effect="reload" />
+    <Member xml="@occludesReflection" type="Boolean" default="false" effect="reload" />
+    <Member xml="@rimColor" type="String" default="#9AD9E8" effect="reload" />
+    <Member xml="@rimOpacity" type="Single" default="0" effect="reload" />
+    <Member xml="@rimPixels" type="Single" default="0" effect="reload" />
+    <Member xml="@path" type="String" default="" effect="reload" />
+    <Member xml="@pathInterpolation" type="String" default="linear" effect="reload" />
+    <Member xml="@orientToPath" type="Boolean" default="false" effect="reload" />
+    <Member xml="@orientationOffset" type="Single" default="0" effect="reload" />
+    <Member xml="@closedPath" type="Boolean" default="false" effect="reload" />
+    <Member xml="@flutterHz" type="Single" default="0" effect="reload" />
+    <Member xml="@flutterAmount" type="Single" default="0.7" effect="reload" />
+    <Member xml="@flutterBodyStart" type="Int32" default="-1" effect="reload" />
+    <Member xml="@flutterBodyEnd" type="Int32" default="-1" effect="reload" />
+    <Member xml="@z" type="Single" default="0" effect="reload" />
+    <Member xml="@lookAtKing" type="Boolean" default="false" effect="reload" />
+    <Member xml="@gazeX" type="Single" default="0" effect="reload" />
+    <Member xml="@gazeY" type="Single" default="0" effect="reload" />
+    <Member xml="@gazeResponse" type="Single" default="7" effect="reload" />
+    <Member xml="Track" type="TrackData[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="LightData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@y" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@radius" type="Single" default="96" effect="4..1000" />
+    <Member xml="@enabled" type="Boolean" default="true" effect="boolean" />
+    <Member xml="@attach" type="String" default="unset" effect="reload" />
+    <Member xml="@offsetX" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@offsetY" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@falloff" type="Single" default="1" effect="reload" />
+    <Member xml="@color" type="String" default="#FFD27A" effect="color" />
+    <Member xml="@intensity" type="Single" default="0.75" effect="0..4" />
+    <Member xml="@flicker" type="Single" default="0" effect="reload" />
+    <Member xml="@pulsePeriod" type="Single" default="0" effect="reload" />
+    <Member xml="@pulseAmount" type="Single" default="0" effect="reload" />
+    <Member xml="@pulsePhase" type="Single" default="0" effect="reload" />
+    <Member xml="@coneWidth" type="Single" default="0" effect="reload" />
+    <Member xml="@angle" type="Single" default="0" effect="-360..360" />
+    <Member xml="@sweepAngle" type="Single" default="0" effect="reload" />
+    <Member xml="@sweepPeriod" type="Single" default="0" effect="reload" />
+    <Member xml="@scatter" type="Single" default="0" effect="reload" />
+    <Member xml="@rimRadius" type="Single" default="0" effect="reload" />
+    <Member xml="@rimIntensity" type="Single" default="1" effect="0..1" />
+    <Member xml="@occludeKing" type="Boolean" default="true" effect="reload" />
+    <Member xml="@shadowColor" type="String" default="#000000" effect="reload" />
+    <Member xml="@shadowOpacity" type="Single" default="0.82" effect="reload" />
+    <Member xml="@layer" type="String" default="world" effect="reload" />
+    <Member xml="@z" type="Single" default="0" effect="reload" />
+  </Type>
+  <Type name="BushData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="reload" />
+    <Member xml="@y" type="Single" default="0" effect="reload" />
+    <Member xml="@width" type="Int32" default="70" effect="reload" />
+    <Member xml="@height" type="Int32" default="42" effect="reload" />
+    <Member xml="@depth" type="Single" default="0.8" effect="reload" />
+    <Member xml="@sway" type="Single" default="3" effect="0..32" />
+    <Member xml="@speed" type="Single" default="0.7" effect="0..10" />
+    <Member xml="@reactRadius" type="Single" default="70" effect="0..480" />
+    <Member xml="@reactStrength" type="Single" default="9" effect="0..64" />
+    <Member xml="@backColor" type="String" default="#173D38" effect="color" />
+    <Member xml="@frontColor" type="String" default="#2D6A52" effect="color" />
+    <Member xml="@highlightColor" type="String" default="#5B9367" effect="color" />
+  </Type>
+  <Type name="WaterData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@x" type="Int32" default="0" effect="reload" />
+    <Member xml="@y" type="Int32" default="0" effect="reload" />
+    <Member xml="@width" type="Int32" default="0" effect="reload" />
+    <Member xml="@height" type="Int32" default="0" effect="reload" />
+    <Member xml="@color" type="String" default="#153B55" effect="color" />
+    <Member xml="@color2" type="String" default="#071827" effect="color" />
+    <Member xml="@highlight" type="String" default="#6CB9BA" effect="color" />
+    <Member xml="@opacity" type="Single" default="0.72" effect="0..1" />
+    <Member xml="@reflection" type="Boolean" default="true" effect="boolean" />
+    <Member xml="@reflectionOpacity" type="Single" default="0.42" effect="0..1" />
+    <Member xml="@ripple" type="Single" default="2" effect="0..32" />
+    <Member xml="@reflectionScaleY" type="Single" default="0.38" effect="0.051..1" />
+    <Member xml="@layer" type="String" default="background" effect="reload" />
+    <Member xml="@z" type="Single" default="0" effect="reload" />
+    <Member xml="@glintX" type="Single" default="-1" effect="reload" />
+    <Member xml="@reflectionAssets" type="String" default="" effect="reload" />
+    <Member xml="@reflectionObjects" type="String" default="unset" effect="reload" />
+    <Member xml="@sceneReflectionOpacity" type="Single" default="0.28" effect="0..1" />
+    <Member xml="@compositeReflection" type="Boolean" default="false" effect="reload" />
+    <Member xml="@interactive" type="Boolean" default="false" effect="boolean" />
+    <Member xml="@waveSegments" type="Int32" default="96" effect="reload" />
+    <Member xml="@surfaceTension" type="Single" default="19" effect="0.001..200" />
+    <Member xml="@waveSpread" type="Single" default="72" effect="0..300" />
+    <Member xml="@waveDamping" type="Single" default="2.8" effect="0..50" />
+    <Member xml="@splashStrength" type="Single" default="1" effect="0..10" />
+    <Member xml="@wakeStrength" type="Single" default="0.35" effect="0..10" />
+  </Type>
+  <Type name="FogData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@x" type="Int32" default="0" effect="reload" />
+    <Member xml="@y" type="Int32" default="0" effect="reload" />
+    <Member xml="@width" type="Int32" default="0" effect="reload" />
+    <Member xml="@height" type="Int32" default="54" effect="reload" />
+    <Member xml="@layer" type="String" default="foreground" effect="reload" />
+    <Member xml="@color" type="String" default="#B7CDD0" effect="color" />
+    <Member xml="@opacity" type="Single" default="0.18" effect="0..1" />
+    <Member xml="@speed" type="Single" default="4" effect="-300..300" />
+    <Member xml="@bands" type="Int32" default="5" effect="reload" />
+    <Member xml="@z" type="Single" default="0" effect="reload" />
+  </Type>
+  <Type name="EmitterData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@asset" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="reload" />
+    <Member xml="@y" type="Single" default="0" effect="reload" />
+    <Member xml="@width" type="Single" default="0" effect="reload" />
+    <Member xml="@height" type="Single" default="0" effect="reload" />
+    <Member xml="@layer" type="String" default="background" effect="reload" />
+    <Member xml="@z" type="Single" default="0" effect="reload" />
+    <Member xml="@count" type="Int32" default="12" effect="reload" />
+    <Member xml="@lifetime" type="Single" default="8" effect="reload" />
+    <Member xml="@driftX" type="Single" default="8" effect="-300..300" />
+    <Member xml="@driftY" type="Single" default="-5" effect="-300..300" />
+    <Member xml="@wander" type="Single" default="5" effect="reload" />
+    <Member xml="@opacity" type="Single" default="0.6" effect="0..1" />
+    <Member xml="@scaleMin" type="Single" default="0.35" effect="reload" />
+    <Member xml="@scaleMax" type="Single" default="0.8" effect="reload" />
+    <Member xml="@depth" type="Single" default="0.5" effect="reload" />
+    <Member xml="@tint" type="String" default="unset" effect="color" />
+  </Type>
+  <Type name="SceneAnchor">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="0" effect="reload" />
+    <Member xml="@x" type="Int32" default="0" effect="reload" />
+    <Member xml="@y" type="Int32" default="0" effect="reload" />
+    <Member xml="@width" type="Int32" default="0" effect="reload" />
+    <Member xml="@height" type="Int32" default="0" effect="reload" />
+    <Member xml="@kind" type="String" default="unset" effect="reload" />
+    <Member xml="@blocksLight" type="Boolean" default="false" effect="boolean" />
+    <Member xml="@lightOpacity" type="Single" default="1" effect="0..1" />
+  </Type>
+  <Type name="ScreenLook">
+    <Member xml="@screen" type="Int32" default="0" effect="reload" />
+    <Member xml="@ambientScale" type="Single" default="1" effect="0..1" />
+    <Member xml="@playerRimScale" type="Single" default="1" effect="0..1" />
+    <Member xml="@ambientLight" type="String" default="" effect="color" />
+    <Member xml="@ambientIntensity" type="Single" default="-1" effect="-1..1" />
+  </Type>
+  <Type name="RainData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@count" type="Int32" default="100" effect="reload" />
+    <Member xml="@speed" type="Single" default="190" effect="1..1000" />
+    <Member xml="@wind" type="Single" default="-32" effect="-300..300" />
+    <Member xml="@length" type="Single" default="6" effect="reload" />
+    <Member xml="@opacity" type="Single" default="0.3" effect="0..1" />
+    <Member xml="@color" type="String" default="#7AA9BD" effect="color" />
+    <Member xml="@layer" type="String" default="foreground" effect="reload" />
+    <Member xml="@z" type="Single" default="0" effect="reload" />
+    <Member xml="@collide" type="Boolean" default="false" effect="reload" />
+    <Member xml="@snow" type="Boolean" default="false" effect="reload" />
+    <Member xml="@drift" type="Single" default="0" effect="reload" />
+  </Type>
+  <Type name="PuddleData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@outline" type="String" default="" effect="reload" />
+    <Member xml="@reflectionObjects" type="String" default="unset" effect="reload" />
+    <Member xml="@planeY" type="Single" default="0" effect="reload" />
+    <Member xml="@reflectionScaleY" type="Single" default="0.35" effect="0.08..1" />
+    <Member xml="@perspective" type="Single" default="0.004" effect="0..0.02" />
+    <Member xml="@opacity" type="Single" default="0.65" effect="0..1" />
+    <Member xml="@ripple" type="Single" default="0.6" effect="0..4" />
+    <Member xml="@rainRings" type="Int32" default="12" effect="0..64" />
+    <Member xml="@color" type="String" default="#80B8CC" effect="color" />
+  </Type>
+  <Type name="ShadowSurfaceData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@outline" type="String" default="" effect="reload" />
+    <Member xml="@planeY" type="Single" default="0" effect="reload" />
+    <Member xml="@scaleY" type="Single" default="0.45" effect="0.05..3" />
+    <Member xml="@shearX" type="Single" default="-0.35" effect="-4..4" />
+    <Member xml="@opacity" type="Single" default="0.45" effect="0..1" />
+    <Member xml="@color" type="String" default="#352842" effect="color" />
+    <Member xml="@maxHeight" type="Single" default="160" effect="reload" />
+  </Type>
+  <Type name="SurfData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="reload" />
+    <Member xml="@y" type="Single" default="240" effect="reload" />
+    <Member xml="@width" type="Single" default="480" effect="reload" />
+    <Member xml="@height" type="Single" default="48" effect="0..180" />
+    <Member xml="@depth" type="Single" default="100" effect="reload" />
+    <Member xml="@period" type="Single" default="7" effect="0.5..300" />
+    <Member xml="@wavelength" type="Single" default="200" effect="reload" />
+    <Member xml="@phase" type="Single" default="0" effect="reload" />
+    <Member xml="@variation" type="Single" default="0" effect="reload" />
+    <Member xml="@chop" type="Single" default="0" effect="0..12" />
+    <Member xml="@foamDetail" type="Single" default="0" effect="0..1" />
+    <Member xml="@bakedBody" type="Boolean" default="false" effect="reload" />
+    <Member xml="Impact" type="SurfImpactData[]" default="empty" effect="reload" />
+    <Member xml="@break" type="Single" default="1" effect="0..1.6" />
+    <Member xml="@spray" type="Int32" default="100" effect="0..512" />
+    <Member xml="@wind" type="Single" default="0" effect="-300..300" />
+    <Member xml="@color" type="String" default="#071D29" effect="color" />
+    <Member xml="@crestColor" type="String" default="#6E9FA9" effect="color" />
+    <Member xml="@layer" type="String" default="background" effect="reload" />
+    <Member xml="@z" type="Single" default="0" effect="reload" />
+  </Type>
+  <Type name="PlanetData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@surfaceAsset" type="String" default="unset" effect="reload" />
+    <Member xml="@cloudAsset" type="String" default="unset" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="reload" />
+    <Member xml="@y" type="Single" default="0" effect="reload" />
+    <Member xml="@radius" type="Single" default="180" effect="reload" />
+    <Member xml="@period" type="Single" default="120" effect="1..86400" />
+    <Member xml="@cloudPeriod" type="Single" default="141" effect="1..86400" />
+    <Member xml="@cloudOpacity" type="Single" default="0.85" effect="0..1" />
+    <Member xml="@longitude" type="Single" default="0" effect="reload" />
+    <Member xml="@viewTilt" type="Single" default="0" effect="reload" />
+    <Member xml="@axisTilt" type="Single" default="0" effect="reload" />
+    <Member xml="@layer" type="String" default="background" effect="reload" />
+    <Member xml="@z" type="Single" default="0" effect="reload" />
+  </Type>
+  <Type name="EffectDefinition">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@duration" type="Double" default="0" effect="reload" />
+    <Member xml="@clock" type="String" default="gameplay" effect="reload" />
+    <Member xml="@repeat" type="String" default="refresh" effect="reload" />
+    <Member xml="@maxStacks" type="Int32" default="4" effect="reload" />
+    <Member xml="@priority" type="Int32" default="0" effect="reload" />
+    <Member xml="@group" type="String" default="unset" effect="reload" />
+    <Member xml="@fadeIn" type="Double" default="0" effect="reload" />
+    <Member xml="@fadeOut" type="Double" default="0" effect="reload" />
+    <Member xml="Set" type="SceneChange[]" default="empty" effect="reload" />
+    <Member xml="SpawnLight" type="LightSpawn[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="RegionData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="reload" />
+    <Member xml="@y" type="Single" default="0" effect="reload" />
+    <Member xml="@width" type="Single" default="0" effect="reload" />
+    <Member xml="@height" type="Single" default="0" effect="reload" />
+    <Member xml="@test" type="String" default="hitbox" effect="reload" />
+    <Member xml="@anchor" type="String" default="unset" effect="reload" />
+    <Member xml="@grounded" type="Boolean" default="false" effect="reload" />
+    <Member xml="@spawnInside" type="String" default="fire" effect="reload" />
+    <Member xml="@hysteresis" type="Single" default="0" effect="reload" />
+    <Member xml="@dwell" type="Double" default="0" effect="reload" />
+    <Member xml="@enter" type="String" default="unset" effect="reload" />
+    <Member xml="@owner" type="String" default="unset" effect="reload" />
+    <Member xml="@exit" type="String" default="unset" effect="reload" />
+    <Member xml="@lifetime" type="String" default="effect" effect="reload" />
+    <Member xml="@once" type="Boolean" default="false" effect="reload" />
+    <Member xml="@requiresFlag" type="String" default="unset" effect="reload" />
+    <Member xml="@equals" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="RuleData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@event" type="String" default="unset" effect="reload" />
+    <Member xml="@effect" type="String" default="unset" effect="reload" />
+    <Member xml="@sound" type="String" default="unset" effect="reload" />
+    <Member xml="@owner" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="0" effect="reload" />
+    <Member xml="@requiresFlag" type="String" default="unset" effect="reload" />
+    <Member xml="@equals" type="String" default="unset" effect="reload" />
+    <Member xml="@setFlag" type="String" default="unset" effect="reload" />
+    <Member xml="@value" type="String" default="unset" effect="reload" />
+    <Member xml="@once" type="Boolean" default="false" effect="reload" />
+    <Member xml="@cooldown" type="Double" default="0" effect="reload" />
+    <Member xml="@increment" type="String" default="unset" effect="reload" />
+    <Member xml="@amount" type="Int32" default="0" effect="reload" />
+  </Type>
+  <Type name="BehaviorTreeData">
+    <Member xml="IncrementFlag / ActivateEffect / WaitFlag / Sequencer / Selector / PlayEventSFX / Repeat / Invert / Subtree / PauseNode / WaitEvent / EmitEvent / CheckFlag / SetFlag / ParallelAll / ClearEffects" type="BehaviorNodeData[]" default="empty" effect="reload" />
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@event" type="String" default="unset" effect="reload" />
+    <Member xml="@stopEvent" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="0" effect="reload" />
+    <Member xml="@once" type="Boolean" default="false" effect="reload" />
+    <Member xml="@retrigger" type="String" default="ignore" effect="reload" />
+    <Member xml="@requiresFlag" type="String" default="unset" effect="reload" />
+    <Member xml="@equals" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="FlagData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@value" type="String" default="false" effect="reload" />
+    <Member xml="@scope" type="String" default="run" effect="reload" />
+    <Member xml="@from" type="String" default="unset" effect="reload" />
+    <Member xml="@type" type="String" default="string" effect="reload" />
+  </Type>
+  <Type name="MapString">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@value" type="String" default="unset" effect="reload" />
+    <Member xml="Translation" type="Translation[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="SceneText">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@screen" type="Int32" default="1" effect="reload" />
+    <Member xml="@string" type="String" default="unset" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@y" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@width" type="Single" default="440" effect="reload" />
+    <Member xml="@font" type="String" default="menu" effect="reload" />
+    <Member xml="@align" type="String" default="left" effect="reload" />
+    <Member xml="@color" type="String" default="#FFFFFF" effect="color" />
+    <Member xml="@opacity" type="Single" default="1" effect="0..1" />
+    <Member xml="@visible" type="Boolean" default="true" effect="boolean" />
+    <Member xml="@layer" type="String" default="foreground" effect="reload" />
+    <Member xml="@z" type="Single" default="0" effect="reload" />
+    <Member xml="@space" type="String" default="world" effect="reload" />
+  </Type>
+  <Type name="IntroPage">
+    <Member xml="@string" type="String" default="unset" effect="reload" />
+    <Member xml="@stay" type="Single" default="3" effect="reload" />
+    <Member xml="@fadeIn" type="Single" default="1" effect="reload" />
+    <Member xml="@fadeOut" type="Single" default="1" effect="reload" />
+    <Member xml="@color" type="String" default="#FFFFFF" effect="reload" />
+  </Type>
+  <Type name="ResultPage">
+    <Member xml="@title" type="String" default="unset" effect="reload" />
+    <Member xml="@color" type="String" default="#FFFFFF" effect="reload" />
+    <Member xml="@background" type="String" default="#000000" effect="reload" />
+    <Member xml="Row" type="ResultRow[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="NativeActorData">
+    <Member xml="@id" type="String" default="unset" effect="reload" />
+    <Member xml="@name" type="String" default="unset" effect="reload" />
+    <Member xml="@kind" type="String" default="oldman" effect="reload" />
+    <Member xml="@visible" type="Boolean" default="true" effect="boolean" />
+    <Member xml="@textVisible" type="Boolean" default="true" effect="boolean" />
+    <Member xml="@opacity" type="Single" default="1" effect="0..1" />
+    <Member xml="@tint" type="String" default="#FFFFFF" effect="color" />
+    <Member xml="@offsetX" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="@offsetY" type="Single" default="0" effect="-4096..4096" />
+    <Member xml="Quote" type="ActorQuote[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="TexturePageData">
+    <Member xml="@path" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="VectorShapeData">
+    <Member xml="@type" type="String" default="path" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="reload" />
+    <Member xml="@y" type="Single" default="0" effect="reload" />
+    <Member xml="@width" type="Single" default="0" effect="reload" />
+    <Member xml="@height" type="Single" default="0" effect="reload" />
+    <Member xml="@data" type="String" default="" effect="reload" />
+    <Member xml="@fill" type="String" default="#FFFFFF" effect="reload" />
+    <Member xml="@fill2" type="String" default="" effect="reload" />
+    <Member xml="@gradient" type="String" default="none" effect="reload" />
+    <Member xml="@angle" type="Single" default="0" effect="reload" />
+    <Member xml="@stroke" type="String" default="" effect="reload" />
+    <Member xml="@strokeWidth" type="Single" default="0" effect="reload" />
+    <Member xml="@opacity" type="Single" default="1" effect="reload" />
+  </Type>
+  <Type name="TrackData">
+    <Member xml="@property" type="String" default="x" effect="reload" />
+    <Member xml="@keys" type="String" default="0:0;1:0" effect="reload" />
+    <Member xml="@easing" type="String" default="smooth" effect="reload" />
+    <Member xml="@cycles" type="Single" default="1" effect="reload" />
+    <Member xml="@phase" type="Single" default="0" effect="reload" />
+  </Type>
+  <Type name="SurfImpactData">
+    <Member xml="@arrivalPhase" type="Single" default="-1" effect="reload" />
+    <Member xml="@x" type="Single" default="0" effect="reload" />
+    <Member xml="@y" type="Single" default="0" effect="reload" />
+    <Member xml="@angle" type="Single" default="-110" effect="reload" />
+    <Member xml="@reach" type="Single" default="80" effect="reload" />
+    <Member xml="@width" type="Single" default="30" effect="reload" />
+    <Member xml="@particles" type="Int32" default="90" effect="reload" />
+    <Member xml="@layer" type="String" default="world" effect="reload" />
+    <Member xml="@z" type="Single" default="-8" effect="reload" />
+  </Type>
+  <Type name="SceneChange">
+    <Member xml="@target" type="String" default="unset" effect="reload" />
+    <Member xml="@property" type="String" default="unset" effect="reload" />
+    <Member xml="@value" type="String" default="unset" effect="reload" />
+    <Member xml="@mode" type="String" default="set" effect="reload" />
+  </Type>
+  <Type name="LightSpawn">
+    <Member xml="@template" type="String" default="unset" effect="reload" />
+    <Member xml="@attach" type="String" default="unset" effect="reload" />
+    <Member xml="@offsetX" type="Single" default="0" effect="reload" />
+    <Member xml="@offsetY" type="Single" default="0" effect="reload" />
+  </Type>
+  <Type name="BehaviorNodeData" />
+  <Type name="BehaviorIncrement">
+    <Member xml="@flag" type="String" default="unset" effect="reload" />
+    <Member xml="@amount" type="Int32" default="0" effect="reload" />
+  </Type>
+  <Type name="BehaviorEffect">
+    <Member xml="@effect" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="BehaviorWaitFlag">
+    <Member xml="@flag" type="String" default="unset" effect="reload" />
+    <Member xml="@value" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="BehaviorSequence">
+    <Member xml="IncrementFlag / ActivateEffect / WaitFlag / Sequencer / Selector / PlayEventSFX / Repeat / Invert / Subtree / PauseNode / WaitEvent / EmitEvent / CheckFlag / SetFlag / ParallelAll / ClearEffects" type="BehaviorNodeData[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="BehaviorSelector">
+    <Member xml="IncrementFlag / ActivateEffect / WaitFlag / Sequencer / Selector / PlayEventSFX / Repeat / Invert / Subtree / PauseNode / WaitEvent / EmitEvent / CheckFlag / SetFlag / ParallelAll / ClearEffects" type="BehaviorNodeData[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="BehaviorSound">
+    <Member xml="@sound" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="BehaviorRepeat">
+    <Member xml="IncrementFlag / ActivateEffect / WaitFlag / Sequencer / Selector / PlayEventSFX / Repeat / Invert / Subtree / PauseNode / WaitEvent / EmitEvent / CheckFlag / SetFlag / ParallelAll / ClearEffects" type="BehaviorNodeData[]" default="empty" effect="reload" />
+    <Member xml="@count" type="Int32" default="0" effect="reload" />
+  </Type>
+  <Type name="BehaviorInvert">
+    <Member xml="IncrementFlag / ActivateEffect / WaitFlag / Sequencer / Selector / PlayEventSFX / Repeat / Invert / Subtree / PauseNode / WaitEvent / EmitEvent / CheckFlag / SetFlag / ParallelAll / ClearEffects" type="BehaviorNodeData[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="BehaviorCall">
+    <Member xml="@tree" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="BehaviorWait">
+    <Member xml="@seconds" type="Double" default="0" effect="reload" />
+  </Type>
+  <Type name="BehaviorWaitEvent">
+    <Member xml="@event" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="BehaviorEmit">
+    <Member xml="@event" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="BehaviorCheckFlag">
+    <Member xml="@flag" type="String" default="unset" effect="reload" />
+    <Member xml="@value" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="BehaviorSetFlag">
+    <Member xml="@flag" type="String" default="unset" effect="reload" />
+    <Member xml="@value" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="BehaviorParallel">
+    <Member xml="IncrementFlag / ActivateEffect / WaitFlag / Sequencer / Selector / PlayEventSFX / Repeat / Invert / Subtree / PauseNode / WaitEvent / EmitEvent / CheckFlag / SetFlag / ParallelAll / ClearEffects" type="BehaviorNodeData[]" default="empty" effect="reload" />
+  </Type>
+  <Type name="BehaviorClear" />
+  <Type name="Translation">
+    <Member xml="@culture" type="String" default="unset" effect="reload" />
+    <Member xml="@value" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="ResultRow">
+    <Member xml="@string" type="String" default="unset" effect="reload" />
+    <Member xml="@counter" type="String" default="unset" effect="reload" />
+    <Member xml="@requiresFlag" type="String" default="unset" effect="reload" />
+    <Member xml="@equals" type="String" default="unset" effect="reload" />
+  </Type>
+  <Type name="ActorQuote">
+    <Member xml="@string" type="String" default="unset" effect="reload" />
+    <Member xml="@requiresFlag" type="String" default="unset" effect="reload" />
+    <Member xml="@equals" type="String" default="unset" effect="reload" />
+  </Type>
+</SceneContract>

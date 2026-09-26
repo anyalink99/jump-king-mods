@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sequencer>
+  <SetSceneFlag><Key>ending-ready</Key><Value>0</Value></SetSceneFlag>
+  <EmitSceneEvent>ending:cue</EmitSceneEvent>
+  <WaitSceneFlag><Key>ending-ready</Key><Value>1</Value></WaitSceneFlag>
+  <EndNode />
+</Sequencer>

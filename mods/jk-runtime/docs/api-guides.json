@@ -1,0 +1,11 @@
+{
+  "JKRuntime": "docs/lifecycle.md",
+  "JKRuntime.Modules": "docs/lifecycle.md",
+  "JKRuntime.Gameplay": "docs/api.md#gameplay-ordering",
+  "JKRuntime.Geometry": "docs/geometry-and-mechanics.md",
+  "JKRuntime.Input": "docs/events-and-input.md",
+  "JKRuntime.Settings": "docs/settings-and-commands.md",
+  "JKRuntime.State": "docs/state-and-time.md",
+  "JKRuntime.Simulation": "docs/simulation.md",
+  "JKRuntime.UI": "docs/ui-api.md"
+}

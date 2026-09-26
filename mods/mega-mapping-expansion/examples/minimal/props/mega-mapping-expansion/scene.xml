@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MegaMapping version="1">
+  <Options timer="hidden" />
+  <Materials><Material id="warm" tint="#FFDDAA" opacity="1" /></Materials>
+  <LayerGroups><LayerGroup id="decor" layer="world" z="2" /></LayerGroups>
+  <Templates><Template id="breathing" duration="3.4"><Track property="brightness" keys="0:1;0.45:1.5;1:1" easing="sine" /></Template></Templates>
+  <VectorAssets><Asset id="glass" width="8" height="12" pixelSnap="true"><Shape type="rect" x="0" y="0" width="8" height="12" fill="#FFFFFF" /></Asset></VectorAssets>
+  <Nodes><Node id="lamp-glass" asset="glass" screen="1" x="240" y="220" material="warm" group="decor" template="breathing" /></Nodes>
+</MegaMapping>

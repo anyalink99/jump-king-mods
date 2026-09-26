@@ -1,0 +1,805 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MegaMapping" nillable="true" type="SceneFile" />
+  <xs:complexType name="SceneFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Options" type="SceneOptions" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Textures" type="ArrayOfTextureData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="VectorAssets" type="ArrayOfVectorAssetData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Props" type="ArrayOfPropData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Nodes" type="ArrayOfPropData1" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Lights" type="ArrayOfLightData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Bushes" type="ArrayOfBushData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Waters" type="ArrayOfWaterData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Fogs" type="ArrayOfFogData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Emitters" type="ArrayOfEmitterData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Anchors" type="ArrayOfSceneAnchor" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ScreenLooks" type="ArrayOfScreenLook" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Rains" type="ArrayOfRainData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Puddles" type="ArrayOfPuddleData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ShadowSurfaces" type="ArrayOfShadowSurfaceData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Surfs" type="ArrayOfSurfData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Planets" type="ArrayOfPlanetData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Effects" type="ArrayOfEffectDefinition" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Regions" type="ArrayOfRegionData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="LightTemplates" type="ArrayOfLightData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Rules" type="ArrayOfRuleData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BehaviorTrees" type="ArrayOfBehaviorTreeData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Flags" type="ArrayOfFlagData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Strings" type="ArrayOfMapString" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Texts" type="ArrayOfSceneText" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Intro" type="ArrayOfIntroPage" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Results" type="ArrayOfResultPage" />
+      <xs:element minOccurs="0" maxOccurs="1" name="NativeActors" type="ArrayOfNativeActorData" />
+    </xs:sequence>
+    <xs:attribute name="version" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="SceneOptions">
+    <xs:attribute name="saveId" type="xs:string" />
+    <xs:attribute name="introText" type="xs:string" />
+    <xs:attribute default="inherit" name="timer" type="xs:string" />
+    <xs:attribute default="none" name="mirror" type="xs:string" />
+    <xs:attribute default="#FFFFFF" name="tint" type="xs:string" />
+    <xs:attribute default="0" name="tintOpacity" type="xs:float" />
+    <xs:attribute default="0" name="expectedScreens" type="xs:int" />
+    <xs:attribute default="#91D8FF" name="playerRimColor" type="xs:string" />
+    <xs:attribute default="0" name="playerRimOpacity" type="xs:float" />
+    <xs:attribute default="2" name="playerRimPixels" type="xs:float" />
+    <xs:attribute default="false" name="advancedLighting" type="xs:boolean" />
+    <xs:attribute default="false" name="profiling" type="xs:boolean" />
+    <xs:attribute default="#FFFFFF" name="ambientLight" type="xs:string" />
+    <xs:attribute default="1" name="ambientIntensity" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTextureData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Texture" nillable="true" type="TextureData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TextureData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Page" type="TexturePageData" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="path" type="xs:string" />
+    <xs:attribute default="1" name="columns" type="xs:int" />
+    <xs:attribute default="1" name="rows" type="xs:int" />
+    <xs:attribute default="0" name="fps" type="xs:float" />
+    <xs:attribute default="0" name="frames" type="xs:int" />
+  </xs:complexType>
+  <xs:complexType name="TexturePageData">
+    <xs:attribute name="path" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfVectorAssetData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Asset" nillable="true" type="VectorAssetData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VectorAssetData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Shape" type="VectorShapeData" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="source" type="xs:string" />
+    <xs:attribute default="64" name="width" type="xs:int" />
+    <xs:attribute default="64" name="height" type="xs:int" />
+    <xs:attribute default="2" name="supersample" type="xs:int" />
+    <xs:attribute default="" name="clipPath" type="xs:string" />
+    <xs:attribute default="none" name="clipMode" type="xs:string" />
+    <xs:attribute default="0" name="edgeBleed" type="xs:float" />
+    <xs:attribute default="false" name="pixelSnap" type="xs:boolean" />
+    <xs:attribute default="0" name="alphaCutoff" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="VectorShapeData">
+    <xs:attribute default="path" name="type" type="xs:string" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute default="" name="data" type="xs:string" />
+    <xs:attribute default="#FFFFFF" name="fill" type="xs:string" />
+    <xs:attribute default="" name="fill2" type="xs:string" />
+    <xs:attribute default="none" name="gradient" type="xs:string" />
+    <xs:attribute default="0" name="angle" type="xs:float" />
+    <xs:attribute default="" name="stroke" type="xs:string" />
+    <xs:attribute default="0" name="strokeWidth" type="xs:float" />
+    <xs:attribute default="1" name="opacity" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPropData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Prop" nillable="true" type="PropData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PropData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Track" type="TrackData" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="texture" type="xs:string" />
+    <xs:attribute default="true" name="visible" type="xs:boolean" />
+    <xs:attribute name="attach" type="xs:string" />
+    <xs:attribute name="offsetX" type="xs:float" use="required" />
+    <xs:attribute name="offsetY" type="xs:float" use="required" />
+    <xs:attribute default="point" name="sampling" type="xs:string" />
+    <xs:attribute name="asset" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute default="world" name="layer" type="xs:string" />
+    <xs:attribute default="level-start" name="trigger" type="xs:string" />
+    <xs:attribute default="none" name="motion" type="xs:string" />
+    <xs:attribute default="loop" name="loop" type="xs:string" />
+    <xs:attribute default="2" name="duration" type="xs:float" />
+    <xs:attribute default="0" name="delay" type="xs:float" />
+    <xs:attribute default="0" name="amplitudeX" type="xs:float" />
+    <xs:attribute default="0" name="amplitudeY" type="xs:float" />
+    <xs:attribute default="0" name="degrees" type="xs:float" />
+    <xs:attribute default="0" name="rotation" type="xs:float" />
+    <xs:attribute default="1" name="scale" type="xs:float" />
+    <xs:attribute default="1" name="scaleX" type="xs:float" />
+    <xs:attribute default="1" name="scaleY" type="xs:float" />
+    <xs:attribute default="1" name="opacity" type="xs:float" />
+    <xs:attribute default="#FFFFFF" name="tint" type="xs:string" />
+    <xs:attribute default="1" name="depth" type="xs:float" />
+    <xs:attribute default="-1" name="originX" type="xs:float" />
+    <xs:attribute default="-1" name="originY" type="xs:float" />
+    <xs:attribute default="false" name="flipX" type="xs:boolean" />
+    <xs:attribute default="false" name="flipY" type="xs:boolean" />
+    <xs:attribute default="0" name="reactRadius" type="xs:float" />
+    <xs:attribute default="0" name="reactStrength" type="xs:float" />
+    <xs:attribute default="false" name="flex" type="xs:boolean" />
+    <xs:attribute default="10" name="flexSlices" type="xs:int" />
+    <xs:attribute default="false" name="wind" type="xs:boolean" />
+    <xs:attribute default="false" name="cloth" type="xs:boolean" />
+    <xs:attribute default="0" name="clothStrength" type="xs:float" />
+    <xs:attribute default="0" name="clothHeight" type="xs:float" />
+    <xs:attribute default="0" name="windStrength" type="xs:float" />
+    <xs:attribute default="0" name="windHeight" type="xs:float" />
+    <xs:attribute default="false" name="reflect" type="xs:boolean" />
+    <xs:attribute default="false" name="occludesReflection" type="xs:boolean" />
+    <xs:attribute default="#9AD9E8" name="rimColor" type="xs:string" />
+    <xs:attribute default="0" name="rimOpacity" type="xs:float" />
+    <xs:attribute default="1" name="rimPixels" type="xs:float" />
+    <xs:attribute default="" name="path" type="xs:string" />
+    <xs:attribute default="linear" name="pathInterpolation" type="xs:string" />
+    <xs:attribute default="false" name="orientToPath" type="xs:boolean" />
+    <xs:attribute default="0" name="orientationOffset" type="xs:float" />
+    <xs:attribute default="false" name="closedPath" type="xs:boolean" />
+    <xs:attribute default="0" name="flutterHz" type="xs:float" />
+    <xs:attribute default="0.7" name="flutterAmount" type="xs:float" />
+    <xs:attribute default="-1" name="flutterBodyStart" type="xs:int" />
+    <xs:attribute default="-1" name="flutterBodyEnd" type="xs:int" />
+    <xs:attribute default="0" name="z" type="xs:float" />
+    <xs:attribute default="false" name="lookAtKing" type="xs:boolean" />
+    <xs:attribute default="0" name="gazeX" type="xs:float" />
+    <xs:attribute default="0" name="gazeY" type="xs:float" />
+    <xs:attribute default="7" name="gazeResponse" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="TrackData">
+    <xs:attribute default="x" name="property" type="xs:string" />
+    <xs:attribute default="0:0;1:0" name="keys" type="xs:string" />
+    <xs:attribute default="smooth" name="easing" type="xs:string" />
+    <xs:attribute default="1" name="cycles" type="xs:float" />
+    <xs:attribute default="0" name="phase" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPropData1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Node" nillable="true" type="PropData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfLightData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Light" nillable="true" type="LightData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LightData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute default="96" name="radius" type="xs:float" />
+    <xs:attribute default="true" name="enabled" type="xs:boolean" />
+    <xs:attribute name="attach" type="xs:string" />
+    <xs:attribute name="offsetX" type="xs:float" use="required" />
+    <xs:attribute name="offsetY" type="xs:float" use="required" />
+    <xs:attribute default="1" name="falloff" type="xs:float" />
+    <xs:attribute default="#FFD27A" name="color" type="xs:string" />
+    <xs:attribute default="0.75" name="intensity" type="xs:float" />
+    <xs:attribute default="0" name="flicker" type="xs:float" />
+    <xs:attribute default="0" name="pulsePeriod" type="xs:float" />
+    <xs:attribute default="0" name="pulseAmount" type="xs:float" />
+    <xs:attribute default="0" name="pulsePhase" type="xs:float" />
+    <xs:attribute default="0" name="coneWidth" type="xs:float" />
+    <xs:attribute default="0" name="angle" type="xs:float" />
+    <xs:attribute default="0" name="sweepAngle" type="xs:float" />
+    <xs:attribute default="0" name="sweepPeriod" type="xs:float" />
+    <xs:attribute default="0" name="scatter" type="xs:float" />
+    <xs:attribute default="0" name="rimRadius" type="xs:float" />
+    <xs:attribute default="1" name="rimIntensity" type="xs:float" />
+    <xs:attribute default="true" name="occludeKing" type="xs:boolean" />
+    <xs:attribute default="#09101B" name="shadowColor" type="xs:string" />
+    <xs:attribute default="0.82" name="shadowOpacity" type="xs:float" />
+    <xs:attribute default="world" name="layer" type="xs:string" />
+    <xs:attribute default="0" name="z" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfBushData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Bush" nillable="true" type="BushData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BushData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute default="70" name="width" type="xs:int" />
+    <xs:attribute default="42" name="height" type="xs:int" />
+    <xs:attribute default="0.8" name="depth" type="xs:float" />
+    <xs:attribute default="3" name="sway" type="xs:float" />
+    <xs:attribute default="0.7" name="speed" type="xs:float" />
+    <xs:attribute default="70" name="reactRadius" type="xs:float" />
+    <xs:attribute default="9" name="reactStrength" type="xs:float" />
+    <xs:attribute default="#173D38" name="backColor" type="xs:string" />
+    <xs:attribute default="#2D6A52" name="frontColor" type="xs:string" />
+    <xs:attribute default="#5B9367" name="highlightColor" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfWaterData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Water" nillable="true" type="WaterData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WaterData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute name="x" type="xs:int" use="required" />
+    <xs:attribute name="y" type="xs:int" use="required" />
+    <xs:attribute name="width" type="xs:int" use="required" />
+    <xs:attribute name="height" type="xs:int" use="required" />
+    <xs:attribute default="#153B55" name="color" type="xs:string" />
+    <xs:attribute default="#071827" name="color2" type="xs:string" />
+    <xs:attribute default="#6CB9BA" name="highlight" type="xs:string" />
+    <xs:attribute default="0.72" name="opacity" type="xs:float" />
+    <xs:attribute default="true" name="reflection" type="xs:boolean" />
+    <xs:attribute default="0.42" name="reflectionOpacity" type="xs:float" />
+    <xs:attribute default="2" name="ripple" type="xs:float" />
+    <xs:attribute default="0.38" name="reflectionScaleY" type="xs:float" />
+    <xs:attribute default="background" name="layer" type="xs:string" />
+    <xs:attribute default="0" name="z" type="xs:float" />
+    <xs:attribute default="-1" name="glintX" type="xs:float" />
+    <xs:attribute default="" name="reflectionAssets" type="xs:string" />
+    <xs:attribute name="reflectionObjects" type="xs:string" />
+    <xs:attribute default="0.28" name="sceneReflectionOpacity" type="xs:float" />
+    <xs:attribute default="false" name="compositeReflection" type="xs:boolean" />
+    <xs:attribute default="false" name="interactive" type="xs:boolean" />
+    <xs:attribute default="96" name="waveSegments" type="xs:int" />
+    <xs:attribute default="19" name="surfaceTension" type="xs:float" />
+    <xs:attribute default="72" name="waveSpread" type="xs:float" />
+    <xs:attribute default="2.8" name="waveDamping" type="xs:float" />
+    <xs:attribute default="1" name="splashStrength" type="xs:float" />
+    <xs:attribute default="0.35" name="wakeStrength" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfFogData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Fog" nillable="true" type="FogData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FogData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute name="x" type="xs:int" use="required" />
+    <xs:attribute name="y" type="xs:int" use="required" />
+    <xs:attribute name="width" type="xs:int" use="required" />
+    <xs:attribute default="54" name="height" type="xs:int" />
+    <xs:attribute default="foreground" name="layer" type="xs:string" />
+    <xs:attribute default="#B7CDD0" name="color" type="xs:string" />
+    <xs:attribute default="0.18" name="opacity" type="xs:float" />
+    <xs:attribute default="4" name="speed" type="xs:float" />
+    <xs:attribute default="5" name="bands" type="xs:int" />
+    <xs:attribute default="0" name="z" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEmitterData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Emitter" nillable="true" type="EmitterData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EmitterData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="asset" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute default="background" name="layer" type="xs:string" />
+    <xs:attribute default="0" name="z" type="xs:float" />
+    <xs:attribute default="12" name="count" type="xs:int" />
+    <xs:attribute default="8" name="lifetime" type="xs:float" />
+    <xs:attribute default="8" name="driftX" type="xs:float" />
+    <xs:attribute default="-5" name="driftY" type="xs:float" />
+    <xs:attribute default="5" name="wander" type="xs:float" />
+    <xs:attribute default="0.6" name="opacity" type="xs:float" />
+    <xs:attribute default="0.35" name="scaleMin" type="xs:float" />
+    <xs:attribute default="0.8" name="scaleMax" type="xs:float" />
+    <xs:attribute default="0.5" name="depth" type="xs:float" />
+    <xs:attribute default="#FFFFFF" name="tint" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSceneAnchor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Anchor" nillable="true" type="SceneAnchor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SceneAnchor">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="screen" type="xs:int" use="required" />
+    <xs:attribute name="x" type="xs:int" use="required" />
+    <xs:attribute name="y" type="xs:int" use="required" />
+    <xs:attribute name="width" type="xs:int" use="required" />
+    <xs:attribute name="height" type="xs:int" use="required" />
+    <xs:attribute name="kind" type="xs:string" />
+    <xs:attribute default="false" name="blocksLight" type="xs:boolean" />
+    <xs:attribute default="1" name="lightOpacity" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfScreenLook">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Screen" nillable="true" type="ScreenLook" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ScreenLook">
+    <xs:attribute name="screen" type="xs:int" use="required" />
+    <xs:attribute default="1" name="ambientScale" type="xs:float" />
+    <xs:attribute default="1" name="playerRimScale" type="xs:float" />
+    <xs:attribute default="" name="ambientLight" type="xs:string" />
+    <xs:attribute default="-1" name="ambientIntensity" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfRainData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rain" nillable="true" type="RainData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RainData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute default="100" name="count" type="xs:int" />
+    <xs:attribute default="190" name="speed" type="xs:float" />
+    <xs:attribute default="-32" name="wind" type="xs:float" />
+    <xs:attribute default="6" name="length" type="xs:float" />
+    <xs:attribute default="0.3" name="opacity" type="xs:float" />
+    <xs:attribute default="#7AA9BD" name="color" type="xs:string" />
+    <xs:attribute default="foreground" name="layer" type="xs:string" />
+    <xs:attribute default="0" name="z" type="xs:float" />
+    <xs:attribute default="false" name="collide" type="xs:boolean" />
+    <xs:attribute default="false" name="snow" type="xs:boolean" />
+    <xs:attribute default="0" name="drift" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPuddleData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Puddle" nillable="true" type="PuddleData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PuddleData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute name="outline" type="xs:string" />
+    <xs:attribute name="reflectionObjects" type="xs:string" />
+    <xs:attribute name="planeY" type="xs:float" use="required" />
+    <xs:attribute default="0.35" name="reflectionScaleY" type="xs:float" />
+    <xs:attribute default="0.004" name="perspective" type="xs:float" />
+    <xs:attribute default="0.65" name="opacity" type="xs:float" />
+    <xs:attribute default="0.6" name="ripple" type="xs:float" />
+    <xs:attribute default="12" name="rainRings" type="xs:int" />
+    <xs:attribute default="#80B8CC" name="color" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfShadowSurfaceData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Surface" nillable="true" type="ShadowSurfaceData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ShadowSurfaceData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute name="outline" type="xs:string" />
+    <xs:attribute name="planeY" type="xs:float" use="required" />
+    <xs:attribute default="0.45" name="scaleY" type="xs:float" />
+    <xs:attribute default="-0.35" name="shearX" type="xs:float" />
+    <xs:attribute default="0.45" name="opacity" type="xs:float" />
+    <xs:attribute default="#352842" name="color" type="xs:string" />
+    <xs:attribute default="160" name="maxHeight" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSurfData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Surf" nillable="true" type="SurfData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SurfData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Impact" type="SurfImpactData" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute default="0" name="x" type="xs:float" />
+    <xs:attribute default="240" name="y" type="xs:float" />
+    <xs:attribute default="480" name="width" type="xs:float" />
+    <xs:attribute default="48" name="height" type="xs:float" />
+    <xs:attribute default="100" name="depth" type="xs:float" />
+    <xs:attribute default="7" name="period" type="xs:float" />
+    <xs:attribute default="200" name="wavelength" type="xs:float" />
+    <xs:attribute default="0" name="phase" type="xs:float" />
+    <xs:attribute default="0" name="variation" type="xs:float" />
+    <xs:attribute default="0" name="chop" type="xs:float" />
+    <xs:attribute default="0" name="foamDetail" type="xs:float" />
+    <xs:attribute default="false" name="bakedBody" type="xs:boolean" />
+    <xs:attribute default="1" name="break" type="xs:float" />
+    <xs:attribute default="100" name="spray" type="xs:int" />
+    <xs:attribute default="0" name="wind" type="xs:float" />
+    <xs:attribute default="#071D29" name="color" type="xs:string" />
+    <xs:attribute default="#6E9FA9" name="crestColor" type="xs:string" />
+    <xs:attribute default="background" name="layer" type="xs:string" />
+    <xs:attribute default="0" name="z" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="SurfImpactData">
+    <xs:attribute default="-1" name="arrivalPhase" type="xs:float" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute default="-110" name="angle" type="xs:float" />
+    <xs:attribute default="80" name="reach" type="xs:float" />
+    <xs:attribute default="30" name="width" type="xs:float" />
+    <xs:attribute default="90" name="particles" type="xs:int" />
+    <xs:attribute default="world" name="layer" type="xs:string" />
+    <xs:attribute default="-8" name="z" type="xs:float" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfPlanetData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Planet" nillable="true" type="PlanetData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PlanetData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute default="1" name="screen" type="xs:int" />
+    <xs:attribute name="surfaceAsset" type="xs:string" />
+    <xs:attribute name="cloudAsset" type="xs:string" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute default="180" name="radius" type="xs:float" />
+    <xs:attribute default="120" name="period" type="xs:float" />
+    <xs:attribute default="141" name="cloudPeriod" type="xs:float" />
+    <xs:attribute default="0.85" name="cloudOpacity" type="xs:float" />
+    <xs:attribute name="longitude" type="xs:float" use="required" />
+    <xs:attribute name="viewTilt" type="xs:float" use="required" />
+    <xs:attribute name="axisTilt" type="xs:float" use="required" />
+    <xs:attribute default="background" name="layer" type="xs:string" />
+    <xs:attribute name="z" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfEffectDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Effect" nillable="true" type="EffectDefinition" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EffectDefinition">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Set" type="SceneChange" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SpawnLight" type="LightSpawn" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="duration" type="xs:double" use="required" />
+    <xs:attribute name="clock" type="xs:string" />
+    <xs:attribute name="repeat" type="xs:string" />
+    <xs:attribute name="maxStacks" type="xs:int" use="required" />
+    <xs:attribute name="priority" type="xs:int" use="required" />
+    <xs:attribute name="group" type="xs:string" />
+    <xs:attribute name="fadeIn" type="xs:double" use="required" />
+    <xs:attribute name="fadeOut" type="xs:double" use="required" />
+  </xs:complexType>
+  <xs:complexType name="SceneChange">
+    <xs:attribute name="target" type="xs:string" />
+    <xs:attribute name="property" type="xs:string" />
+    <xs:attribute name="value" type="xs:string" />
+    <xs:attribute name="mode" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="LightSpawn">
+    <xs:attribute name="template" type="xs:string" />
+    <xs:attribute name="attach" type="xs:string" />
+    <xs:attribute name="offsetX" type="xs:float" use="required" />
+    <xs:attribute name="offsetY" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfRegionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Region" nillable="true" type="RegionData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RegionData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="screen" type="xs:int" use="required" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="height" type="xs:float" use="required" />
+    <xs:attribute name="test" type="xs:string" />
+    <xs:attribute name="anchor" type="xs:string" />
+    <xs:attribute name="grounded" type="xs:boolean" use="required" />
+    <xs:attribute name="spawnInside" type="xs:string" />
+    <xs:attribute name="hysteresis" type="xs:float" use="required" />
+    <xs:attribute name="dwell" type="xs:double" use="required" />
+    <xs:attribute name="enter" type="xs:string" />
+    <xs:attribute name="owner" type="xs:string" />
+    <xs:attribute name="exit" type="xs:string" />
+    <xs:attribute name="lifetime" type="xs:string" />
+    <xs:attribute name="once" type="xs:boolean" use="required" />
+    <xs:attribute name="requiresFlag" type="xs:string" />
+    <xs:attribute name="equals" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfRuleData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rule" nillable="true" type="RuleData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RuleData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="event" type="xs:string" />
+    <xs:attribute name="effect" type="xs:string" />
+    <xs:attribute name="sound" type="xs:string" />
+    <xs:attribute name="owner" type="xs:string" />
+    <xs:attribute name="screen" type="xs:int" use="required" />
+    <xs:attribute name="requiresFlag" type="xs:string" />
+    <xs:attribute name="equals" type="xs:string" />
+    <xs:attribute name="setFlag" type="xs:string" />
+    <xs:attribute name="value" type="xs:string" />
+    <xs:attribute name="once" type="xs:boolean" use="required" />
+    <xs:attribute name="cooldown" type="xs:double" use="required" />
+    <xs:attribute name="increment" type="xs:string" />
+    <xs:attribute name="amount" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfBehaviorTreeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tree" nillable="true" type="BehaviorTreeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BehaviorTreeData">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorBranchData">
+        <xs:attribute name="id" type="xs:string" />
+        <xs:attribute name="event" type="xs:string" />
+        <xs:attribute name="stopEvent" type="xs:string" />
+        <xs:attribute name="screen" type="xs:int" use="required" />
+        <xs:attribute name="once" type="xs:boolean" use="required" />
+        <xs:attribute name="retrigger" type="xs:string" />
+        <xs:attribute name="requiresFlag" type="xs:string" />
+        <xs:attribute name="equals" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorBranchData" abstract="true">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element minOccurs="0" maxOccurs="1" name="IncrementFlag" type="BehaviorIncrement" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ActivateEffect" type="BehaviorEffect" />
+            <xs:element minOccurs="0" maxOccurs="1" name="WaitFlag" type="BehaviorWaitFlag" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Sequencer" type="BehaviorSequence" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Selector" type="BehaviorSelector" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PlayEventSFX" type="BehaviorSound" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Repeat" type="BehaviorRepeat" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Invert" type="BehaviorInvert" />
+            <xs:element minOccurs="0" maxOccurs="1" name="Subtree" type="BehaviorCall" />
+            <xs:element minOccurs="0" maxOccurs="1" name="PauseNode" type="BehaviorWait" />
+            <xs:element minOccurs="0" maxOccurs="1" name="WaitEvent" type="BehaviorWaitEvent" />
+            <xs:element minOccurs="0" maxOccurs="1" name="EmitEvent" type="BehaviorEmit" />
+            <xs:element minOccurs="0" maxOccurs="1" name="CheckFlag" type="BehaviorCheckFlag" />
+            <xs:element minOccurs="0" maxOccurs="1" name="SetFlag" type="BehaviorSetFlag" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ParallelAll" type="BehaviorParallel" />
+            <xs:element minOccurs="0" maxOccurs="1" name="ClearEffects" type="BehaviorClear" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorNodeData" abstract="true" />
+  <xs:complexType name="BehaviorClear">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorEmit">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData">
+        <xs:attribute name="event" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorWaitEvent">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData">
+        <xs:attribute name="event" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorWait">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData">
+        <xs:attribute name="seconds" type="xs:double" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorCall">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData">
+        <xs:attribute name="tree" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorSound">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData">
+        <xs:attribute name="sound" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorFlag" abstract="true">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData">
+        <xs:attribute name="flag" type="xs:string" />
+        <xs:attribute name="value" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorSetFlag">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorFlag" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorCheckFlag">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorFlag" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorWaitFlag">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorFlag" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorEffect">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData">
+        <xs:attribute name="effect" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorIncrement">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorNodeData">
+        <xs:attribute name="flag" type="xs:string" />
+        <xs:attribute name="amount" type="xs:int" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorSequence">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorBranchData" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorSelector">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorBranchData" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorRepeat">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorBranchData">
+        <xs:attribute name="count" type="xs:int" use="required" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorInvert">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorBranchData" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BehaviorParallel">
+    <xs:complexContent mixed="false">
+      <xs:extension base="BehaviorBranchData" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfFlagData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Flag" nillable="true" type="FlagData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FlagData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="value" type="xs:string" />
+    <xs:attribute name="scope" type="xs:string" />
+    <xs:attribute name="from" type="xs:string" />
+    <xs:attribute name="type" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfMapString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="String" nillable="true" type="MapString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MapString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Translation" type="Translation" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="value" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="Translation">
+    <xs:attribute name="culture" type="xs:string" />
+    <xs:attribute name="value" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSceneText">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Text" nillable="true" type="SceneText" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SceneText">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="screen" type="xs:int" use="required" />
+    <xs:attribute name="string" type="xs:string" />
+    <xs:attribute name="x" type="xs:float" use="required" />
+    <xs:attribute name="y" type="xs:float" use="required" />
+    <xs:attribute name="width" type="xs:float" use="required" />
+    <xs:attribute name="font" type="xs:string" />
+    <xs:attribute name="align" type="xs:string" />
+    <xs:attribute name="color" type="xs:string" />
+    <xs:attribute name="opacity" type="xs:float" use="required" />
+    <xs:attribute name="visible" type="xs:boolean" use="required" />
+    <xs:attribute name="layer" type="xs:string" />
+    <xs:attribute name="z" type="xs:float" use="required" />
+    <xs:attribute name="space" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfIntroPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Page" nillable="true" type="IntroPage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IntroPage">
+    <xs:attribute name="string" type="xs:string" />
+    <xs:attribute name="stay" type="xs:float" use="required" />
+    <xs:attribute name="fadeIn" type="xs:float" use="required" />
+    <xs:attribute name="fadeOut" type="xs:float" use="required" />
+    <xs:attribute name="color" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfResultPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Page" nillable="true" type="ResultPage" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ResultPage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Row" type="ResultRow" />
+    </xs:sequence>
+    <xs:attribute name="title" type="xs:string" />
+    <xs:attribute name="color" type="xs:string" />
+    <xs:attribute name="background" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ResultRow">
+    <xs:attribute name="string" type="xs:string" />
+    <xs:attribute name="counter" type="xs:string" />
+    <xs:attribute name="requiresFlag" type="xs:string" />
+    <xs:attribute name="equals" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfNativeActorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Actor" nillable="true" type="NativeActorData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="NativeActorData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Quote" type="ActorQuote" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="name" type="xs:string" />
+    <xs:attribute name="kind" type="xs:string" />
+    <xs:attribute name="visible" type="xs:boolean" use="required" />
+    <xs:attribute name="textVisible" type="xs:boolean" use="required" />
+    <xs:attribute name="opacity" type="xs:float" use="required" />
+    <xs:attribute name="tint" type="xs:string" />
+    <xs:attribute name="offsetX" type="xs:float" use="required" />
+    <xs:attribute name="offsetY" type="xs:float" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ActorQuote">
+    <xs:attribute name="string" type="xs:string" />
+    <xs:attribute name="requiresFlag" type="xs:string" />
+    <xs:attribute name="equals" type="xs:string" />
+  </xs:complexType>
+</xs:schema>

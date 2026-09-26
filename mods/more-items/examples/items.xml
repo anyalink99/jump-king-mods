@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<MoreItems version="1">
+  <Pickup id="first-rewinder" item="rewinder" count="1" screen="1" x="240" y="300" />
+  <Dispenser id="rewinder-dispenser" label="Dispense Rewinder" item="rewinder" count="1" screen="1" x="96" y="300" eject_x="24" eject_y="6" velocity_x="0.68" velocity_y="-1.65" cooldown="0.45" priority="150" />
+</MoreItems>
