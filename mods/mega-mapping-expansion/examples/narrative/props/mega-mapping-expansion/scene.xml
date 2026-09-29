@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MegaMapping version="1">
+  <Flags><Flag id="visits" type="integer" value="0" scope="run" /></Flags>
+  <Strings>
+    <String id="legend" value="Beyond the last light, the climb begins." />
+    <String id="counter" value="Visits: {flag:visits}" />
+    <String id="results" value="THE LAST LIGHT" />
+    <String id="visits-label" value="Places visited" />
+  </Strings>
+  <Intro><Page string="legend" stay="3" fadeIn="1" fadeOut="1" color="#E5D7B3" /></Intro>
+  <Texts><Text id="hud" string="counter" screen="1" x="16" y="16" width="300" font="small" space="screen" /></Texts>
+  <Regions><Region id="gate" screen="1" x="100" y="200" width="80" height="100" /></Regions>
+  <Rules><Rule id="count" event="enter:gate" increment="visits" amount="1" cooldown="0.5" /></Rules>
+  <Results><Page title="results" color="#E5D7B3" background="#101722"><Row string="visits-label" counter="visits" /></Page></Results>
+</MegaMapping>

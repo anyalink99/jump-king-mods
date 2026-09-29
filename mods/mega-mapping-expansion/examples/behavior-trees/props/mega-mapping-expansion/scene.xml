@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MegaMapping version="1">
+  <Flags><Flag id="ending-ready" type="integer" value="0" /></Flags>
+  <Effects>
+    <Effect id="warm">
+      <Set target="options" property="tint" value="#FFD49A" />
+      <Set target="options" property="tintOpacity" value="0.18" />
+    </Effect>
+  </Effects>
+  <Regions><Region id="preview" screen="1" x="160" y="220" width="160" height="100" /></Regions>
+  <BehaviorTrees>
+    <Tree id="pulse">
+      <Sequencer>
+        <ActivateEffect effect="warm" />
+        <PauseNode seconds="0.25" />
+        <ClearEffects />
+        <PauseNode seconds="0.5" />
+      </Sequencer>
+    </Tree>
+    <Tree id="preview-pulses" event="enter:preview" stopEvent="exit:preview">
+      <Repeat count="3"><Subtree tree="pulse" /></Repeat>
+    </Tree>
+    <Tree id="ending-cue" event="ending:cue" retrigger="restart">
+      <Sequencer>
+        <Repeat count="3"><Subtree tree="pulse" /></Repeat>
+        <SetFlag flag="ending-ready" value="1" />
+      </Sequencer>
+    </Tree>
+  </BehaviorTrees>
+</MegaMapping>

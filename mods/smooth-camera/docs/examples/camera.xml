@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SmoothCamera version="1">
+  <!-- Six-screen example. Adjust ranges to the actual map before use.
+       Copy to props/smooth-camera/camera.xml under the map root.
+       For common controlled activation use JKRuntime.MapControlled:smooth-camera.tracking.
+       The smooth/native screens import On/Off; screen 6 stays off with that tag.
+       Camera-only alternatives: SmoothCameraExplicitOnly or SmoothCameraDisableOnEnter. -->
+  <Profile id="shaft">
+    <Settings>
+      <Horizontal>true</Horizontal>
+      <Vertical mode="Window" focus="0.6" window="100" negativeResponse="12" positiveResponse="18"
+                lookAhead="20" lookDelay="0.2" fastAssist="true"/>
+      <HorizontalAxis mode="Window" focus="0.5" window="120" negativeResponse="12" positiveResponse="12" fastAssist="false"/>
+    </Settings>
+  </Profile>
+  <Screens from="1" mode="native"/>
+  <Screens from="2" to="5" mode="smooth" profile="shaft" transition="smooth"/>
+  <Screens from="6" mode="inherit"/>
+  <!-- A profile-only zone inherits forced smooth from screen 3. -->
+  <Zone id="landing" screen="3" x="80" y="180" width="300" height="160"
+        priority="10" mode="inherit" profile="shaft" transition="smooth"/>
+</SmoothCamera>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jetpack Fitter</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <main class="workspace">
+    <header class="topbar">
+      <div>
+        <p class="kicker">Jetpack</p>
+        <h1>Jetpack fitter</h1>
+      </div>
+      <div class="history-actions" aria-label="Edit history">
+        <button id="undo" class="icon-button" title="Undo (Ctrl+Z)" disabled>↶</button>
+        <button id="redo" class="icon-button" title="Redo (Ctrl+Y)" disabled>↷</button>
+      </div>
+    </header>
+
+    <section class="editor">
+      <div class="stage-panel">
+        <div class="stage-head">
+          <div>
+            <span id="pose-name" class="pose-name">idle</span>
+            <span id="pose-index" class="pose-index">01 / 13</span>
+          </div>
+          <div class="coordinates" aria-live="polite">
+            <span>X <b id="x-readout">0</b></span>
+            <span>Y <b id="y-readout">0</b></span>
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="stage" width="64" height="80" tabindex="0" aria-label="Jetpack position preview"></canvas>
+          <div class="drag-hint">Drag · arrow keys — 1 px · Shift — 4 px</div>
+        </div>
+      </div>
+
+      <aside class="controls">
+        <section class="control-section">
+          <h2>Position</h2>
+          <div class="number-grid">
+            <label>X <input id="x-input" type="number" min="-32" max="64" step="1"></label>
+            <label>Y <input id="y-input" type="number" min="-32" max="64" step="1"></label>
+          </div>
+        </section>
+
+        <section class="control-section">
+          <label class="switch-row">
+            <input id="move-all" type="checkbox">
+            <span class="switch" aria-hidden="true"></span>
+            <span><b>Move all frames</b><small>Apply the same offset to every frame</small></span>
+          </label>
+          <label class="switch-row compact">
+            <input id="show-flame" type="checkbox" checked>
+            <span class="switch" aria-hidden="true"></span>
+            <span><b>Show flame</b></span>
+          </label>
+          <label class="switch-row compact">
+            <input id="flip-preview" type="checkbox">
+            <span class="switch" aria-hidden="true"></span>
+            <span><b>Flip King</b></span>
+          </label>
+        </section>
+
+        <section class="control-section order-note">
+          <h2>Layer order</h2>
+          <div class="layer-stack">
+            <span>Flame</span><i>→</i><span>Jetpack</span><i>→</i><strong>King</strong>
+          </div>
+          <p>Overlaps are hidden by the body, as in the game.</p>
+        </section>
+
+        <div class="save-block">
+          <p id="save-status" class="save-status">No unsaved changes</p>
+          <button id="reload" class="secondary-button">Reload saved</button>
+          <button id="save" class="save-button">Save positions</button>
+        </div>
+      </aside>
+    </section>
+
+    <section class="filmstrip-panel">
+      <div class="filmstrip-title">
+        <h2>King frames</h2>
+        <span>Select a frame to adjust its position</span>
+      </div>
+      <div id="filmstrip" class="filmstrip" role="listbox" aria-label="King frames"></div>
+    </section>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>

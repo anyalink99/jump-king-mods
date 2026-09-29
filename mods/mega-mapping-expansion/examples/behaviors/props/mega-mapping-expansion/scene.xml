@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MegaMapping version="1">
+  <VectorAssets>
+    <Asset id="blue" width="48" height="48" pixelSnap="true"><Shape type="rect" x="0" y="0" width="48" height="48" fill="#6083BA" /></Asset>
+    <Asset id="gold" width="48" height="48" pixelSnap="true"><Shape type="rect" x="0" y="0" width="48" height="48" fill="#FFD27A" /></Asset>
+  </VectorAssets>
+  <Nodes><Node id="panel" asset="blue" screen="1" x="240" y="160" /></Nodes>
+  <LightTemplates><Light id="lantern" radius="90" color="#FFD27A" intensity="1" attach="player.center" offsetY="-18" occludeKing="true" /></LightTemplates>
+  <Effects>
+    <Effect id="carried-lantern" duration="30" clock="gameplay" repeat="refresh" group="lantern-state">
+      <Set target="panel" property="asset" value="gold" />
+      <SpawnLight template="lantern" />
+    </Effect>
+  </Effects>
+  <Regions><Region id="pickup" screen="1" x="180" y="200" width="120" height="100" enter="carried-lantern" hysteresis="2" /></Regions>
+</MegaMapping>
