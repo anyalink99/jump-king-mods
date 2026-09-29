@@ -1,0 +1,13 @@
+idle,224,0,8,26,false
+walk_one,272,0,9,24,false
+walk_smear,320,0,8,27,false
+walk_two,368,0,8,24,false
+jump_charge,224,48,18,27,false
+jump_up,272,48,8,22,false
+jump_fall,320,48,8,23,false
+jump_bounce,224,96,8,25,false
+splat,368,48,13,28,true
+stretch_one,272,96,8,25,false
+stretch_smear,320,96,8,27,false
+stretch_two,368,96,9,24,false
+look_up,224,144,9,26,false
