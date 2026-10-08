@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "id": "my-skin",
+  "name": "My Skin",
+  "version": "1.0.0",
+  "defaultProfile": "sparks",
+  "effects": [
+    {"id":"sparks", "kind":"particles", "native":"jump", "color":"#FFA040FF", "endColor":"#D0401000"}
+  ],
+  "profiles": [{"id":"sparks", "rules":[
+    {"id":"takeoff", "trigger":"jump", "channels":[
+      {"channel":"particles", "mode":"replace", "effects":["sparks"]}
+    ]}
+  ]}]
+}
