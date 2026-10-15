@@ -1,0 +1,20 @@
+<Recipes>
+  <Recipe id="surface-reflection">
+    <Parameters>
+      <Param name="screen" kind="Integer" default="1" min="0" max="4096" />
+      <Param name="position" kind="Vector2" default="0,280" />
+      <Param name="outline" kind="Text" default="0,0;480,0;480,80;0,80" />
+      <Param name="selection" kind="Text" default="actor:player" />
+      <Param name="projection" kind="Vector2" default="0,0.6" />
+      <Param name="opacity" kind="Number" default="0.4" min="0" max="1" />
+      <Param name="tint" kind="Color" default="#80B8D8" />
+    </Parameters>
+    <Components>
+      <Component id="root" kind="transform"><Value name="position" value="${position}" /><Value name="screen" value="${screen}" /></Component>
+      <Component id="capture" kind="capture"><Value name="selection" value="${selection}" /></Component>
+      <Component id="material" kind="material"><Value name="capture" value="@capture" /><Value name="color" value="${tint}" /></Component>
+      <Component id="surface" kind="receiver"><Value name="transform" value="@root" /><Value name="material" value="@material" /><Value name="outline" value="${outline}" /><Value name="projection" value="${projection}" /><Value name="opacity" value="${opacity}" /><Value name="mode" value="reflection" /></Component>
+    </Components>
+    <Exports><Export id="transform" role="component" target="@root" /><Export id="material" role="component" target="@material" /></Exports>
+  </Recipe>
+</Recipes>
