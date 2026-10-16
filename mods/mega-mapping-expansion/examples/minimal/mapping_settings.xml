@@ -1,0 +1,29 @@
+<MappingSettings version="1" saveId="mme-construction-sdk">
+  <Assets>
+    <Asset id="surface" path="mme-assets/surface.png" />
+    <Asset id="panel" path="mme-assets/panel.png" />
+    <Asset id="mote" path="mme-assets/mote.png" />
+    <Asset id="digits" path="mme-assets/digits.png" columns="10" frames="10" />
+  </Assets>
+  <Variables><Variable id="attempts" kind="Integer" value="0" scope="Save" /></Variables>
+  <Components>
+    <Component id="view" kind="view"><Value name="timer" value="hide" /></Component>
+    <Component id="labelPose" kind="transform"><Value name="position" value="240,42" /></Component>
+    <Component id="label" kind="text"><Value name="transform" value="labelPose" /><Value name="value" value="A reactive scene" /></Component>
+    <Component id="counterPose" kind="transform"><Value name="position" value="240,76" /></Component>
+    <Component id="counter" kind="text"><Value name="transform" value="counterPose" /><Value name="value" value="Jump to advance the counter" /></Component>
+  </Components>
+  <Effects>
+    <Effect id="pulse" duration="0.6" fadeOut="0.5"><Set target="orb.transform/scale" value="1.06,1.06" /></Effect>
+  </Effects>
+  <Rules>
+    <Rule id="count" event="jump"><Action op="increment" target="attempts" value="1" /><Action op="effect" target="pulse" /></Rule>
+  </Rules>
+  <Instances>
+    <Instance id="orb" recipe="planet"><Arg name="surface" value="surface" /><Arg name="position" value="240,196" /><Arg name="size" value="180,180" /><Arg name="rate" value="0.025" /></Instance>
+    <Instance id="ribbon" recipe="wind-panel"><Arg name="asset" value="panel" /><Arg name="position" value="92,220" /></Instance>
+    <Instance id="stream" recipe="precipitation"><Arg name="asset" value="mote" /><Arg name="position" value="390,320" /><Arg name="area" value="42,12" /><Arg name="velocity" value="0,-60" /><Arg name="spread" value="8,12" /><Arg name="rate" value="12" /><Arg name="clock" value="presentation" /></Instance>
+    <Instance id="ones" recipe="atlas-digit"><Arg name="asset" value="digits" /><Arg name="source" value="variable:attempts" /><Arg name="position" value="241,300" /></Instance>
+    <Instance id="tens" recipe="atlas-digit"><Arg name="asset" value="digits" /><Arg name="source" value="variable:attempts" /><Arg name="position" value="234,300" /><Arg name="digit" value="1" /></Instance>
+  </Instances>
+</MappingSettings>

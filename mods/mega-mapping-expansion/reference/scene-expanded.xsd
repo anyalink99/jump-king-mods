@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MappingSettings" nillable="true" type="SceneDocument" />
+  <xs:complexType name="SceneDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="MapLayout">
+        <xs:complexType mixed="true">
+          <xs:sequence>
+            <xs:any maxOccurs="unbounded" />
+          </xs:sequence>
+          <xs:anyAttribute />
+        </xs:complexType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Assets" type="ArrayOfAssetData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Components" type="ArrayOfComponentData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Graph" type="ArrayOfValueNodeData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Bindings" type="ArrayOfBindingData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Variables" type="ArrayOfVariableData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Effects" type="ArrayOfEffectData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Rules" type="ArrayOfReactionData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Exports" type="ArrayOfExportData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Trees" type="ArrayOfControlTreeData" />
+    </xs:sequence>
+    <xs:attribute name="version" type="xs:int" use="required" />
+    <xs:attribute name="saveId" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfAssetData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Asset" nillable="true" type="AssetData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AssetData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="path" type="xs:string" />
+    <xs:attribute name="kind" type="xs:string" />
+    <xs:attribute name="columns" type="xs:int" use="required" />
+    <xs:attribute name="rows" type="xs:int" use="required" />
+    <xs:attribute name="frames" type="xs:int" use="required" />
+    <xs:attribute name="fps" type="xs:double" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfComponentData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Component" nillable="true" type="ComponentData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ComponentData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Value" type="ComponentValueData" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="kind" type="xs:string" />
+    <xs:attribute name="tags" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ComponentValueData">
+    <xs:attribute name="name" type="xs:string" />
+    <xs:attribute name="value" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfValueNodeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Node" nillable="true" type="ValueNodeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ValueNodeData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="op" type="xs:string" />
+    <xs:attribute name="inputs" type="xs:string" />
+    <xs:attribute name="source" type="xs:string" />
+    <xs:attribute name="kind" type="SceneValueKind" use="required" />
+    <xs:attribute name="value" type="xs:string" />
+    <xs:attribute name="units" type="xs:string" />
+    <xs:attribute name="clock" type="SceneClock" use="required" />
+    <xs:attribute name="curve" type="xs:string" />
+    <xs:attribute name="quality" type="ObservationQuality" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="SceneValueKind">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Number" />
+      <xs:enumeration value="Integer" />
+      <xs:enumeration value="Boolean" />
+      <xs:enumeration value="Vector2" />
+      <xs:enumeration value="Color" />
+      <xs:enumeration value="Text" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="SceneClock">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Gameplay" />
+      <xs:enumeration value="Presentation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ObservationQuality">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Unavailable" />
+      <xs:enumeration value="Estimated" />
+      <xs:enumeration value="Sampled" />
+      <xs:enumeration value="Exact" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfBindingData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Bind" nillable="true" type="BindingData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="BindingData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="source" type="xs:string" />
+    <xs:attribute name="target" type="xs:string" />
+    <xs:attribute name="mode" type="xs:string" />
+    <xs:attribute name="priority" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfVariableData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Variable" nillable="true" type="VariableData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="VariableData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="kind" type="SceneValueKind" use="required" />
+    <xs:attribute name="value" type="xs:string" />
+    <xs:attribute name="scope" type="SceneStateScope" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="SceneStateScope">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Transient" />
+      <xs:enumeration value="Attempt" />
+      <xs:enumeration value="Save" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ArrayOfEffectData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Effect" nillable="true" type="EffectData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EffectData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Set" type="OverrideData" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="duration" type="xs:double" use="required" />
+    <xs:attribute name="fadeIn" type="xs:double" use="required" />
+    <xs:attribute name="fadeOut" type="xs:double" use="required" />
+    <xs:attribute name="clock" type="SceneClock" use="required" />
+    <xs:attribute name="repeat" type="xs:string" />
+    <xs:attribute name="priority" type="xs:int" use="required" />
+    <xs:attribute name="group" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="OverrideData">
+    <xs:attribute name="target" type="xs:string" />
+    <xs:attribute name="value" type="xs:string" />
+    <xs:attribute name="source" type="xs:string" />
+    <xs:attribute name="mode" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfReactionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Rule" nillable="true" type="ReactionData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReactionData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Action" type="ActionData" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="event" type="xs:string" />
+    <xs:attribute name="condition" type="xs:string" />
+    <xs:attribute name="once" type="xs:boolean" use="required" />
+    <xs:attribute name="cooldown" type="xs:double" use="required" />
+    <xs:attribute name="clock" type="SceneClock" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ActionData">
+    <xs:attribute name="op" type="xs:string" />
+    <xs:attribute name="target" type="xs:string" />
+    <xs:attribute name="value" type="xs:string" />
+    <xs:attribute name="source" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfExportData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Export" nillable="true" type="ExportData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExportData">
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="target" type="xs:string" />
+    <xs:attribute name="role" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfControlTreeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tree" nillable="true" type="ControlTreeData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ControlTreeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Node" type="ControlNodeData" />
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" />
+    <xs:attribute name="event" type="xs:string" />
+    <xs:attribute name="stopEvent" type="xs:string" />
+    <xs:attribute name="condition" type="xs:string" />
+    <xs:attribute name="retrigger" type="xs:string" />
+    <xs:attribute name="once" type="xs:boolean" use="required" />
+    <xs:attribute name="clock" type="SceneClock" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ControlNodeData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Node" type="ControlNodeData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Action" type="ActionData" />
+    </xs:sequence>
+    <xs:attribute name="op" type="xs:string" />
+    <xs:attribute name="source" type="xs:string" />
+    <xs:attribute name="target" type="xs:string" />
+    <xs:attribute name="seconds" type="xs:double" use="required" />
+    <xs:attribute name="count" type="xs:int" use="required" />
+  </xs:complexType>
+</xs:schema>
