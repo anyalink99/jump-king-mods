@@ -1,0 +1,17 @@
+<Transitions version="1" seed="auto">
+  <SchemePool id="route" mode="shuffle" avoidLast="1">
+    <Scheme id="start-a">
+      <SideLink screen="5" side="right" target="10" />
+      <SideLink screen="10" side="right" target="20" />
+      <SideLink screen="15" side="left" target="20" />
+    </Scheme>
+    <Scheme id="start-b">
+      <SideLink screen="5" side="right" target="15" />
+      <SideLink screen="10" side="right" target="25" />
+      <SideLink screen="15" side="left" target="25" />
+    </Scheme>
+  </SchemePool>
+  <Reroll id="new-attempt" on="screen-enter" screen="3" pools="route" />
+  <SideLink screen="20" side="right" target="3" />
+  <SideLink screen="25" side="right" target="3" />
+</Transitions>
