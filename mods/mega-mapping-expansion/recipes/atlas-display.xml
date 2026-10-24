@@ -1,0 +1,48 @@
+<Recipes>
+  <Recipe id="atlas-display">
+    <Parameters>
+      <Param name="asset" kind="Text" />
+      <Param name="source" kind="Text" default="charge.heldFrames" />
+      <Param name="position" kind="Vector2" default="240,180" />
+      <Param name="origin" kind="Vector2" default="0,0" />
+      <Param name="screen" kind="Number" default="1" min="1" max="4096" />
+      <Param name="minimum" kind="Number" default="1" />
+      <Param name="maximum" kind="Number" default="35" />
+      <Param name="frames" kind="Number" default="35" min="2" max="65536" />
+      <Param name="rounding" kind="Text" default="floor" />
+    </Parameters>
+    <Components>
+      <Component id="root" kind="transform"><Value name="position" value="${position}" /><Value name="screen" value="${screen}" /></Component>
+      <Component id="material" kind="material" />
+      <Component id="image" kind="sprite"><Value name="transform" value="@root" /><Value name="material" value="@material" /><Value name="asset" value="${asset}" /><Value name="origin" value="${origin}" /><Value name="playback" value="manual" /></Component>
+    </Components>
+    <Graph>
+      <Node id="input" op="input" source="${source}" /><Node id="number" op="number" inputs="@input" />
+      <Node id="minimum" op="constant" value="${minimum}" /><Node id="maximum" op="constant" value="${maximum}" />
+      <Node id="count" op="constant" value="${frames}" /><Node id="one" op="constant" value="1" /><Node id="zero" op="constant" value="0" />
+      <Node id="last" op="subtract" inputs="@count;@one" /><Node id="mapped" op="remap" inputs="@number;@minimum;@maximum;@zero;@last" units="frame" />
+      <Node id="bounded" op="clamp" inputs="@mapped;@zero;@last" /><Node id="frame" op="${rounding}" inputs="@bounded" units="frame" />
+    </Graph>
+    <Bindings><Bind id="frame" source="@frame" target="@image/frame" /></Bindings>
+    <Exports><Export id="transform" target="@root" role="component" /><Export id="image" target="@image" role="component" /></Exports>
+  </Recipe>
+  <Recipe id="atlas-digit">
+    <Parameters>
+      <Param name="asset" kind="Text" /><Param name="source" kind="Text" />
+      <Param name="position" kind="Vector2" default="240,180" /><Param name="screen" kind="Number" default="1" min="1" max="4096" />
+      <Param name="digit" kind="Number" default="0" min="0" max="9" /><Param name="roll" kind="Number" default="0.24" min="0" max="2" />
+    </Parameters>
+    <Components>
+      <Component id="root" kind="transform"><Value name="position" value="${position}" /><Value name="screen" value="${screen}" /></Component>
+      <Component id="material" kind="material" />
+      <Component id="image" kind="sprite"><Value name="transform" value="@root" /><Value name="material" value="@material" /><Value name="asset" value="${asset}" /><Value name="playback" value="manual" /><Value name="transition" value="slide" /><Value name="frameTransition" value="${roll}" /></Component>
+    </Components>
+    <Graph>
+      <Node id="input" op="input" source="${source}" /><Node id="number" op="number" inputs="@input" /><Node id="absolute" op="abs" inputs="@number" />
+      <Node id="ten" op="constant" value="10" /><Node id="digit" op="constant" value="${digit}" /><Node id="divisor" op="power" inputs="@ten;@digit" />
+      <Node id="divided" op="divide" inputs="@absolute;@divisor" /><Node id="whole" op="floor" inputs="@divided" /><Node id="frame" op="wrap" inputs="@whole;@ten" units="frame" />
+    </Graph>
+    <Bindings><Bind id="frame" source="@frame" target="@image/frame" /></Bindings>
+    <Exports><Export id="transform" target="@root" role="component" /><Export id="image" target="@image" role="component" /></Exports>
+  </Recipe>
+</Recipes>
