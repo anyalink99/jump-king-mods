@@ -1,0 +1,248 @@
+{
+  "version": 1,
+  "unity_version": "2021.3.33f1",
+  "simulation_hz": 60,
+  "default_enemy": "fslave-crawler",
+  "banks": [
+    "Master.strings.bank",
+    "Master.bank",
+    "Weapons.bank",
+    "Player.bank",
+    "Enemies.bank",
+    "Other.bank"
+  ],
+  "audio": [
+    {
+      "id": "side-light",
+      "event": "event:/Game/SFX/Weapons/Swords/Sidesword/light_1"
+    },
+    {
+      "id": "side-heavy",
+      "event": "event:/Game/SFX/Weapons/Swords/Sidesword/heavy"
+    },
+    {
+      "id": "bastard-light",
+      "event": "event:/Game/SFX/Weapons/Swords/Bastard Sword/light_1"
+    },
+    {
+      "id": "bastard-heavy",
+      "event": "event:/Game/SFX/Weapons/Swords/Bastard Sword/heavy"
+    },
+    {
+      "id": "spear",
+      "event": "event:/Game/SFX/Weapons/Spears/RCRedcrown Spear/light_attack_spear"
+    },
+    {
+      "id": "punch",
+      "event": "event:/Game/SFX/Weapons/Maces/MorningStar/punch"
+    },
+    {
+      "id": "slash-hit",
+      "event": "event:/Game/SFX/Player/Hit SFX/slash_hit"
+    },
+    {
+      "id": "stab-hit",
+      "event": "event:/Game/SFX/Player/Hit SFX/stab_hit"
+    },
+    {
+      "id": "blunt-hit",
+      "event": "event:/Game/SFX/Player/Hit SFX/blunt_hit"
+    },
+    {
+      "id": "block",
+      "event": "event:/Game/SFX/Player/Shields/Block"
+    },
+    {
+      "id": "parry",
+      "event": "event:/Game/SFX/Player/Shields/Parry"
+    }
+  ],
+  "player_attack": {
+    "light_start": 8,
+    "light_active": 4,
+    "heavy_start": 20,
+    "heavy_active": 6,
+    "heavy_recovery_extra": 10,
+    "heavy_multiplier": 2
+  },
+  "items": [
+    {
+      "id": "worn-blade",
+      "source": "item_SideSword",
+      "name": "Side Sword",
+      "description": "Quick cuts and a committed heavy swing.",
+      "slot": "Weapon",
+      "damage": 16,
+      "reach": 32,
+      "armor": 0,
+      "light_cue": "side-light",
+      "heavy_cue": "side-heavy",
+      "hit_cue": "slash-hit",
+      "art": {
+        "kind": "weapon",
+        "index": 0,
+        "view": 0,
+        "height": 29
+      },
+      "visual_id": 1,
+      "heal": 0
+    },
+    {
+      "id": "iron-blade",
+      "source": "item_BastardSword",
+      "name": "Bastard Sword",
+      "description": "A heavier blade.",
+      "slot": "Weapon",
+      "damage": 23,
+      "reach": 35,
+      "armor": 0,
+      "light_cue": "bastard-light",
+      "heavy_cue": "bastard-heavy",
+      "hit_cue": "slash-hit",
+      "art": {
+        "kind": "weapon",
+        "index": 1,
+        "view": 0,
+        "height": 34
+      },
+      "visual_id": 2,
+      "heal": 0
+    },
+    {
+      "id": "reed-spear",
+      "source": "item_RCrownSpear",
+      "name": "Crown Spear",
+      "description": "Long reach.",
+      "slot": "Weapon",
+      "damage": 19,
+      "reach": 55,
+      "armor": 0,
+      "light_cue": "spear",
+      "heavy_cue": "spear",
+      "hit_cue": "stab-hit",
+      "art": {
+        "kind": "weapon",
+        "index": 2,
+        "view": 0,
+        "height": 46
+      },
+      "visual_id": 3,
+      "heal": 0
+    },
+    {
+      "id": "buckler",
+      "source": "item_Buckler",
+      "name": "Buckler",
+      "description": "A timed guard. Facing the attacker matters.",
+      "slot": "Shield",
+      "damage": 0,
+      "reach": 0,
+      "armor": 5,
+      "art": {
+        "kind": "shield",
+        "index": 3,
+        "view": 3,
+        "height": 16
+      },
+      "visual_id": 1,
+      "heal": 0
+    },
+    {
+      "id": "travel-coat",
+      "source": "item_ArcherTorso",
+      "name": "Archer Coat",
+      "description": "Light protection.",
+      "slot": "Body",
+      "damage": 0,
+      "reach": 0,
+      "armor": 2,
+      "art": {
+        "kind": "body",
+        "index": 0,
+        "view": 3,
+        "gain": 1.15
+      },
+      "visual_id": 1,
+      "heal": 0
+    },
+    {
+      "id": "iron-coat",
+      "source": "item_IronGuardTorso",
+      "name": "Iron Guard Armor",
+      "description": "Sturdy protection.",
+      "slot": "Body",
+      "damage": 0,
+      "reach": 0,
+      "armor": 6,
+      "art": {
+        "kind": "body",
+        "index": 1,
+        "view": 3,
+        "gain": 1.4
+      },
+      "visual_id": 2,
+      "heal": 0
+    },
+    {
+      "id": "tonic",
+      "source_sprite": "Icon_hotdog",
+      "name": "Hotdog",
+      "description": "Restores 40 health.",
+      "slot": "None",
+      "damage": 0,
+      "reach": 0,
+      "armor": 0,
+      "art": {
+        "kind": "consumable",
+        "index": 0
+      },
+      "visual_id": 0,
+      "heal": 40
+    }
+  ],
+  "enemies": [
+    {
+      "id": "fslave-crawler",
+      "source_prefab": "FSlaveCrawlerGlue.prefab",
+      "source_brain": "FSlaveCrawlerBrain",
+      "behavior": "grounded-melee",
+      "states": {
+        "idle": "waitingTable",
+        "walk": "aggroWalkAnimation",
+        "hurt": "poiseAnimation",
+        "death": "stunAnimation"
+      },
+      "render": {
+        "fps": 15,
+        "pixels_per_unit": 8,
+        "cell": 80,
+        "columns": 16,
+        "pivot_x": 48,
+        "pivot_y": 68,
+        "center_x": 1,
+        "center_y": 3.5,
+        "extent": 10
+      },
+      "adaptation": {
+        "body_width": 32,
+        "body_height": 22,
+        "anchor_x": 16,
+        "anchor_y": 19,
+        "damage_scale": 32,
+        "walk_speed": 0.35,
+        "attack_range": 58,
+        "height_range": 30,
+        "attack_cooldown": 20,
+        "hurt_ticks": 60,
+        "death_ticks": 90,
+        "death_hold_tick": 60
+      },
+      "notes": [
+        "Keep the native Jump King scale.",
+        "Use a grounded melee controller; Quest navigation and flying-death behavior are not imported.",
+        "Map source damage units to the current player balance with damage_scale."
+      ],
+      "name": "Famished Crawler"
+    }
+  ]
+}

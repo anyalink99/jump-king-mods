@@ -1,0 +1,4 @@
+<Transitions version="1">
+  <SideLink screen="1" side="right" target="2" />
+  <SideLink screen="2" side="left" target="1" />
+</Transitions>

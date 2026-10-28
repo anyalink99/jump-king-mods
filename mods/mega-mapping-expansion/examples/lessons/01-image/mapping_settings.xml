@@ -1,0 +1,15 @@
+<MappingSettings version="1">
+  <Assets>
+    <Asset id="panelArt" path="mme-assets/panel.png" />
+  </Assets>
+  <Components>
+    <Component id="panelPose" kind="transform">
+      <Value name="position" value="240,160" />
+      <Value name="screen" value="1" />
+    </Component>
+    <Component id="panel" kind="sprite">
+      <Value name="transform" value="panelPose" />
+      <Value name="asset" value="panelArt" />
+    </Component>
+  </Components>
+</MappingSettings>

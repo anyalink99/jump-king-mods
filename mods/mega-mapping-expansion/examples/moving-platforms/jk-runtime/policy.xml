@@ -1,0 +1,1 @@
+<MapPolicy version="1"><Module id="mega-mapping-expansion" mode="require" minimum="1.4.0" reason="This map needs moving-platform collision and scene commands" /></MapPolicy>

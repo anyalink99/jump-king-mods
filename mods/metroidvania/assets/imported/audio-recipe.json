@@ -1,0 +1,76 @@
+{
+  "banks": [
+    "Master.strings.bank",
+    "Master.bank",
+    "Weapons.bank",
+    "Player.bank",
+    "Enemies.bank",
+    "Other.bank"
+  ],
+  "audio": [
+    {
+      "id": "side-light",
+      "event": "event:/Game/SFX/Weapons/Swords/Sidesword/light_1"
+    },
+    {
+      "id": "side-heavy",
+      "event": "event:/Game/SFX/Weapons/Swords/Sidesword/heavy"
+    },
+    {
+      "id": "bastard-light",
+      "event": "event:/Game/SFX/Weapons/Swords/Bastard Sword/light_1"
+    },
+    {
+      "id": "bastard-heavy",
+      "event": "event:/Game/SFX/Weapons/Swords/Bastard Sword/heavy"
+    },
+    {
+      "id": "spear",
+      "event": "event:/Game/SFX/Weapons/Spears/RCRedcrown Spear/light_attack_spear"
+    },
+    {
+      "id": "punch",
+      "event": "event:/Game/SFX/Weapons/Maces/MorningStar/punch"
+    },
+    {
+      "id": "slash-hit",
+      "event": "event:/Game/SFX/Player/Hit SFX/slash_hit"
+    },
+    {
+      "id": "stab-hit",
+      "event": "event:/Game/SFX/Player/Hit SFX/stab_hit"
+    },
+    {
+      "id": "blunt-hit",
+      "event": "event:/Game/SFX/Player/Hit SFX/blunt_hit"
+    },
+    {
+      "id": "block",
+      "event": "event:/Game/SFX/Player/Shields/Block"
+    },
+    {
+      "id": "parry",
+      "event": "event:/Game/SFX/Player/Shields/Parry"
+    },
+    {
+      "id": "jkq.eb819354-534c-449e-b60a-df77accd3552",
+      "event_guid": "eb819354-534c-449e-b60a-df77accd3552"
+    },
+    {
+      "id": "jkq.302b16bc-887b-47c1-ae3f-8a90e70a76fc",
+      "event_guid": "302b16bc-887b-47c1-ae3f-8a90e70a76fc"
+    },
+    {
+      "id": "jkq.b953e75a-19a6-416f-99c9-491bfd9922de",
+      "event_guid": "b953e75a-19a6-416f-99c9-491bfd9922de"
+    },
+    {
+      "id": "jkq.f2aaa06e-530b-4a51-ae71-9e99ce624d44",
+      "event_guid": "f2aaa06e-530b-4a51-ae71-9e99ce624d44"
+    },
+    {
+      "id": "jkq.a492e63d-d810-44b5-be9f-f0f50e05d4cf",
+      "event_guid": "a492e63d-d810-44b5-be9f-f0f50e05d4cf"
+    }
+  ]
+}

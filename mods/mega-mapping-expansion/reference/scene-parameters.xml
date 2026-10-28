@@ -1,0 +1,665 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SceneCatalog version="1">
+  <Component kind="audio" scope="Attempt">
+    <Field name="path" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="bus" kind="Text" default="SFX" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="SFX;Ambience;Music" />
+    <Field name="playing" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="loop" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="volume" kind="Number" default="1" min="0" max="1" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="fadeIn" kind="Number" default="0" min="0" max="60" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="fadeOut" kind="Number" default="0" min="0" max="60" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="camera" scope="Attempt">
+    <Field name="screen" kind="Integer" default="1" min="1" max="4096" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="position" kind="Vector2" default="240,180" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="active" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="transition" kind="Text" default="cut" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="cut;smooth" />
+    <Field name="duration" kind="Number" default="1" min="0" max="60" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="returnDuration" kind="Number" default="0.5" min="0" max="60" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="priority" kind="Integer" default="0" min="-1000" max="1000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="fallback" kind="Text" default="cut" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="cut;error" />
+  </Component>
+  <Component kind="capture" scope="Transient">
+    <Field name="selection" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Selection" choices="" />
+    <Field name="stage" kind="Text" default="world" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="background;world;foreground;ending" />
+    <Field name="mode" kind="Text" default="live" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="live;hold" />
+    <Field name="onVictory" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="enabled" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="deformation" scope="Attempt">
+    <Field name="field" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="pin" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="extent" kind="Vector2" default="1,1" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="strength" kind="Number" default="1" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="falloff" kind="Number" default="2" min="0.01" max="16" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="axis" kind="Text" default="both" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="x;y;both" />
+    <Field name="space" kind="Text" default="local" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="local;world" />
+    <Field name="next" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+  </Component>
+  <Component kind="emitter" scope="Transient">
+    <Field name="transform" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="asset" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Asset" choices="" />
+    <Field name="material" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="rate" kind="Number" default="10" min="0" max="4096" units="particles/s" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="lifetime" kind="Number" default="1" min="0.001" max="120" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="velocity" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="acceleration" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="spread" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="area" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="size" kind="Number" default="1" min="0.01" max="64" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="seed" kind="Integer" default="0" min="0" max="2147483647" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="capacity" kind="Integer" default="256" min="1" max="16384" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="shape" kind="Text" default="point" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="point;box;line;disc" />
+    <Field name="clock" kind="Text" default="gameplay" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="gameplay;presentation" />
+    <Field name="layer" kind="Text" default="world" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="background;world;surface;foreground;ending;composite" />
+    <Field name="z" kind="Number" default="0" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+    <Field name="enabled" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="captureOnly" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+  </Component>
+  <Component kind="ending" scope="Attempt">
+    <Field name="role" kind="Text" default="main" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="main;nbp;owl" />
+    <Field name="mode" kind="Text" default="replace" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="replace;and;or" />
+    <Field name="condition" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="screen" kind="Integer" default="0" min="0" max="4096" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="position" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="size" kind="Vector2" default="0,0" min="0" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="requireGrounded" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="endingActor" scope="Attempt">
+    <Field name="role" kind="Text" default="king" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="king;babe;cherub;hanging_babe;crow;gargoyle;bird" />
+    <Field name="visible" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="endingPresentation" scope="Attempt">
+    <Field name="role" kind="Text" default="main" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="main;nbp;owl" />
+    <Field name="credits" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="picture" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="statistics" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="field" scope="Attempt">
+    <Field name="function" kind="Text" default="sine" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="sine;noise;curve;spring" />
+    <Field name="amplitude" kind="Vector2" default="1,1" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="frequency" kind="Vector2" default="1,1" min="-1000000" max="1000000" units="cycles/px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="origin" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="phase" kind="Number" default="0" min="-1000000" max="1000000" units="turns" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="decay" kind="Number" default="0" min="0" max="100" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="curve" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="seed" kind="Integer" default="0" min="0" max="2147483647" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="segments" kind="Integer" default="64" min="2" max="256" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="length" kind="Number" default="480" min="0.01" max="100000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="direction" kind="Vector2" default="1,0" min="-1000000" max="1000000" units="ratio" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="stiffness" kind="Number" default="32" min="0.1" max="2000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="propagation" kind="Number" default="120" min="0" max="2000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="damping" kind="Number" default="4" min="0" max="100" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="limit" kind="Number" default="64" min="0.001" max="10000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="impulseRadius" kind="Number" default="0.04" min="0" max="1" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="clock" kind="Text" default="gameplay" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="gameplay;presentation" />
+  </Component>
+  <Component kind="hiddenWall" scope="Attempt">
+    <Field name="texture" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="position" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="matchPosition" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+  </Component>
+  <Component kind="intro" scope="Attempt">
+    <Field name="order" kind="Integer" default="0" min="-1024" max="1024" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="value" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="font" kind="Text" default="menu" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="color" kind="Color" default="1,1,1,1" min="-1000000" max="1000000" units="" bindable="true" impact="Material" reference="None" choices="" />
+    <Field name="fadeIn" kind="Number" default="0.7" min="0" max="60" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="stay" kind="Number" default="2.5" min="0" max="300" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="fadeOut" kind="Number" default="0.7" min="0" max="60" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="enabled" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="item" scope="Attempt">
+    <Field name="name" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+  </Component>
+  <Component kind="light" scope="Attempt">
+    <Field name="transform" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="color" kind="Color" default="1,1,1,1" min="-1000000" max="1000000" units="" bindable="true" impact="Material" reference="None" choices="" />
+    <Field name="intensity" kind="Number" default="1" min="0" max="8" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="radius" kind="Number" default="64" min="1" max="2000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="cone" kind="Number" default="360" min="0.1" max="360" units="degrees" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="softness" kind="Number" default="0.5" min="0" max="1" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="enabled" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="occluders" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Selection" choices="" />
+    <Field name="scatter" kind="Number" default="0" min="0" max="8" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="layer" kind="Text" default="world" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="background;world;foreground;ending" />
+    <Field name="z" kind="Number" default="0" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+    <Field name="captureOnly" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+  </Component>
+  <Component kind="material" scope="Attempt">
+    <Field name="color" kind="Color" default="1,1,1,1" min="-1000000" max="1000000" units="" bindable="true" impact="Material" reference="None" choices="" />
+    <Field name="opacity" kind="Number" default="1" min="0" max="1" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="emission" kind="Number" default="0" min="0" max="8" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="sampling" kind="Text" default="point" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="point;linear" />
+    <Field name="blend" kind="Text" default="alpha" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="alpha;add;multiply" />
+    <Field name="address" kind="Text" default="clamp" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="clamp;wrap" />
+    <Field name="channel" kind="Text" default="rgba" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="rgba;alpha" />
+    <Field name="mask" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Asset" choices="" />
+    <Field name="maskSpace" kind="Text" default="local" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="local;screen" />
+    <Field name="capture" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="source" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="uvOffset" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="turns" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="uvScale" kind="Vector2" default="1,1" min="-1000000" max="1000000" units="ratio" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="ambient" kind="Number" default="1" min="0" max="8" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="diffuse" kind="Number" default="0" min="0" max="8" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="normalLight" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="ratio" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="media" scope="Transient">
+    <Field name="source" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="active" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="mesh" scope="Attempt">
+    <Field name="transform" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="asset" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Asset" choices="" />
+    <Field name="material" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="geometry" kind="Text" default="grid" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="grid;polygon;disc" />
+    <Field name="size" kind="Vector2" default="64,64" min="-1000000" max="1000000" units="px" bindable="true" impact="Geometry" reference="None" choices="" />
+    <Field name="outline" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="columns" kind="Integer" default="16" min="1" max="128" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="rows" kind="Integer" default="16" min="1" max="128" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="projection" kind="Text" default="planar" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="planar;spherical;cylindrical;perspective" />
+    <Field name="projectionTilt" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="degrees" bindable="true" impact="Geometry" reference="None" choices="" />
+    <Field name="deformation" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="visible" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="layer" kind="Text" default="world" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="background;world;surface;foreground;ending;composite" />
+    <Field name="z" kind="Number" default="0" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+    <Field name="captureOnly" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+  </Component>
+  <Component kind="npc" scope="Attempt">
+    <Field name="name" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="voice" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="muted" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="linePause" kind="Number" default="-1" min="-1" max="60" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="quoteOverride" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="quote" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="offset" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="tint" kind="Color" default="1,1,1,1" min="-1000000" max="1000000" units="" bindable="true" impact="Material" reference="None" choices="" />
+    <Field name="opacity" kind="Number" default="1" min="0" max="1" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="visible" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="textVisible" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="receiver" scope="Attempt">
+    <Field name="transform" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="material" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="outline" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="mode" kind="Text" default="shadow" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="shadow;reflection;occlusion" />
+    <Field name="projection" kind="Vector2" default="0,0.35" min="-1000000" max="1000000" units="ratio" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="opacity" kind="Number" default="0.5" min="0" max="1" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="layer" kind="Text" default="surface" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="background;world;surface;foreground;ending;composite" />
+    <Field name="z" kind="Number" default="0" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+    <Field name="captureOnly" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+  </Component>
+  <Component kind="result" scope="Attempt">
+    <Field name="page" kind="Text" default="RESULTS" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="role" kind="Text" default="any" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="any;main;nbp;owl" />
+    <Field name="order" kind="Integer" default="0" min="-1024" max="1024" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="label" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="value" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="color" kind="Color" default="1,1,1,1" min="-1000000" max="1000000" units="" bindable="true" impact="Material" reference="None" choices="" />
+    <Field name="background" kind="Color" default="0,0,0,1" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="enabled" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="sensor" scope="Attempt">
+    <Field name="transform" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="shape" kind="Text" default="box" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="box;disc;polygon;surface" />
+    <Field name="size" kind="Vector2" default="8,8" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="outline" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="selection" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Selection" choices="" />
+    <Field name="actor" kind="Text" default="player" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="phase" kind="Text" default="contact" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="contact;scene" />
+    <Field name="hysteresis" kind="Number" default="0" min="0" max="64" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="dwell" kind="Number" default="0" min="0" max="60" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="minimumSpeed" kind="Number" default="0" min="0" max="10000" units="px/s" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="initial" kind="Text" default="baseline" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="baseline;fire" />
+    <Field name="enabled" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="sprite" scope="Attempt">
+    <Field name="transform" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="asset" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Asset" choices="" />
+    <Field name="material" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="origin" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="frame" kind="Number" default="0" min="0" max="65535" units="frame" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="frameTransition" kind="Number" default="0" min="0" max="2" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="transition" kind="Text" default="none" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="none;slide;crossfade" />
+    <Field name="playback" kind="Text" default="loop" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="manual;loop;once;pingpong" />
+    <Field name="clock" kind="Text" default="gameplay" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="gameplay;presentation" />
+    <Field name="layer" kind="Text" default="world" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="background;world;surface;foreground;ending;composite;hud" />
+    <Field name="z" kind="Number" default="0" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+    <Field name="visible" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="captureOnly" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+  </Component>
+  <Component kind="stamp" scope="Transient">
+    <Field name="asset" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Asset" choices="" />
+    <Field name="material" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="mask" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Asset" choices="" />
+    <Field name="duration" kind="Number" default="1" min="0.001" max="120" units="seconds" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="capacity" kind="Integer" default="8" min="1" max="256" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="clock" kind="Text" default="gameplay" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="gameplay;presentation" />
+    <Field name="layer" kind="Text" default="world" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="background;world;surface;foreground;ending;composite" />
+    <Field name="z" kind="Number" default="0" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+    <Field name="captureOnly" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+  </Component>
+  <Component kind="text" scope="Attempt">
+    <Field name="transform" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="material" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="font" kind="Text" default="menu" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="characters" kind="Text" default="0123456789+- .:ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="spacing" kind="Number" default="0" min="-64" max="64" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="value" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="visibleCharacters" kind="Number" default="65535" min="0" max="65535" units="characters" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="width" kind="Number" default="440" min="1" max="4096" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="align" kind="Text" default="center" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="left;center;right" />
+    <Field name="layer" kind="Text" default="world" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="background;world;surface;foreground;ending;composite;hud" />
+    <Field name="z" kind="Number" default="0" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+    <Field name="captureOnly" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="Membership" reference="None" choices="" />
+  </Component>
+  <Component kind="transform" scope="Attempt">
+    <Field name="position" kind="Vector2" default="0,0" min="-1000000" max="1000000" units="px" bindable="true" impact="Pose" reference="None" choices="" />
+    <Field name="scale" kind="Vector2" default="1,1" min="-1000000" max="1000000" units="ratio" bindable="true" impact="Pose" reference="None" choices="" />
+    <Field name="rotation" kind="Number" default="0" min="-1000000" max="1000000" units="degrees" bindable="true" impact="Pose" reference="None" choices="" />
+    <Field name="parent" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="Component" choices="" />
+    <Field name="screen" kind="Integer" default="1" min="0" max="4096" units="screen" bindable="true" impact="Membership" reference="None" choices="" />
+    <Field name="visible" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="pixelSnap" kind="Boolean" default="true" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <Component kind="view" scope="Attempt">
+    <Field name="screen" kind="Integer" default="0" min="0" max="4096" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="ambient" kind="Color" default="1,1,1,1" min="-1000000" max="1000000" units="" bindable="true" impact="Material" reference="None" choices="" />
+    <Field name="tint" kind="Color" default="1,1,1,1" min="-1000000" max="1000000" units="" bindable="true" impact="Material" reference="None" choices="" />
+    <Field name="tintAmount" kind="Number" default="0" min="0" max="1" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="exposure" kind="Number" default="1" min="0" max="8" units="" bindable="true" impact="None" reference="None" choices="" />
+    <Field name="mirror" kind="Text" default="none" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="none;horizontal;vertical;both" />
+    <Field name="timer" kind="Text" default="inherit" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="inherit;show;hide" />
+    <Field name="intro" kind="Text" default="" min="-1000000" max="1000000" units="" bindable="false" impact="Structural" reference="None" choices="" />
+    <Field name="animateWhilePaused" kind="Boolean" default="false" min="-1000000" max="1000000" units="" bindable="true" impact="None" reference="None" choices="" />
+  </Component>
+  <GraphOperations>
+    <Operation id="constant" />
+    <Operation id="input" />
+    <Operation id="pass" />
+    <Operation id="add" />
+    <Operation id="subtract" />
+    <Operation id="multiply" />
+    <Operation id="divide" />
+    <Operation id="vector" />
+    <Operation id="x" />
+    <Operation id="y" />
+    <Operation id="length" />
+    <Operation id="normalize" />
+    <Operation id="dot" />
+    <Operation id="angle" />
+    <Operation id="sin" />
+    <Operation id="cos" />
+    <Operation id="abs" />
+    <Operation id="floor" />
+    <Operation id="round" />
+    <Operation id="minimum" />
+    <Operation id="maximum" />
+    <Operation id="clamp" />
+    <Operation id="remap" />
+    <Operation id="wrap" />
+    <Operation id="curve" />
+    <Operation id="select" />
+    <Operation id="less" />
+    <Operation id="greater" />
+    <Operation id="equal" />
+    <Operation id="and" />
+    <Operation id="or" />
+    <Operation id="not" />
+    <Operation id="smooth" />
+    <Operation id="spring" />
+    <Operation id="integrate" />
+    <Operation id="delay" />
+    <Operation id="number" />
+    <Operation id="integer" />
+    <Operation id="format" />
+    <Operation id="template" />
+    <Operation id="power" />
+    <Operation id="hysteresis" />
+    <Operation id="available" />
+    <Operation id="quality" />
+    <Operation id="lerp" />
+  </GraphOperations>
+  <Recipes>
+    <Recipe id="atlas-display">
+      <Parameters>
+        <Param name="asset" kind="Text" />
+        <Param name="source" kind="Text" default="charge.heldFrames" />
+        <Param name="position" kind="Vector2" default="240,180" />
+        <Param name="origin" kind="Vector2" default="0,0" />
+        <Param name="screen" kind="Number" default="1" min="1" max="4096" />
+        <Param name="minimum" kind="Number" default="1" />
+        <Param name="maximum" kind="Number" default="35" />
+        <Param name="frames" kind="Number" default="35" min="2" max="65536" />
+        <Param name="rounding" kind="Text" default="floor" />
+      </Parameters>
+      <Components>
+        <Component id="root" kind="transform">
+          <Value name="position" value="${position}" />
+          <Value name="screen" value="${screen}" />
+        </Component>
+        <Component id="material" kind="material" />
+        <Component id="image" kind="sprite">
+          <Value name="transform" value="@root" />
+          <Value name="material" value="@material" />
+          <Value name="asset" value="${asset}" />
+          <Value name="origin" value="${origin}" />
+          <Value name="playback" value="manual" />
+        </Component>
+      </Components>
+      <Graph>
+        <Node id="input" op="input" source="${source}" />
+        <Node id="number" op="number" inputs="@input" />
+        <Node id="minimum" op="constant" value="${minimum}" />
+        <Node id="maximum" op="constant" value="${maximum}" />
+        <Node id="count" op="constant" value="${frames}" />
+        <Node id="one" op="constant" value="1" />
+        <Node id="zero" op="constant" value="0" />
+        <Node id="last" op="subtract" inputs="@count;@one" />
+        <Node id="mapped" op="remap" inputs="@number;@minimum;@maximum;@zero;@last" units="frame" />
+        <Node id="bounded" op="clamp" inputs="@mapped;@zero;@last" />
+        <Node id="frame" op="${rounding}" inputs="@bounded" units="frame" />
+      </Graph>
+      <Bindings>
+        <Bind id="frame" source="@frame" target="@image/frame" />
+      </Bindings>
+      <Exports>
+        <Export id="transform" target="@root" role="component" />
+        <Export id="image" target="@image" role="component" />
+      </Exports>
+    </Recipe>
+    <Recipe id="atlas-digit">
+      <Parameters>
+        <Param name="asset" kind="Text" />
+        <Param name="source" kind="Text" />
+        <Param name="position" kind="Vector2" default="240,180" />
+        <Param name="screen" kind="Number" default="1" min="1" max="4096" />
+        <Param name="digit" kind="Number" default="0" min="0" max="9" />
+        <Param name="roll" kind="Number" default="0.24" min="0" max="2" />
+      </Parameters>
+      <Components>
+        <Component id="root" kind="transform">
+          <Value name="position" value="${position}" />
+          <Value name="screen" value="${screen}" />
+        </Component>
+        <Component id="material" kind="material" />
+        <Component id="image" kind="sprite">
+          <Value name="transform" value="@root" />
+          <Value name="material" value="@material" />
+          <Value name="asset" value="${asset}" />
+          <Value name="playback" value="manual" />
+          <Value name="transition" value="slide" />
+          <Value name="frameTransition" value="${roll}" />
+        </Component>
+      </Components>
+      <Graph>
+        <Node id="input" op="input" source="${source}" />
+        <Node id="number" op="number" inputs="@input" />
+        <Node id="absolute" op="abs" inputs="@number" />
+        <Node id="ten" op="constant" value="10" />
+        <Node id="digit" op="constant" value="${digit}" />
+        <Node id="divisor" op="power" inputs="@ten;@digit" />
+        <Node id="divided" op="divide" inputs="@absolute;@divisor" />
+        <Node id="whole" op="floor" inputs="@divided" />
+        <Node id="frame" op="wrap" inputs="@whole;@ten" units="frame" />
+      </Graph>
+      <Bindings>
+        <Bind id="frame" source="@frame" target="@image/frame" />
+      </Bindings>
+      <Exports>
+        <Export id="transform" target="@root" role="component" />
+        <Export id="image" target="@image" role="component" />
+      </Exports>
+    </Recipe>
+    <Recipe id="follow-offset">
+      <Parameters>
+        <Param name="clock" kind="Text" default="Gameplay" />
+        <Param name="target" kind="Text" default="player.center" />
+        <Param name="origin" kind="Vector2" default="240,180" />
+        <Param name="extent" kind="Vector2" default="3,2" />
+        <Param name="response" kind="Number" default="7" min="0" max="1000" />
+        <Param name="nearRadius" kind="Number" default="24" min="0.01" max="4096" />
+        <Param name="screen" kind="Number" default="1" min="1" max="4096" />
+      </Parameters>
+      <Components>
+        <Component id="root" kind="transform">
+          <Value name="position" value="${origin}" />
+          <Value name="screen" value="${screen}" />
+        </Component>
+      </Components>
+      <Graph>
+        <Node id="target" op="input" source="${target}" />
+        <Node id="origin" op="constant" kind="Vector2" value="${origin}" units="px" />
+        <Node id="extent" op="constant" kind="Vector2" value="${extent}" units="px" />
+        <Node id="delta" op="subtract" inputs="@target;@origin" />
+        <Node id="square" op="dot" inputs="@delta;@delta" />
+        <Node id="radius" op="constant" value="${nearRadius}" />
+        <Node id="softness" op="multiply" inputs="@radius;@radius" />
+        <Node id="softSquare" op="add" inputs="@square;@softness" />
+        <Node id="half" op="constant" value="0.5" />
+        <Node id="length" op="power" inputs="@softSquare;@half" />
+        <Node id="direction" op="divide" inputs="@delta;@length" units="ratio" />
+        <Node id="rawOffset" op="multiply" inputs="@direction;@extent" units="px" />
+        <Node id="response" op="constant" value="${response}" />
+        <Node id="smoothed" op="smooth" clock="${clock}" inputs="@rawOffset;@response" />
+        <Node id="position" op="add" inputs="@origin;@smoothed" />
+      </Graph>
+      <Bindings>
+        <Bind id="follow" source="@position" target="@root/position" />
+      </Bindings>
+      <Exports>
+        <Export id="transform" role="component" target="@root" />
+        <Export id="offset" role="node" target="@smoothed" />
+      </Exports>
+    </Recipe>
+    <Recipe id="planet">
+      <Parameters>
+        <Param name="clock" kind="Text" default="Gameplay" />
+        <Param name="surface" kind="Text" default="" />
+        <Param name="overlay" kind="Text" default="" />
+        <Param name="position" kind="Vector2" default="240,180" />
+        <Param name="size" kind="Vector2" default="240,240" min="1" max="4096" />
+        <Param name="screen" kind="Number" default="1" min="1" max="4096" />
+        <Param name="rate" kind="Number" default="0.008333333333333333" />
+        <Param name="overlayRate" kind="Number" default="0.0070921985815602835" />
+        <Param name="sampling" kind="Text" default="point" />
+        <Param name="tilt" kind="Vector2" default="0,0" />
+      </Parameters>
+      <Components>
+        <Component id="root" kind="transform">
+          <Value name="position" value="${position}" />
+          <Value name="screen" value="${screen}" />
+        </Component>
+        <Component id="surfaceMaterial" kind="material">
+          <Value name="sampling" value="${sampling}" />
+          <Value name="address" value="wrap" />
+          <Value name="ambient" value="0.64" />
+          <Value name="diffuse" value="0.36" />
+        </Component>
+        <Component id="overlayMaterial" kind="material">
+          <Value name="sampling" value="${sampling}" />
+          <Value name="address" value="wrap" />
+          <Value name="opacity" value="0.85" />
+          <Value name="ambient" value="0.64" />
+          <Value name="diffuse" value="0.36" />
+        </Component>
+        <Component id="surface" kind="mesh">
+          <Value name="transform" value="@root" />
+          <Value name="asset" value="${surface}" />
+          <Value name="material" value="@surfaceMaterial" />
+          <Value name="geometry" value="disc" />
+          <Value name="projection" value="spherical" />
+          <Value name="size" value="${size}" />
+          <Value name="projectionTilt" value="${tilt}" />
+          <Value name="columns" value="64" />
+          <Value name="rows" value="64" />
+          <Value name="layer" value="background" />
+        </Component>
+        <Component id="overlay" kind="mesh">
+          <Value name="transform" value="@root" />
+          <Value name="asset" value="${overlay}" />
+          <Value name="material" value="@overlayMaterial" />
+          <Value name="geometry" value="disc" />
+          <Value name="projection" value="spherical" />
+          <Value name="size" value="${size}" />
+          <Value name="projectionTilt" value="${tilt}" />
+          <Value name="columns" value="64" />
+          <Value name="rows" value="64" />
+          <Value name="layer" value="background" />
+          <Value name="z" value="1" />
+        </Component>
+      </Components>
+      <Graph>
+        <Node id="rate" op="constant" value="${rate}" />
+        <Node id="overlayRate" op="constant" value="${overlayRate}" />
+        <Node id="zero" op="constant" value="0" />
+        <Node id="turn" op="integrate" clock="${clock}" inputs="@rate" units="turns" />
+        <Node id="overlayAsset" op="constant" kind="Text" value="${overlay}" />
+        <Node id="emptyAsset" op="constant" kind="Text" value="" />
+        <Node id="emptyOverlay" op="equal" inputs="@overlayAsset;@emptyAsset" />
+        <Node id="hasOverlay" op="not" inputs="@emptyOverlay" />
+        <Node id="overlayTurn" op="integrate" clock="${clock}" inputs="@overlayRate" units="turns" />
+        <Node id="offset" op="vector" inputs="@turn;@zero" units="turns" />
+        <Node id="overlayOffset" op="vector" inputs="@overlayTurn;@zero" units="turns" />
+      </Graph>
+      <Bindings>
+        <Bind id="surfaceTurn" source="@offset" target="@surfaceMaterial/uvOffset" />
+        <Bind id="overlayTurn" source="@overlayOffset" target="@overlayMaterial/uvOffset" />
+        <Bind id="overlayVisible" source="@hasOverlay" target="@overlay/visible" />
+      </Bindings>
+      <Exports>
+        <Export id="transform" role="component" target="@root" />
+        <Export id="rate" role="node" target="@rate" />
+      </Exports>
+    </Recipe>
+    <Recipe id="precipitation">
+      <Parameters>
+        <Param name="clock" kind="Text" default="gameplay" />
+        <Param name="asset" kind="Text" default="" />
+        <Param name="screen" kind="Integer" default="1" min="0" max="4096" />
+        <Param name="position" kind="Vector2" default="240,-16" />
+        <Param name="area" kind="Vector2" default="600,0" />
+        <Param name="velocity" kind="Vector2" default="-12,180" />
+        <Param name="spread" kind="Vector2" default="16,40" />
+        <Param name="rate" kind="Number" default="80" min="0" max="4096" />
+        <Param name="lifetime" kind="Number" default="3" min="0.001" max="120" />
+        <Param name="seed" kind="Integer" default="1" min="0" max="2147483647" />
+        <Param name="size" kind="Number" default="1" min="0.01" max="64" />
+      </Parameters>
+      <Components>
+        <Component id="root" kind="transform">
+          <Value name="position" value="${position}" />
+          <Value name="screen" value="${screen}" />
+        </Component>
+        <Component id="particles" kind="emitter">
+          <Value name="transform" value="@root" />
+          <Value name="asset" value="${asset}" />
+          <Value name="area" value="${area}" />
+          <Value name="velocity" value="${velocity}" />
+          <Value name="spread" value="${spread}" />
+          <Value name="rate" value="${rate}" />
+          <Value name="lifetime" value="${lifetime}" />
+          <Value name="seed" value="${seed}" />
+          <Value name="size" value="${size}" />
+          <Value name="capacity" value="2048" />
+          <Value name="clock" value="${clock}" />
+          <Value name="shape" value="box" />
+          <Value name="layer" value="foreground" />
+        </Component>
+      </Components>
+      <Exports>
+        <Export id="emitter" role="component" target="@particles" />
+      </Exports>
+    </Recipe>
+    <Recipe id="surface-reflection">
+      <Parameters>
+        <Param name="screen" kind="Integer" default="1" min="0" max="4096" />
+        <Param name="position" kind="Vector2" default="0,280" />
+        <Param name="outline" kind="Text" default="0,0;480,0;480,80;0,80" />
+        <Param name="selection" kind="Text" default="actor:player" />
+        <Param name="projection" kind="Vector2" default="0,0.6" />
+        <Param name="opacity" kind="Number" default="0.4" min="0" max="1" />
+        <Param name="tint" kind="Color" default="#80B8D8" />
+      </Parameters>
+      <Components>
+        <Component id="root" kind="transform">
+          <Value name="position" value="${position}" />
+          <Value name="screen" value="${screen}" />
+        </Component>
+        <Component id="capture" kind="capture">
+          <Value name="selection" value="${selection}" />
+        </Component>
+        <Component id="material" kind="material">
+          <Value name="capture" value="@capture" />
+          <Value name="color" value="${tint}" />
+        </Component>
+        <Component id="surface" kind="receiver">
+          <Value name="transform" value="@root" />
+          <Value name="material" value="@material" />
+          <Value name="outline" value="${outline}" />
+          <Value name="projection" value="${projection}" />
+          <Value name="opacity" value="${opacity}" />
+          <Value name="mode" value="reflection" />
+        </Component>
+      </Components>
+      <Exports>
+        <Export id="transform" role="component" target="@root" />
+        <Export id="material" role="component" target="@material" />
+      </Exports>
+    </Recipe>
+    <Recipe id="wind-panel">
+      <Parameters>
+        <Param name="clock" kind="Text" default="Gameplay" />
+        <Param name="asset" kind="Text" default="" />
+        <Param name="position" kind="Vector2" default="240,180" />
+        <Param name="size" kind="Vector2" default="64,96" min="1" max="4096" />
+        <Param name="screen" kind="Integer" default="1" min="0" max="4096" />
+        <Param name="amplitude" kind="Vector2" default="4,0" />
+        <Param name="rate" kind="Number" default="0.3" />
+        <Param name="layer" kind="Text" default="world" />
+      </Parameters>
+      <Components>
+        <Component id="root" kind="transform">
+          <Value name="position" value="${position}" />
+          <Value name="screen" value="${screen}" />
+        </Component>
+        <Component id="wind" kind="field">
+          <Value name="amplitude" value="${amplitude}" />
+          <Value name="frequency" value="0,0.008" />
+        </Component>
+        <Component id="bend" kind="deformation">
+          <Value name="field" value="@wind" />
+          <Value name="axis" value="x" />
+        </Component>
+        <Component id="panel" kind="mesh">
+          <Value name="transform" value="@root" />
+          <Value name="asset" value="${asset}" />
+          <Value name="size" value="${size}" />
+          <Value name="deformation" value="@bend" />
+          <Value name="layer" value="${layer}" />
+          <Value name="columns" value="8" />
+          <Value name="rows" value="24" />
+        </Component>
+      </Components>
+      <Graph>
+        <Node id="size" op="constant" kind="Vector2" value="${size}" units="px" />
+        <Node id="zero" op="constant" value="0" units="px" />
+        <Node id="height" op="y" inputs="@size" />
+        <Node id="half" op="constant" value="0.5" />
+        <Node id="bottom" op="multiply" inputs="@height;@half" units="px" />
+        <Node id="pin" op="vector" inputs="@zero;@bottom" units="px" />
+        <Node id="rate" op="constant" value="${rate}" />
+        <Node id="phase" op="integrate" clock="${clock}" inputs="@rate" units="turns" />
+      </Graph>
+      <Bindings>
+        <Bind id="phase" source="@phase" target="@wind/phase" />
+        <Bind id="pin" source="@pin" target="@bend/pin" />
+        <Bind id="extent" source="@size" target="@bend/extent" />
+      </Bindings>
+      <Exports>
+        <Export id="transform" role="component" target="@root" />
+        <Export id="field" role="component" target="@wind" />
+      </Exports>
+    </Recipe>
+  </Recipes>
+</SceneCatalog>

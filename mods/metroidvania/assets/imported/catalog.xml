@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Content Version="1" ManifestHash="d5c826230a4907522dde876b43eb641e142e39fac39b3b15daa3331c5a0e394c" DefaultEnemy="fslave-crawler" RecipeFileHash="5171e6a8346b635b9a8a1f4878f979f822bd823b3a4bf9da809d5ecd7a5b8fe5" ToolchainHash="42c00221c22b9219c16239e2faaa48b76366372fcabee9aa475cca5d890a702b">
+  <PlayerAttack light_start="8" light_active="4" heavy_start="20" heavy_active="6" heavy_recovery_extra="10" heavy_multiplier="2" />
+  <Audio>
+    <Cue Id="side-light" Index="0" Resource="Metroidvania.Audio.side-light" />
+    <Cue Id="side-heavy" Index="1" Resource="Metroidvania.Audio.side-heavy" />
+    <Cue Id="bastard-light" Index="2" Resource="Metroidvania.Audio.bastard-light" />
+    <Cue Id="bastard-heavy" Index="3" Resource="Metroidvania.Audio.bastard-heavy" />
+    <Cue Id="spear" Index="4" Resource="Metroidvania.Audio.spear" />
+    <Cue Id="punch" Index="5" Resource="Metroidvania.Audio.punch" />
+    <Cue Id="slash-hit" Index="6" Resource="Metroidvania.Audio.slash-hit" />
+    <Cue Id="stab-hit" Index="7" Resource="Metroidvania.Audio.stab-hit" />
+    <Cue Id="blunt-hit" Index="8" Resource="Metroidvania.Audio.blunt-hit" />
+    <Cue Id="block" Index="9" Resource="Metroidvania.Audio.block" />
+    <Cue Id="parry" Index="10" Resource="Metroidvania.Audio.parry" />
+    <Cue Id="jkq.eb819354-534c-449e-b60a-df77accd3552" Index="11" Resource="Metroidvania.Audio.jkq.eb819354-534c-449e-b60a-df77accd3552" />
+    <Cue Id="jkq.302b16bc-887b-47c1-ae3f-8a90e70a76fc" Index="12" Resource="Metroidvania.Audio.jkq.302b16bc-887b-47c1-ae3f-8a90e70a76fc" />
+    <Cue Id="jkq.b953e75a-19a6-416f-99c9-491bfd9922de" Index="13" Resource="Metroidvania.Audio.jkq.b953e75a-19a6-416f-99c9-491bfd9922de" />
+    <Cue Id="jkq.f2aaa06e-530b-4a51-ae71-9e99ce624d44" Index="14" Resource="Metroidvania.Audio.jkq.f2aaa06e-530b-4a51-ae71-9e99ce624d44" />
+    <Cue Id="jkq.a492e63d-d810-44b5-be9f-f0f50e05d4cf" Index="15" Resource="Metroidvania.Audio.jkq.a492e63d-d810-44b5-be9f-f0f50e05d4cf" />
+  </Audio>
+  <Items>
+    <Item Id="worn-blade" Name="Side Sword" Description="Quick cuts and a committed heavy swing." Slot="Weapon" Damage="16" Reach="32" Armor="0" LightCue="side-light" HeavyCue="side-heavy" HitCue="slash-hit" Index="0" ArtIndex="0" ArtKind="weapon" VisualId="1" Heal="0" LightStart="8" LightActive="4" HeavyStart="20" HeavyActive="6" HeavyRecovery="10" HeavyMultiplier="2" />
+    <Item Id="iron-blade" Name="Bastard Sword" Description="A heavier blade." Slot="Weapon" Damage="23" Reach="35" Armor="0" LightCue="bastard-light" HeavyCue="bastard-heavy" HitCue="slash-hit" Index="1" ArtIndex="1" ArtKind="weapon" VisualId="2" Heal="0" LightStart="8" LightActive="4" HeavyStart="20" HeavyActive="6" HeavyRecovery="10" HeavyMultiplier="2" />
+    <Item Id="reed-spear" Name="Crown Spear" Description="Long reach." Slot="Weapon" Damage="19" Reach="55" Armor="0" LightCue="spear" HeavyCue="spear" HitCue="stab-hit" Index="2" ArtIndex="2" ArtKind="weapon" VisualId="3" Heal="0" LightStart="8" LightActive="4" HeavyStart="20" HeavyActive="6" HeavyRecovery="10" HeavyMultiplier="2" />
+    <Item Id="buckler" Name="Buckler" Description="A timed guard. Facing the attacker matters." Slot="Shield" Damage="0" Reach="0" Armor="5" LightCue="" HeavyCue="" HitCue="" Index="3" ArtIndex="3" ArtKind="shield" VisualId="1" Heal="0" LightStart="8" LightActive="4" HeavyStart="20" HeavyActive="6" HeavyRecovery="10" HeavyMultiplier="2" />
+    <Item Id="travel-coat" Name="Archer Coat" Description="Light protection." Slot="Body" Damage="0" Reach="0" Armor="2" LightCue="" HeavyCue="" HitCue="" Index="4" ArtIndex="0" ArtKind="body" VisualId="1" Heal="0" LightStart="8" LightActive="4" HeavyStart="20" HeavyActive="6" HeavyRecovery="10" HeavyMultiplier="2" />
+    <Item Id="iron-coat" Name="Iron Guard Armor" Description="Sturdy protection." Slot="Body" Damage="0" Reach="0" Armor="6" LightCue="" HeavyCue="" HitCue="" Index="5" ArtIndex="1" ArtKind="body" VisualId="2" Heal="0" LightStart="8" LightActive="4" HeavyStart="20" HeavyActive="6" HeavyRecovery="10" HeavyMultiplier="2" />
+    <Item Id="tonic" Name="Hotdog" Description="Restores 40 health." Slot="None" Damage="0" Reach="0" Armor="0" LightCue="" HeavyCue="" HitCue="" Index="6" ArtIndex="0" ArtKind="consumable" VisualId="0" Heal="40" LightStart="8" LightActive="4" HeavyStart="20" HeavyActive="6" HeavyRecovery="10" HeavyMultiplier="2" />
+  </Items>
+  <Enemies>
+    <Enemy Id="fslave-crawler" Name="Famished Crawler" Index="1" Behavior="grounded-melee" Health="200" Data="Metroidvania.Enemy.fslave-crawler.data" Atlas="Metroidvania.Enemy.fslave-crawler.atlas" BodyWidth="32" BodyHeight="22" AnchorX="16" AnchorY="19" WalkSpeed="0.35" AttackRange="58" HeightRange="30" Cooldown="20" HurtTicks="60" DeathTicks="90" DeathHoldTick="60" Cell="80" Columns="16" PivotX="48" PivotY="68">
+      <Attack Id="FSlaveCrawlAttack" Clip="4" Weight="100" ActiveTick="102" Damage="32">
+        <Sounds>
+          <Sound Cue="jkq.302b16bc-887b-47c1-ae3f-8a90e70a76fc" Tick="16" Stoppable="true" />
+          <Sound Cue="jkq.b953e75a-19a6-416f-99c9-491bfd9922de" Tick="92" Stoppable="false" />
+          <Sound Cue="jkq.f2aaa06e-530b-4a51-ae71-9e99ce624d44" Tick="214" Stoppable="false" />
+        </Sounds>
+      </Attack>
+      <WalkSounds>
+        <Sound Cue="jkq.eb819354-534c-449e-b60a-df77accd3552" Tick="16" Stoppable="false" />
+      </WalkSounds>
+      <IdleSounds />
+      <HurtSounds>
+        <Sound Cue="jkq.a492e63d-d810-44b5-be9f-f0f50e05d4cf" Tick="0" Stoppable="false" />
+      </HurtSounds>
+      <DeathSounds />
+    </Enemy>
+  </Enemies>
+  <Assets>
+    <Asset Path="audio/side-light.wav" Resource="Metroidvania.Audio.side-light" SHA256="05c23ac506f0e1fed66af1a913537190495cf4fa2c031a76f07fc18b4fa3566b" />
+    <Asset Path="audio/side-heavy.wav" Resource="Metroidvania.Audio.side-heavy" SHA256="78ab52bb6b498b6a385be684a8e374956070bbe169be05f2adc753a683602b24" />
+    <Asset Path="audio/bastard-light.wav" Resource="Metroidvania.Audio.bastard-light" SHA256="35f90ce256a1b39d88de0157d1a8215d45ce25d5374c2b3479fe79eb415979b6" />
+    <Asset Path="audio/bastard-heavy.wav" Resource="Metroidvania.Audio.bastard-heavy" SHA256="42f4f4e08d6530950aa20c45100e79ddd2a72789e1f513850fe49237cd5595c7" />
+    <Asset Path="audio/spear.wav" Resource="Metroidvania.Audio.spear" SHA256="ec1515e83b5a1370d9257e22d84d5d6f427ac7f93078db1a1641edd91aed4c63" />
+    <Asset Path="audio/punch.wav" Resource="Metroidvania.Audio.punch" SHA256="97956910323121755eadc1ee7fc19962801acd4c7b16f652a91d7495ff63dd08" />
+    <Asset Path="audio/slash-hit.wav" Resource="Metroidvania.Audio.slash-hit" SHA256="140c28c226ccd5a87c0a4a69940282186344984b5e05896b6117f2b3d7f4bc9f" />
+    <Asset Path="audio/stab-hit.wav" Resource="Metroidvania.Audio.stab-hit" SHA256="6fa4f3273288ed49ce04a2e62e73c4adab309016f5edddd8453cf4277bebd186" />
+    <Asset Path="audio/blunt-hit.wav" Resource="Metroidvania.Audio.blunt-hit" SHA256="5a56f9e9da905d8a8307f319a1cc5ce36e00f9c0eadf012c6b92a8b3fbbd2c88" />
+    <Asset Path="audio/block.wav" Resource="Metroidvania.Audio.block" SHA256="e8664656ae48b18898605040a6f6f7490a2a8a0b862b7c2b8d059c039dc0d9e8" />
+    <Asset Path="audio/parry.wav" Resource="Metroidvania.Audio.parry" SHA256="26c8411de997f9da0eca3c7a95582c870a185c1968999421fefbca4be655d8db" />
+    <Asset Path="audio/jkq.eb819354-534c-449e-b60a-df77accd3552.wav" Resource="Metroidvania.Audio.jkq.eb819354-534c-449e-b60a-df77accd3552" SHA256="b688990112396b86ca40de6f67430c34ce62e53e122a6fa98149eae3224b5e93" />
+    <Asset Path="audio/jkq.302b16bc-887b-47c1-ae3f-8a90e70a76fc.wav" Resource="Metroidvania.Audio.jkq.302b16bc-887b-47c1-ae3f-8a90e70a76fc" SHA256="32c6dd6bc4fee33f4e33914acd4c56c3702c068ed6cef00ebdf18c6a4383ab18" />
+    <Asset Path="audio/jkq.b953e75a-19a6-416f-99c9-491bfd9922de.wav" Resource="Metroidvania.Audio.jkq.b953e75a-19a6-416f-99c9-491bfd9922de" SHA256="c38a2cceb80c467ff09b984d6b62865c234ce6aaf0966ee3cc9251eac1102bfb" />
+    <Asset Path="audio/jkq.f2aaa06e-530b-4a51-ae71-9e99ce624d44.wav" Resource="Metroidvania.Audio.jkq.f2aaa06e-530b-4a51-ae71-9e99ce624d44" SHA256="b85c30d14119d0fba077de39b95440ac859a4454c4cbe85017f7d00013150160" />
+    <Asset Path="audio/jkq.a492e63d-d810-44b5-be9f-f0f50e05d4cf.wav" Resource="Metroidvania.Audio.jkq.a492e63d-d810-44b5-be9f-f0f50e05d4cf" SHA256="ed8fd9dfa3e68f83150e5f0d936695d96a97491934a3f1775824fc553022238a" />
+    <Asset Path="enemies/fslave-crawler.bin" Resource="Metroidvania.Enemy.fslave-crawler.data" SHA256="4b14ace5649714934aad07b56c6420e279315063e76b14c80e6d9cdea3a169ea" />
+    <Asset Path="enemies/fslave-crawler.png" Resource="Metroidvania.Enemy.fslave-crawler.atlas" SHA256="dcd4b6d33a2da6f1f683e490b507e729755f990d67f0cebce777eca5c802fbd4" />
+    <Asset Path="equipment/quest-icons.png" Resource="Metroidvania.Art.icons" SHA256="f7b6e2ba8224279f2670944f0488c488e81ab910d8d427e5d60caac624db914d" />
+    <Asset Path="equipment/quest-weapons.png" Resource="Metroidvania.Art.weapons" SHA256="dc9b56984ab88334f6625f955e27cca3db0fda215b356e485726b3cd927305a9" />
+    <Asset Path="equipment/quest-armor.png" Resource="Metroidvania.Art.armor" SHA256="1843a30e13f5c6020bd0acd5dde01f068e7fa58c6aef66ae08321b5cc53cab98" />
+  </Assets>
+</Content>

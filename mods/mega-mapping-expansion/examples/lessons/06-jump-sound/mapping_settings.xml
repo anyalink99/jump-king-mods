@@ -1,0 +1,31 @@
+<MappingSettings version="1">
+  <Variables>
+    <Variable id="jumps" kind="Integer" value="0" scope="Attempt" />
+  </Variables>
+  <Components>
+    <Component id="captionPose" kind="transform">
+      <Value name="position" value="240,60" />
+    </Component>
+    <Component id="caption" kind="text">
+      <Value name="transform" value="captionPose" />
+    </Component>
+    <Component id="chime" kind="audio">
+      <Value name="path" value="mme-assets/chime.wav" />
+      <Value name="volume" value="0.25" />
+    </Component>
+  </Components>
+  <Graph>
+    <Node id="count" op="input" source="variable:jumps" />
+    <Node id="pattern" op="constant" kind="Text" value="Jumps: {0}" />
+    <Node id="captionText" op="template" inputs="pattern;count" />
+  </Graph>
+  <Bindings>
+    <Bind id="showCount" source="captionText" target="caption/value" />
+  </Bindings>
+  <Rules>
+    <Rule id="countJump" event="jump">
+      <Action op="increment" target="jumps" value="1" />
+      <Action op="playAudio" target="chime" />
+    </Rule>
+  </Rules>
+</MappingSettings>

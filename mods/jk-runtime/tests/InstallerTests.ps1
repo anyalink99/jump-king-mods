@@ -1,0 +1,143 @@
+param([string]$GameDir)
+$ErrorActionPreference = 'Stop'
+$testRepo = (Resolve-Path (Join-Path $PSScriptRoot '..\..\..')).Path
+$testRoot = Join-Path $testRepo ('build\jk-runtime\_INTERNAL\installer-test-'+[Guid]::NewGuid().ToString('N'))
+$testGame = Join-Path $testRoot 'steamapps\common\Jump King'
+$testBackupRoot = Join-Path $testRoot 'backups'
+$testMods = Join-Path $testGame 'Content\JKMods'
+New-Item -ItemType Directory -Path $testMods -Force | Out-Null
+# only the installer transaction is under test. full verification is run by
+# check-mods outside this test, never recurse into it or target the real game
+$testVerificationCalls = [Collections.Generic.List[object]]::new()
+$testVerificationExit = 0
+function Start-Process {
+    param($FilePath,$ArgumentList,$WindowStyle,[switch]$Wait,[switch]$PassThru,$RedirectStandardOutput,$RedirectStandardError)
+    $testVerificationCalls.Add(@($ArgumentList))
+    if (-not $Wait -or -not $PassThru -or $WindowStyle -ne 'Hidden' -or -not $RedirectStandardOutput -or -not $RedirectStandardError) { throw 'Verification must wait for a hidden process with both streams redirected' }
+    [IO.File]::WriteAllText($RedirectStandardOutput,'fixture verification')
+    [IO.File]::WriteAllText($RedirectStandardError,'')
+    return [pscustomobject]@{ ExitCode=$testVerificationExit }
+}
+function Get-Process { return @() }
+function Assert-Installer([bool]$Condition,[string]$Message) { if (-not $Condition) { throw $Message } }
+$testInstaller = Join-Path $testRepo 'mods\jk-runtime\install-release.ps1'
+foreach ($testFile in @('UIApiPlus.dll','CasualJumping.dll','MoreItems.dll','Jetpack.dll','HammerKing.dll','ScreenSolver.dll')) {
+    [IO.File]::WriteAllText((Join-Path $testMods $testFile),'old-'+$testFile)
+}
+$testSettings = Join-Path $testMods 'UIApiPlus.Settings.xml'
+[IO.File]::WriteAllText($testSettings,'<UIApiSettings />')
+$testWardrobeDirectory = Join-Path $testGame 'Content\WardrobePlus'
+New-Item -ItemType Directory -Path $testWardrobeDirectory | Out-Null
+$testWardrobeSettings = Join-Path $testWardrobeDirectory 'Settings.xml'
+[IO.File]::WriteAllText($testWardrobeSettings,'user-outfits-and-fits')
+$testEdgeDirectory = Join-Path $testRoot 'steamapps/workshop/content/1061090/3797217682'
+New-Item -ItemType Directory -Path $testEdgeDirectory -Force | Out-Null
+[IO.File]::WriteAllText((Join-Path $testEdgeDirectory 'MegaGameplayExpansion.dll'),'old-combined-mod')
+[IO.File]::WriteAllText((Join-Path $testEdgeDirectory 'MegaGameplayExpansion.Settings.xml'),'old-settings-preserved')
+& $testInstaller -GameDir $testGame -BackupRoot $testBackupRoot -Include @('no-walk-off','powers','mega-mapping-expansion','wardrobe-plus') -RemoveLocalScreenSolver
+Assert-Installer (Test-Path -LiteralPath (Join-Path $testEdgeDirectory 'NoWalkOff.dll')) 'Rebrand did not use the existing Workshop directory'
+Assert-Installer (-not (Test-Path -LiteralPath (Join-Path $testEdgeDirectory 'MegaGameplayExpansion.dll'))) 'Old combined mod remains active beside No Walk Off'
+Assert-Installer ([IO.File]::ReadAllText((Join-Path $testEdgeDirectory 'MegaGameplayExpansion.Settings.xml')) -eq 'old-settings-preserved') 'Rebrand changed old personal settings'
+$testInitialArgs = $testVerificationCalls[0]
+$testInitialCommand = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($testInitialArgs[$testInitialArgs.Count - 1]))
+Assert-Installer ($testInitialCommand -match '-Integration') 'Release install must request package/rollback integration checks, not only the fast tier'
+Assert-Installer ($testVerificationCalls[0] -contains '-OutputFormat' -and $testVerificationCalls[0] -contains 'Text') 'Native diagnostics must use text rather than mixed CLIXML serialization'
+Assert-Installer (Test-Path -LiteralPath (Join-Path $testMods 'JKRuntime.dll')) 'Runtime not installed in fixture'
+Assert-Installer (-not (Test-Path -LiteralPath (Join-Path $testMods 'UIApiPlus.dll'))) 'Old UI DLL was not removed'
+Assert-Installer (-not (Test-Path -LiteralPath (Join-Path $testMods 'Jetpack.dll'))) 'Superseded Jetpack DLL was not removed'
+Assert-Installer (-not (Test-Path -LiteralPath (Join-Path $testMods 'HammerKing.dll'))) 'Superseded Hammer King DLL was not removed'
+Assert-Installer (-not (Test-Path -LiteralPath (Join-Path $testMods 'ScreenSolver.dll'))) 'Requested local Screen Solver removal failed'
+foreach ($testFile in @('Powers.dll','MegaMappingExpansion.dll','MegaMappingApi.dll','MegaMappingMediaApi.dll','WardrobePlus.dll','0Harmony.dll','MegaMappingExpansion.THIRD_PARTY_NOTICES.md')) {
+    Assert-Installer (Test-Path -LiteralPath (Join-Path $testMods $testFile)) "Missing local expansion payload: $testFile"
+}
+$testPlatformAsset = Join-Path $testMods 'assets/platforms/default.png'
+Assert-Installer ((Get-FileHash -LiteralPath $testPlatformAsset).Hash -eq (Get-FileHash -LiteralPath (Join-Path $testRepo 'build/mega-mapping-expansion/UPLOAD_TO_WORKSHOP/assets/platforms/default.png')).Hash) 'Mapping PNG dependency was not installed intact'
+[IO.File]::WriteAllText((Join-Path $testMods 'MegaMappingExpansion.dll'),'mapping-before-asset-lock')
+[IO.File]::WriteAllText($testPlatformAsset,'previous-platform-png')
+$testAssetLock = [IO.File]::Open($testPlatformAsset,[IO.FileMode]::Open,[IO.FileAccess]::ReadWrite,[IO.FileShare]::None)
+$testAssetFailed = $false
+try { & $testInstaller -GameDir $testGame -BackupRoot $testBackupRoot -Include mega-mapping-expansion -OnlyRequested } catch { $testAssetFailed = $true } finally { $testAssetLock.Dispose() }
+Assert-Installer $testAssetFailed 'A locked Mapping asset should reject installation'
+Assert-Installer ([IO.File]::ReadAllText((Join-Path $testMods 'MegaMappingExpansion.dll')) -eq 'mapping-before-asset-lock') 'Locked-asset preflight changed the Mapping DLL'
+Assert-Installer ([IO.File]::ReadAllText($testPlatformAsset) -eq 'previous-platform-png') 'Locked-asset preflight changed the previous PNG'
+Assert-Installer ([IO.File]::ReadAllText($testSettings) -eq '<UIApiSettings />') 'User settings changed during DLL installation'
+Assert-Installer ([IO.File]::ReadAllText($testWardrobeSettings) -eq 'user-outfits-and-fits') 'Wardrobe user data changed during installation'
+Assert-Installer ((Get-FileHash -LiteralPath (Join-Path $testMods 'WardrobePlus.dll')).Hash -eq (Get-FileHash -LiteralPath (Join-Path $testRepo 'build\wardrobe-plus\UPLOAD_TO_WORKSHOP\WardrobePlus.dll')).Hash) 'Installed Wardrobe payload differs from the verified package'
+foreach ($testFile in @('JKRuntime.dll','CasualJumping.dll')) { [IO.File]::WriteAllText((Join-Path $testMods $testFile),'rollback-'+$testFile) }
+$testLock = [IO.File]::Open((Join-Path $testMods 'MoreItems.dll'),[IO.FileMode]::Open,[IO.FileAccess]::ReadWrite,[IO.FileShare]::None)
+$testFailed = $false
+try { & $testInstaller -GameDir $testGame -BackupRoot $testBackupRoot } catch { $testFailed = $true } finally { $testLock.Dispose() }
+Assert-Installer $testFailed 'Locked destination should reject installation'
+foreach ($testFile in @('JKRuntime.dll','CasualJumping.dll')) {
+    Assert-Installer ([IO.File]::ReadAllText((Join-Path $testMods $testFile)) -eq ('rollback-'+$testFile)) 'Earlier replacement was not rolled back'
+}
+$testDuplicate = Join-Path $testRoot 'steamapps\workshop\content\1061090\duplicate'
+New-Item -ItemType Directory -Path $testDuplicate -Force | Out-Null
+[IO.File]::WriteAllText((Join-Path $testDuplicate 'CasualJumping.dll'),'duplicate')
+$testFailed = $false
+try { & $testInstaller -GameDir $testGame -BackupRoot $testBackupRoot } catch { $testFailed = $true }
+Assert-Installer $testFailed 'Duplicate mod directories should reject installation'
+Assert-Installer ([IO.File]::ReadAllText((Join-Path $testMods 'JKRuntime.dll')) -eq 'rollback-JKRuntime.dll') 'Duplicate preflight changed runtime'
+Write-Host '[OK] Isolated installer: coordinated replacement, old DLL backups/removal, settings preservation, locked-file rollback, duplicate preflight'
+
+# the expanded SFC payload must include its scheduler's dependency in a
+# Workshop install, without creating another local copy or changing settings
+$testSfc = Join-Path $testRoot 'steamapps/workshop/content/1061090/sfc-fixture'
+New-Item -ItemType Directory -Path $testSfc -Force | Out-Null
+[IO.File]::WriteAllText((Join-Path $testSfc 'SubframeCharge.dll'),'old-sfc')
+[IO.File]::WriteAllText((Join-Path $testSfc 'SubframeCharge.Settings.xml'),'preserved-sfc-settings')
+& $testInstaller -GameDir $testGame -BackupRoot $testBackupRoot -Include subframe-charge -OnlyRequested
+Assert-Installer (Test-Path -LiteralPath (Join-Path $testSfc '0Harmony.dll')) 'SFC shared dependency missing from Workshop install'
+Assert-Installer (Test-Path -LiteralPath (Join-Path $testSfc 'SubframeCharge.THIRD_PARTY_NOTICES.md')) 'SFC dependency notice missing'
+Assert-Installer (-not (Test-Path -LiteralPath (Join-Path $testMods 'SubframeCharge.dll'))) 'SFC was duplicated locally'
+Assert-Installer ([IO.File]::ReadAllText((Join-Path $testSfc 'SubframeCharge.Settings.xml')) -eq 'preserved-sfc-settings') 'SFC installation changed settings'
+$testSfcHash = (Get-FileHash -LiteralPath (Join-Path $testSfc 'SubframeCharge.dll')).Hash
+[IO.File]::WriteAllText((Join-Path $testSfc '0Harmony.dll'),'different-shared-engine')
+$testFailed = $false
+try { & $testInstaller -GameDir $testGame -BackupRoot $testBackupRoot -Include subframe-charge -OnlyRequested } catch { $testFailed = $true }
+Assert-Installer $testFailed 'SFC installer overwrote a different shared Harmony engine'
+Assert-Installer ((Get-FileHash -LiteralPath (Join-Path $testSfc 'SubframeCharge.dll')).Hash -eq $testSfcHash) 'Dependency preflight changed SFC before refusal'
+Write-Host '[OK] SFC Workshop dependency, settings preservation, single active copy and shared-engine refusal'
+
+$testCamera = Join-Path $testRoot 'steamapps/workshop/content/1061090/camera-fixture'
+New-Item -ItemType Directory -Path $testCamera -Force | Out-Null
+[IO.File]::WriteAllText((Join-Path $testCamera 'SmoothCamera.dll'),'old-camera')
+[IO.File]::WriteAllText((Join-Path $testCamera 'SmoothCamera.Settings.xml'),'preserved-camera-settings')
+& $testInstaller -GameDir $testGame -BackupRoot $testBackupRoot -Include smooth-camera -OnlyRequested
+Assert-Installer ($testVerificationCalls[$testVerificationCalls.Count - 1] -contains '-OutputFormat' -and $testVerificationCalls[$testVerificationCalls.Count - 1] -contains 'Text') 'Encoded focused verification must preserve native text diagnostics'
+Assert-Installer (Test-Path -LiteralPath (Join-Path $testCamera '0Harmony.dll')) 'Camera shared dependency missing from Workshop install'
+Assert-Installer (Test-Path -LiteralPath (Join-Path $testCamera 'SmoothCamera.THIRD_PARTY_NOTICES.md')) 'Camera dependency notice missing'
+Assert-Installer (-not (Test-Path -LiteralPath (Join-Path $testMods 'SmoothCamera.dll'))) 'Camera was duplicated locally'
+Assert-Installer ([IO.File]::ReadAllText((Join-Path $testCamera 'SmoothCamera.Settings.xml')) -eq 'preserved-camera-settings') 'Camera installation changed settings'
+Write-Host '[OK] Smooth Camera coordinated Workshop installation and settings preservation'
+
+# A UI-only Runtime patch must not rebuild or overwrite unrelated installed mods
+$testPreserved = @{}
+Get-ChildItem -LiteralPath $testMods,$testSfc,$testCamera -File | Where-Object Name -ne 'JKRuntime.dll' | ForEach-Object {
+    $testPreserved[$_.FullName] = (Get-FileHash -LiteralPath $_.FullName).Hash
+}
+& $testInstaller -GameDir $testGame -BackupRoot $testBackupRoot -Include jk-runtime -OnlyRequested
+$testArgs = $testVerificationCalls[$testVerificationCalls.Count - 1]
+$testCommand = [Text.Encoding]::Unicode.GetString([Convert]::FromBase64String($testArgs[$testArgs.Count - 1]))
+Assert-Installer ($testCommand -match "-Mod @\('jk-runtime'\)") 'Runtime-only install did not request focused Runtime checks'
+foreach ($testPath in $testPreserved.Keys) {
+    Assert-Installer ((Get-FileHash -LiteralPath $testPath).Hash -eq $testPreserved[$testPath]) "Runtime-only install changed unrelated file: $testPath"
+}
+Assert-Installer ((Get-FileHash -LiteralPath (Join-Path $testMods 'JKRuntime.dll')).Hash -eq (Get-FileHash -LiteralPath (Join-Path $testRepo 'build/jk-runtime/UPLOAD_TO_WORKSHOP/JKRuntime.dll')).Hash) 'Runtime-only install did not replace Runtime'
+Write-Host '[OK] Runtime-only checks and replacement preserve unrelated DLLs and settings'
+
+$testRuntimeHash = (Get-FileHash -LiteralPath (Join-Path $testMods 'JKRuntime.dll')).Hash
+$testVerificationExit = 7
+$testFailed = $false
+try { & $testInstaller -GameDir $testGame -BackupRoot $testBackupRoot -Include jk-runtime -OnlyRequested } catch { $testFailed = $_.ToString() -match 'exit 7' }
+Assert-Installer $testFailed 'Nonzero verification exit must refuse installation'
+Assert-Installer ((Get-FileHash -LiteralPath (Join-Path $testMods 'JKRuntime.dll')).Hash -eq $testRuntimeHash) 'Failed verification changed the installed Runtime'
+Write-Host '[OK] Verification failures leave installed files untouched'
+$testKeptBackups = @(Get-ChildItem -LiteralPath $testBackupRoot -Directory -Filter 'release-backup-*')
+Assert-Installer ($testKeptBackups.Count -eq 2) 'Repeated successful installs must retain two complete rollback copies'
+$testGlobalBackups = @(Get-ChildItem -LiteralPath (Join-Path $testRepo 'build/jk-runtime/_INTERNAL') -Directory -Filter 'release-backup-*' | Where-Object {
+    $manifest = Join-Path $_.FullName 'manifest.json'
+    (Test-Path -LiteralPath $manifest) -and [IO.File]::ReadAllText($manifest).Contains($testRoot.Replace('\','\\'))
+})
+Assert-Installer ($testGlobalBackups.Count -eq 0) 'Installer fixtures must not create real workspace rollback history'
+Write-Host '[OK] Installer history stays in its fixture, keeps two rollback copies and preserves retired user data'

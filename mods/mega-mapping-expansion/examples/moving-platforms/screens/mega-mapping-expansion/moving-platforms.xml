@@ -1,0 +1,35 @@
+<MovingPlatforms version="1">
+  <Motion id="painted" axis="horizontal" distance="96" speed="40" wait="0.25" onBlocked="reverse" />
+  <Motion id="lift" axis="vertical" distance="-96" speed="40" wait="0.5" onBlocked="reverse" />
+  <Motion id="diagonal" speed="55" mode="pingPong" onBlocked="reverse">
+    <Point x="0" y="0" />
+    <Point x="64" y="-64" wait="0.5" />
+  </Motion>
+  <Motion id="circuit" speed="48" mode="loop" onBlocked="reverse">
+    <Point x="0" y="0" />
+    <Point x="64" y="0" />
+    <Point x="64" y="-48" />
+    <Point x="0" y="-48" />
+  </Motion>
+  <Motion id="tall-lift" axis="vertical" distance="-192" speed="35" wait="1" onBlocked="reverse" />
+  <Motion id="momentum" axis="vertical" distance="-144" speed="90" wait="0.4" onBlocked="reverse" />
+  <Profile id="momentum" motion="momentum" momentum="1" label="MOMENTUM x1" texture="props/platform-lab/momentum.png" />
+  <Profile id="painted" motion="painted" label="COLOR / HORIZONTAL" texture="props/platform-lab/color-horizontal.png" />
+  <Profile id="lift" motion="lift" texture="props/platform-lab/lift.png" />
+  <Profile id="ceiling-lift" motion="lift" texture="props/platform-lab/ceiling-reverse.png" />
+  <Profile id="compound" motion="lift" texture="props/platform-lab/compound.png" />
+  <Profile id="diagonal" motion="diagonal" collision="oneWay" texture="props/platform-lab/one-way.png" />
+  <Profile id="circuit" motion="circuit" texture="props/platform-lab/circuit.png" />
+  <Profile id="tall-lift" motion="tall-lift" texture="props/platform-lab/tall-lift.png" />
+  <Paint color="#D060A0" range="#D061A0" profile="painted" />
+  <Platform id="lift" profile="lift" screen="1" rect="24,320,48,8" label="LIFT" />
+  <Platform id="ceiling-lift" profile="ceiling-lift" screen="1" rect="304,240,48,8" label="CEILING / REVERSE" />
+  <Platform id="diagonal" profile="diagonal" screen="1" rect="192,304,40,8" label="ONE WAY" />
+  <Platform id="compound" profile="compound" screen="2" label="COMPOUND">
+    <Part rect="160,280,32,8" />
+    <Part rect="192,272,16,16" />
+  </Platform>
+  <Platform id="shuttle" profile="circuit" screen="2" rect="272,264,40,8" label="CIRCUIT / SWITCH" />
+  <Platform id="tall-lift" profile="tall-lift" screen="1" rect="424,320,40,8" label="TALL LIFT" />
+  <Platform id="momentum" profile="momentum" screen="2" rect="112,320,40,8" />
+</MovingPlatforms>

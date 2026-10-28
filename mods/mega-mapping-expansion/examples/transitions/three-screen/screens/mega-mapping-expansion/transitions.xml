@@ -1,0 +1,6 @@
+<Transitions version="1" seed="12345">
+  <Pool id="rooms" screens="2,3" mode="random" avoidLast="1" />
+  <Exit screen="1" side="right" pool="rooms" />
+  <SideLink screen="2" side="left" target="1" />
+  <SideLink screen="3" side="left" target="1" />
+</Transitions>
