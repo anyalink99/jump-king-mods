@@ -1,0 +1,8 @@
+<Transitions version="1" seed="auto">
+  <Pool id="trials" screens="10,15,20,25" mode="random" avoidLast="1" />
+  <Exit screen="5" side="right" pool="trials" />
+  <SideLink screen="10" side="right" target="3" />
+  <SideLink screen="15" side="right" target="3" />
+  <SideLink screen="20" side="right" target="3" />
+  <SideLink screen="25" side="right" target="3" />
+</Transitions>

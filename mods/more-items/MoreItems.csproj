@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FA4D24DC-F111-4BE7-870D-744440C649BD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MoreItems</RootNamespace>
+    <AssemblyName>MoreItems.Module</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <LangVersion>5</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\build\more-items\_INTERNAL\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="JumpKing">
+      <HintPath>$(JumpKingDir)\JumpKing.exe</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(JumpKingDir)\MonoGame.Framework.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="LanguageJK"><HintPath>$(JumpKingDir)\LanguageJK.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="JKRuntime"><HintPath>..\..\build\jk-runtime\UPLOAD_TO_WORKSHOP\JKRuntime.dll</HintPath><Private>false</Private></Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup><Compile Include="src\**\*.cs" /></ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="assets\jetpack-poses.txt">
+      <LogicalName>JumpKingJetpack.jetpack-poses.txt</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="assets\audio\jetpack-loop-8bit.wav">
+      <LogicalName>JumpKingJetpack.jetpack-loop-8bit.wav</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
