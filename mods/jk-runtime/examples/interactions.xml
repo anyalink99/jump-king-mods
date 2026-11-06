@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Interactions version="1">
+  <Point id="example.toggle-door" label="Toggle door" priority="200" screen="1" x="180" y="286" width="48" height="58" />
+  <Point id="example.merchant" label="Trade" priority="180" screen="1" x="340" y="286" width="80" height="58" />
+</Interactions>

@@ -1,0 +1,27 @@
+<Recipes>
+  <Recipe id="wind-panel">
+    <Parameters>
+      <Param name="clock" kind="Text" default="Gameplay" />
+      <Param name="asset" kind="Text" default="" />
+      <Param name="position" kind="Vector2" default="240,180" />
+      <Param name="size" kind="Vector2" default="64,96" min="1" max="4096" />
+      <Param name="screen" kind="Integer" default="1" min="0" max="4096" />
+      <Param name="amplitude" kind="Vector2" default="4,0" />
+      <Param name="rate" kind="Number" default="0.3" />
+      <Param name="layer" kind="Text" default="world" />
+    </Parameters>
+    <Components>
+      <Component id="root" kind="transform"><Value name="position" value="${position}" /><Value name="screen" value="${screen}" /></Component>
+      <Component id="wind" kind="field"><Value name="amplitude" value="${amplitude}" /><Value name="frequency" value="0,0.008" /></Component>
+      <Component id="bend" kind="deformation"><Value name="field" value="@wind" /><Value name="axis" value="x" /></Component>
+      <Component id="panel" kind="mesh"><Value name="transform" value="@root" /><Value name="asset" value="${asset}" /><Value name="size" value="${size}" /><Value name="deformation" value="@bend" /><Value name="layer" value="${layer}" /><Value name="columns" value="8" /><Value name="rows" value="24" /></Component>
+    </Components>
+    <Graph>
+      <Node id="size" op="constant" kind="Vector2" value="${size}" units="px" /><Node id="zero" op="constant" value="0" units="px" />
+      <Node id="height" op="y" inputs="@size" /><Node id="half" op="constant" value="0.5" /><Node id="bottom" op="multiply" inputs="@height;@half" units="px" /><Node id="pin" op="vector" inputs="@zero;@bottom" units="px" />
+      <Node id="rate" op="constant" value="${rate}" /><Node id="phase" op="integrate" clock="${clock}" inputs="@rate" units="turns" />
+    </Graph>
+    <Bindings><Bind id="phase" source="@phase" target="@wind/phase" /><Bind id="pin" source="@pin" target="@bend/pin" /><Bind id="extent" source="@size" target="@bend/extent" /></Bindings>
+    <Exports><Export id="transform" role="component" target="@root" /><Export id="field" role="component" target="@wind" /></Exports>
+  </Recipe>
+</Recipes>

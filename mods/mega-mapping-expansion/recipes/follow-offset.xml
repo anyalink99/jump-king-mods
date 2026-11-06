@@ -1,0 +1,35 @@
+<Recipes>
+  <Recipe id="follow-offset">
+    <Parameters>
+      <Param name="clock" kind="Text" default="Gameplay" />
+      <Param name="target" kind="Text" default="player.center" />
+      <Param name="origin" kind="Vector2" default="240,180" />
+      <Param name="extent" kind="Vector2" default="3,2" />
+      <Param name="response" kind="Number" default="7" min="0" max="1000" />
+      <Param name="nearRadius" kind="Number" default="24" min="0.01" max="4096" />
+      <Param name="screen" kind="Number" default="1" min="1" max="4096" />
+    </Parameters>
+    <Components>
+      <Component id="root" kind="transform"><Value name="position" value="${origin}" /><Value name="screen" value="${screen}" /></Component>
+    </Components>
+    <Graph>
+      <Node id="target" op="input" source="${target}" />
+      <Node id="origin" op="constant" kind="Vector2" value="${origin}" units="px" />
+      <Node id="extent" op="constant" kind="Vector2" value="${extent}" units="px" />
+      <Node id="delta" op="subtract" inputs="@target;@origin" />
+      <Node id="square" op="dot" inputs="@delta;@delta" />
+      <Node id="radius" op="constant" value="${nearRadius}" />
+      <Node id="softness" op="multiply" inputs="@radius;@radius" />
+      <Node id="softSquare" op="add" inputs="@square;@softness" />
+      <Node id="half" op="constant" value="0.5" />
+      <Node id="length" op="power" inputs="@softSquare;@half" />
+      <Node id="direction" op="divide" inputs="@delta;@length" units="ratio" />
+      <Node id="rawOffset" op="multiply" inputs="@direction;@extent" units="px" />
+      <Node id="response" op="constant" value="${response}" />
+      <Node id="smoothed" op="smooth" clock="${clock}" inputs="@rawOffset;@response" />
+      <Node id="position" op="add" inputs="@origin;@smoothed" />
+    </Graph>
+    <Bindings><Bind id="follow" source="@position" target="@root/position" /></Bindings>
+    <Exports><Export id="transform" role="component" target="@root" /><Export id="offset" role="node" target="@smoothed" /></Exports>
+  </Recipe>
+</Recipes>

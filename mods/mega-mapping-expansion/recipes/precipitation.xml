@@ -1,0 +1,22 @@
+<Recipes>
+  <Recipe id="precipitation">
+    <Parameters>
+      <Param name="clock" kind="Text" default="gameplay" />
+      <Param name="asset" kind="Text" default="" />
+      <Param name="screen" kind="Integer" default="1" min="0" max="4096" />
+      <Param name="position" kind="Vector2" default="240,-16" />
+      <Param name="area" kind="Vector2" default="600,0" />
+      <Param name="velocity" kind="Vector2" default="-12,180" />
+      <Param name="spread" kind="Vector2" default="16,40" />
+      <Param name="rate" kind="Number" default="80" min="0" max="4096" />
+      <Param name="lifetime" kind="Number" default="3" min="0.001" max="120" />
+      <Param name="seed" kind="Integer" default="1" min="0" max="2147483647" />
+      <Param name="size" kind="Number" default="1" min="0.01" max="64" />
+    </Parameters>
+    <Components>
+      <Component id="root" kind="transform"><Value name="position" value="${position}" /><Value name="screen" value="${screen}" /></Component>
+      <Component id="particles" kind="emitter"><Value name="transform" value="@root" /><Value name="asset" value="${asset}" /><Value name="area" value="${area}" /><Value name="velocity" value="${velocity}" /><Value name="spread" value="${spread}" /><Value name="rate" value="${rate}" /><Value name="lifetime" value="${lifetime}" /><Value name="seed" value="${seed}" /><Value name="size" value="${size}" /><Value name="capacity" value="2048" /><Value name="clock" value="${clock}" /><Value name="shape" value="box" /><Value name="layer" value="foreground" /></Component>
+    </Components>
+    <Exports><Export id="emitter" role="component" target="@particles" /></Exports>
+  </Recipe>
+</Recipes>
