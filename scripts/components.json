@@ -1,0 +1,291 @@
+{
+  "schema": 1,
+  "components": [
+    {
+      "id": "jk-runtime",
+      "status": "maintained",
+      "inputs": [
+        "mods/jk-runtime"
+      ],
+      "dependencies": [],
+      "checks": [
+        "mods\\jk-runtime\\verify-api.ps1",
+        "mods\\jk-runtime\\verify-harmony.ps1",
+        "mods\\jk-runtime\\verify-text-compat.ps1",
+        "mods\\jk-runtime\\verify-conveyor-compat.ps1",
+        "mods\\jk-runtime\\verify-manager-compat.ps1",
+        "mods\\jk-runtime\\verify-moving-platform-compat.ps1",
+        "mods\\jk-runtime\\verify-inspector-compat.ps1"
+      ]
+    },
+    {
+      "id": "casual-jumping",
+      "status": "maintained",
+      "inputs": [
+        "mods/casual-jumping"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\casual-jumping\\build.ps1"
+      ]
+    },
+    {
+      "id": "mega-mapping-expansion",
+      "status": "maintained",
+      "inputs": [
+        "mods/mega-mapping-expansion"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\mega-mapping-expansion\\build.ps1"
+      ]
+    },
+    {
+      "id": "worldsmith-extension",
+      "status": "maintained",
+      "inputs": [
+        "worldsmith-extension"
+      ],
+      "dependencies": [
+        "jk-runtime",
+        "mega-mapping-expansion"
+      ],
+      "checks": [
+        "worldsmith-extension\\build.ps1"
+      ]
+    },
+    {
+      "id": "stereo-madness",
+      "status": "map-owned",
+      "inputs": [
+        "mods/stereo-madness"
+      ],
+      "dependencies": [
+        "jk-runtime",
+        "mega-mapping-expansion"
+      ],
+      "checks": [
+        "mods\\stereo-madness\\build.ps1"
+      ]
+    },
+    {
+      "id": "smooth-camera",
+      "status": "maintained",
+      "inputs": [
+        "mods/smooth-camera"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\smooth-camera\\build.ps1"
+      ]
+    },
+    {
+      "id": "free-scaling",
+      "status": "maintained",
+      "inputs": [
+        "mods/free-scaling"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\free-scaling\\build.ps1"
+      ]
+    },
+    {
+      "id": "prism",
+      "status": "maintained",
+      "inputs": [
+        "mods/prism"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\prism\\build.ps1"
+      ]
+    },
+    {
+      "id": "multiplayer-expansion",
+      "status": "maintained",
+      "inputs": [
+        "mods/multiplayer-expansion"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\multiplayer-expansion\\build.ps1"
+      ]
+    },
+    {
+      "id": "metroidvania",
+      "status": "maintained",
+      "inputs": [
+        "mods/metroidvania"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\metroidvania\\build.ps1"
+      ]
+    },
+    {
+      "id": "subframe-charge",
+      "status": "maintained",
+      "inputs": [
+        "mods/subframe-charge"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\subframe-charge\\build.ps1"
+      ]
+    },
+    {
+      "id": "more-items",
+      "status": "maintained",
+      "inputs": [
+        "mods/more-items"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\more-items\\verify-api.ps1"
+      ]
+    },
+    {
+      "id": "morph-ball",
+      "status": "maintained",
+      "inputs": [
+        "mods/morph-ball"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\morph-ball\\build.ps1"
+      ]
+    },
+    {
+      "id": "replays",
+      "status": "maintained",
+      "inputs": [
+        "mods/replays"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\replays\\build.ps1"
+      ]
+    },
+    {
+      "id": "run-verifier",
+      "status": "maintained",
+      "inputs": [
+        "mods/run-verifier"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\run-verifier\\build.ps1"
+      ]
+    },
+    {
+      "id": "overlay-plus",
+      "status": "maintained",
+      "inputs": [
+        "mods/overlay-plus"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\overlay-plus\\build.ps1"
+      ]
+    },
+    {
+      "id": "god",
+      "status": "maintained",
+      "inputs": [
+        "mods/god"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\god\\build.ps1"
+      ]
+    },
+    {
+      "id": "wardrobe-plus",
+      "status": "maintained",
+      "inputs": [
+        "mods/wardrobe-plus"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\wardrobe-plus\\build.ps1"
+      ]
+    },
+    {
+      "id": "no-walk-off",
+      "status": "maintained",
+      "inputs": [
+        "mods/no-walk-off"
+      ],
+      "dependencies": [
+        "jk-runtime"
+      ],
+      "checks": [
+        "mods\\no-walk-off\\build.ps1"
+      ]
+    },
+    {
+      "id": "powers",
+      "status": "maintained",
+      "inputs": [
+        "mods/powers"
+      ],
+      "dependencies": [
+        "jk-runtime",
+        "no-walk-off"
+      ],
+      "checks": [
+        "mods\\powers\\build.ps1"
+      ]
+    },
+    {
+      "id": "screen-solver",
+      "status": "retained",
+      "inputs": [
+        "mods/screen-solver"
+      ],
+      "dependencies": [
+        "jk-runtime",
+        "subframe-charge",
+        "more-items",
+        "morph-ball",
+        "replays",
+        "no-walk-off",
+        "powers"
+      ],
+      "checks": [
+        "mods\\screen-solver\\build.ps1"
+      ]
+    }
+  ]
+}

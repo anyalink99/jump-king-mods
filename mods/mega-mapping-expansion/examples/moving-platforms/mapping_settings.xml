@@ -1,0 +1,30 @@
+<MappingSettings version="1">
+  <MapLayout version="2" source="atlas" screens="3" columns="3" rows="1" cellWidth="60" cellHeight="45" />
+  <Components>
+    <Component id="switch-position" kind="transform"><Value name="position" value="104,336" /><Value name="screen" value="1" /></Component>
+    <Component id="switch" kind="sensor"><Value name="transform" value="switch-position" /><Value name="size" value="32,16" /><Value name="phase" value="scene" /></Component>
+    <Component id="room2-switch-position" kind="transform"><Value name="position" value="296,336" /><Value name="screen" value="2" /></Component>
+    <Component id="room2-switch" kind="sensor"><Value name="transform" value="room2-switch-position" /><Value name="size" value="32,16" /><Value name="phase" value="scene" /></Component>
+    <Component id="crystal-position" kind="transform"><Value name="position" value="384,116" /><Value name="screen" value="1" /></Component>
+    <Component id="crystal-light" kind="light"><Value name="transform" value="crystal-position" /><Value name="radius" value="210" /><Value name="intensity" value="0.2" /><Value name="color" value="#83DBD0" /><Value name="softness" value="0.35" /><Value name="scatter" value="0.1" /><Value name="occluders" value="tag:lab-stone" /><Value name="layer" value="foreground" /></Component>
+    <Component id="violet-position" kind="transform"><Value name="position" value="224,112" /><Value name="screen" value="2" /></Component>
+    <Component id="violet-light" kind="light"><Value name="transform" value="violet-position" /><Value name="radius" value="190" /><Value name="intensity" value="0.18" /><Value name="color" value="#B29ADA" /><Value name="softness" value="0.35" /><Value name="scatter" value="0.1" /><Value name="occluders" value="tag:lab-stone" /><Value name="layer" value="foreground" /></Component>
+    <Component id="king-shadow-position" kind="transform" />
+    <Component id="king-shadow" kind="receiver" tags="lab-stone"><Value name="transform" value="king-shadow-position" /><Value name="mode" value="occlusion" /><Value name="outline" value="0,0;18,0;18,26;0,26" /></Component>
+  </Components>
+  <Graph>
+    <Node id="king-position" op="input" source="player.position" />
+    <Node id="king-screen" op="input" source="player.screen" />
+  </Graph>
+  <Bindings>
+    <Bind id="shadow-position" source="king-position" target="king-shadow-position/position" />
+    <Bind id="shadow-screen" source="king-screen" target="king-shadow-position/screen" />
+  </Bindings>
+  <Rules>
+    <Rule id="floor-switch" event="switch.enter" cooldown="0.25"><Action op="platformReverse" target="shuttle" /></Rule>
+    <Rule id="room2-floor-switch" event="room2-switch.enter" cooldown="0.25"><Action op="platformReverse" target="shuttle" /></Rule>
+    <Rule id="reverse-compound" event="platform:compound.board" cooldown="1">
+      <Action op="platformReverse" target="compound" />
+    </Rule>
+  </Rules>
+</MappingSettings>

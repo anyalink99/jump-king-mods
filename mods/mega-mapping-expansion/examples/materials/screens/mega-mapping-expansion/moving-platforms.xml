@@ -1,0 +1,5 @@
+<MovingPlatforms version="1">
+  <Motion id="sweep" axis="horizontal" distance="100" speed="60" />
+  <Profile id="jump-zone" motion="sweep" collision="trigger" material="air-jumps" texture="none" />
+  <Platform id="moving-zone" profile="jump-zone" screen="1" rect="100,270,48,40" />
+</MovingPlatforms>

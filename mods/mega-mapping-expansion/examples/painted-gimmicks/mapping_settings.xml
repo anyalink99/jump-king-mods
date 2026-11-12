@@ -1,0 +1,59 @@
+<MappingSettings version="1">
+  <MapLayout version="2" source="atlas" screens="1" columns="1" rows="1" cellWidth="60" cellHeight="45" />
+  <Recipes>
+    <Recipe id="held-launch">
+      <Parameters>
+        <Param name="position" kind="Vector2" />
+        <Param name="screen" kind="Integer" />
+        <Param name="delay" kind="Number" default="0.5" min="0.05" max="10" />
+        <Param name="speed" kind="Number" default="420" min="0" max="1200" />
+      </Parameters>
+      <Components>
+        <Component id="root" kind="transform">
+          <Value name="position" value="${position}" />
+          <Value name="screen" value="${screen}" />
+        </Component>
+        <Component id="zone" kind="sensor">
+          <Value name="transform" value="@root" />
+          <Value name="size" value="16,16" />
+          <Value name="initial" value="fire" />
+        </Component>
+        <Component id="control" kind="playerControl"><Value name="transform" value="@root" /></Component>
+        <Component id="glow" kind="light">
+          <Value name="transform" value="@root" />
+          <Value name="radius" value="24" />
+          <Value name="intensity" value="0.18" />
+          <Value name="color" value="#FF4068" />
+        </Component>
+      </Components>
+      <Graph>
+        <Node id="held" op="input" source="@control.captured" />
+        <Node id="buttons" op="input" source="input.direction" />
+        <Node id="unit" op="normalize" inputs="@buttons" />
+        <Node id="speed" op="constant" value="${speed}" units="px/s" />
+        <Node id="velocity" op="multiply" inputs="@unit;@speed" units="px/s" />
+      </Graph>
+      <Trees>
+        <Tree id="launch" event="@zone.enter">
+          <Node op="sequence">
+            <Node op="action"><Action op="capturePlayer" target="@control" /></Node>
+            <Node op="check" source="@held" />
+            <Node op="wait" seconds="${delay}" />
+            <Node op="action"><Action op="setPlayerVelocity" target="@control" source="@velocity" /></Node>
+            <Node op="action"><Action op="releasePlayer" target="@control" /></Node>
+          </Node>
+        </Tree>
+      </Trees>
+    </Recipe>
+  </Recipes>
+  <Paints>
+    <Paint id="marker" color="#AD6ED3" mode="pixels">
+      <Instances>
+        <Instance id="${paint.id}" recipe="held-launch">
+          <Arg name="position" value="${paint.position}" />
+          <Arg name="screen" value="${paint.screen}" />
+        </Instance>
+      </Instances>
+    </Paint>
+  </Paints>
+</MappingSettings>

@@ -1,0 +1,27 @@
+<MappingSettings version="1">
+  <Components>
+    <Component id="zonePose" kind="transform">
+      <Value name="position" value="240,180" />
+      <Value name="screen" value="1" />
+    </Component>
+    <Component id="zone" kind="sensor">
+      <Value name="transform" value="zonePose" />
+      <Value name="size" value="480,360" />
+      <Value name="phase" value="scene" />
+      <Value name="initial" value="fire" />
+    </Component>
+    <Component id="captionPose" kind="transform">
+      <Value name="position" value="240,60" />
+    </Component>
+    <Component id="caption" kind="text">
+      <Value name="transform" value="captionPose" />
+      <Value name="value" value="You are on screen one." />
+    </Component>
+  </Components>
+  <Graph>
+    <Node id="inside" op="input" source="zone.touching" />
+  </Graph>
+  <Bindings>
+    <Bind id="showCaption" source="inside" target="captionPose/visible" />
+  </Bindings>
+</MappingSettings>

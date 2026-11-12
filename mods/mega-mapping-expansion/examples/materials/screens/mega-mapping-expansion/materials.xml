@@ -1,0 +1,12 @@
+<Materials version="1">
+  <Source id="infinity" color="#40FFFF" sizing="rectangle" />
+  <Source id="revoke-walking" color="#EAEAF0" sizing="rectangle" />
+  <Material id="air-jumps" collision="trigger">
+    <Use id="jump" source="infinity" order="10" />
+    <Use id="walk" source="revoke-walking" after="jump" />
+  </Material>
+  <Paint color="#A050D0" material="air-jumps" mode="connected" />
+  <Area id="jump-room" material="air-jumps" screen="1" rect="40,40,400,200">
+    <Exclude rect="180,100,120,80" />
+  </Area>
+</Materials>

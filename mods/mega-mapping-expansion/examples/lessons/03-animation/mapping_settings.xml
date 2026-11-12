@@ -1,0 +1,12 @@
+<MappingSettings version="1">
+  <Assets>
+    <Asset id="sequence" path="mme-assets/digits.png" columns="10" rows="1" frames="10" fps="8" />
+  </Assets>
+  <Components>
+    <Component id="pose" kind="transform"><Value name="position" value="240,180" /></Component>
+    <Component id="image" kind="sprite">
+      <Value name="transform" value="pose" /><Value name="asset" value="sequence" />
+      <Value name="playback" value="pingpong" /><Value name="clock" value="presentation" />
+    </Component>
+  </Components>
+</MappingSettings>

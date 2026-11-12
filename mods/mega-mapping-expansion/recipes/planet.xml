@@ -1,0 +1,47 @@
+<Recipes>
+  <Recipe id="planet">
+    <Parameters>
+      <Param name="clock" kind="Text" default="Gameplay" />
+      <Param name="surface" kind="Text" default="" />
+      <Param name="overlay" kind="Text" default="" />
+      <Param name="position" kind="Vector2" default="240,180" />
+      <Param name="size" kind="Vector2" default="240,240" min="1" max="4096" />
+      <Param name="screen" kind="Number" default="1" min="1" max="4096" />
+      <Param name="rate" kind="Number" default="0.008333333333333333" />
+      <Param name="overlayRate" kind="Number" default="0.0070921985815602835" />
+      <Param name="sampling" kind="Text" default="point" />
+      <Param name="tilt" kind="Vector2" default="0,0" />
+    </Parameters>
+    <Components>
+      <Component id="root" kind="transform">
+        <Value name="position" value="${position}" /><Value name="screen" value="${screen}" />
+      </Component>
+      <Component id="surfaceMaterial" kind="material"><Value name="sampling" value="${sampling}" /><Value name="address" value="wrap" /><Value name="ambient" value="0.64" /><Value name="diffuse" value="0.36" /></Component>
+      <Component id="overlayMaterial" kind="material"><Value name="sampling" value="${sampling}" /><Value name="address" value="wrap" /><Value name="opacity" value="0.85" /><Value name="ambient" value="0.64" /><Value name="diffuse" value="0.36" /></Component>
+      <Component id="surface" kind="mesh">
+        <Value name="transform" value="@root" /><Value name="asset" value="${surface}" /><Value name="material" value="@surfaceMaterial" />
+        <Value name="geometry" value="disc" /><Value name="projection" value="spherical" /><Value name="size" value="${size}" />
+        <Value name="projectionTilt" value="${tilt}" /><Value name="columns" value="64" /><Value name="rows" value="64" /><Value name="layer" value="background" />
+      </Component>
+      <Component id="overlay" kind="mesh">
+        <Value name="transform" value="@root" /><Value name="asset" value="${overlay}" /><Value name="material" value="@overlayMaterial" />
+        <Value name="geometry" value="disc" /><Value name="projection" value="spherical" /><Value name="size" value="${size}" />
+        <Value name="projectionTilt" value="${tilt}" /><Value name="columns" value="64" /><Value name="rows" value="64" /><Value name="layer" value="background" /><Value name="z" value="1" />
+      </Component>
+    </Components>
+    <Graph>
+      <Node id="rate" op="constant" value="${rate}" /><Node id="overlayRate" op="constant" value="${overlayRate}" />
+      <Node id="zero" op="constant" value="0" /><Node id="turn" op="integrate" clock="${clock}" inputs="@rate" units="turns" />
+      <Node id="overlayAsset" op="constant" kind="Text" value="${overlay}" /><Node id="emptyAsset" op="constant" kind="Text" value="" />
+      <Node id="emptyOverlay" op="equal" inputs="@overlayAsset;@emptyAsset" /><Node id="hasOverlay" op="not" inputs="@emptyOverlay" />
+      <Node id="overlayTurn" op="integrate" clock="${clock}" inputs="@overlayRate" units="turns" />
+      <Node id="offset" op="vector" inputs="@turn;@zero" units="turns" /><Node id="overlayOffset" op="vector" inputs="@overlayTurn;@zero" units="turns" />
+    </Graph>
+    <Bindings>
+      <Bind id="surfaceTurn" source="@offset" target="@surfaceMaterial/uvOffset" />
+      <Bind id="overlayTurn" source="@overlayOffset" target="@overlayMaterial/uvOffset" />
+      <Bind id="overlayVisible" source="@hasOverlay" target="@overlay/visible" />
+    </Bindings>
+    <Exports><Export id="transform" role="component" target="@root" /><Export id="rate" role="node" target="@rate" /></Exports>
+  </Recipe>
+</Recipes>
